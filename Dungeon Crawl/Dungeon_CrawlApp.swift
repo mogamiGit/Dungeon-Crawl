@@ -25,7 +25,7 @@ struct Dungeon_CrawlApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CampaignView()
         }
         .modelContainer(sharedModelContainer)
     }

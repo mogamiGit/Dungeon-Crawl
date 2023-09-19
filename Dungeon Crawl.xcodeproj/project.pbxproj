@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D35486E62AB98C9E00A3DFD0 /* CampaignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */; };
+		D35486E82AB9E98D00A3DFD0 /* CampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E72AB9E98D00A3DFD0 /* CampaignView.swift */; };
+		D35486ED2AB9EA7700A3DFD0 /* CampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486EC2AB9EA7700A3DFD0 /* CampaignViewModel.swift */; };
+		D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */; };
+		D35486F62AB9FC0600A3DFD0 /* CampaignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F52AB9FC0600A3DFD0 /* CampaignRepository.swift */; };
+		D35486F82ABA209500A3DFD0 /* CampaignsLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F72ABA209500A3DFD0 /* CampaignsLogic.swift */; };
 		D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */; };
 		D3B613A42AB29F87007BFFF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A32AB29F87007BFFF7 /* ContentView.swift */; };
 		D3B613A62AB29F87007BFFF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A52AB29F87007BFFF7 /* Item.swift */; };
@@ -15,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignModel.swift; sourceTree = "<group>"; };
+		D35486E72AB9E98D00A3DFD0 /* CampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignView.swift; sourceTree = "<group>"; };
+		D35486EC2AB9EA7700A3DFD0 /* CampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignViewModel.swift; sourceTree = "<group>"; };
+		D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignView.swift; sourceTree = "<group>"; };
+		D35486F52AB9FC0600A3DFD0 /* CampaignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignRepository.swift; sourceTree = "<group>"; };
+		D35486F72ABA209500A3DFD0 /* CampaignsLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsLogic.swift; sourceTree = "<group>"; };
 		D3B6139E2AB29F87007BFFF7 /* Dungeon Crawl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dungeon Crawl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon_CrawlApp.swift; sourceTree = "<group>"; };
 		D3B613A32AB29F87007BFFF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +46,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D35486EA2AB9E9FF00A3DFD0 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D35486EE2AB9ED5000A3DFD0 /* Campaign */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		D35486EE2AB9ED5000A3DFD0 /* Campaign */ = {
+			isa = PBXGroup;
+			children = (
+				D35486F42AB9FBD900A3DFD0 /* Repository */,
+				D35486EF2AB9ED6500A3DFD0 /* Views */,
+				D35486F92ABA20FF00A3DFD0 /* ModelLogic */,
+				D35486F02AB9ED6C00A3DFD0 /* ViewModels */,
+				D35486F12AB9ED8200A3DFD0 /* Models */,
+			);
+			name = Campaign;
+			sourceTree = "<group>";
+		};
+		D35486EF2AB9ED6500A3DFD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D35486E72AB9E98D00A3DFD0 /* CampaignView.swift */,
+				D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D35486F02AB9ED6C00A3DFD0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D35486EC2AB9EA7700A3DFD0 /* CampaignViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		D35486F12AB9ED8200A3DFD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		D35486F42AB9FBD900A3DFD0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D35486F52AB9FC0600A3DFD0 /* CampaignRepository.swift */,
+			);
+			name = Repository;
+			sourceTree = "<group>";
+		};
+		D35486F92ABA20FF00A3DFD0 /* ModelLogic */ = {
+			isa = PBXGroup;
+			children = (
+				D35486F72ABA209500A3DFD0 /* CampaignsLogic.swift */,
+			);
+			name = ModelLogic;
+			sourceTree = "<group>";
+		};
 		D3B613952AB29F87007BFFF7 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */,
+				D35486EA2AB9E9FF00A3DFD0 /* Features */,
 				D3B613A32AB29F87007BFFF7 /* ContentView.swift */,
+				D3C538622AB8B43D00C0C1E9 /* System */,
 				D3B613A52AB29F87007BFFF7 /* Item.swift */,
-				D3B613A72AB29F88007BFFF7 /* Assets.xcassets */,
 				D3B613A92AB29F88007BFFF7 /* Preview Content */,
 			);
 			path = "Dungeon Crawl";
@@ -68,6 +142,14 @@
 				D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D3C538622AB8B43D00C0C1E9 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				D3B613A72AB29F88007BFFF7 /* Assets.xcassets */,
+			);
+			name = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +223,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3B613A42AB29F87007BFFF7 /* ContentView.swift in Sources */,
+				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,
 				D3B613A62AB29F87007BFFF7 /* Item.swift in Sources */,
+				D35486F62AB9FC0600A3DFD0 /* CampaignRepository.swift in Sources */,
+				D35486F82ABA209500A3DFD0 /* CampaignsLogic.swift in Sources */,
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
+				D35486E62AB98C9E00A3DFD0 /* CampaignModel.swift in Sources */,
+				D35486ED2AB9EA7700A3DFD0 /* CampaignViewModel.swift in Sources */,
+				D35486E82AB9E98D00A3DFD0 /* CampaignView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
