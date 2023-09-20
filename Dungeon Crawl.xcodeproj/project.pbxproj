@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D35486E62AB98C9E00A3DFD0 /* CampaignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */; };
-		D35486E82AB9E98D00A3DFD0 /* CampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E72AB9E98D00A3DFD0 /* CampaignView.swift */; };
+		D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */; };
 		D35486ED2AB9EA7700A3DFD0 /* CampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486EC2AB9EA7700A3DFD0 /* CampaignViewModel.swift */; };
 		D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */; };
 		D35486F62AB9FC0600A3DFD0 /* CampaignRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F52AB9FC0600A3DFD0 /* CampaignRepository.swift */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignModel.swift; sourceTree = "<group>"; };
-		D35486E72AB9E98D00A3DFD0 /* CampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignView.swift; sourceTree = "<group>"; };
+		D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListView.swift; sourceTree = "<group>"; };
 		D35486EC2AB9EA7700A3DFD0 /* CampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignViewModel.swift; sourceTree = "<group>"; };
 		D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignView.swift; sourceTree = "<group>"; };
 		D35486F52AB9FC0600A3DFD0 /* CampaignRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignRepository.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		D35486EF2AB9ED6500A3DFD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D35486E72AB9E98D00A3DFD0 /* CampaignView.swift */,
+				D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */,
 				D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */,
 			);
 			name = Views;
@@ -230,7 +230,7 @@
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
 				D35486E62AB98C9E00A3DFD0 /* CampaignModel.swift in Sources */,
 				D35486ED2AB9EA7700A3DFD0 /* CampaignViewModel.swift in Sources */,
-				D35486E82AB9E98D00A3DFD0 /* CampaignView.swift in Sources */,
+				D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

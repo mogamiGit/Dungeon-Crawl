@@ -13,38 +13,21 @@ final class CampaignsLogic {
     
     let repository: RepositoryProtocol
     
-    var campaignName = ""
-    var campaigns: [CampaignModel]
-    var showCampaignCreation = false
+    var campaigns: [CampaignModel] = []
     
     init(repository: RepositoryProtocol = CampaignRepository()) {
         self.repository = repository
-        do {
-            self.campaigns = try repository.loadCampaigns()
-        } catch {
-            print(error)
-            self.campaigns = []
-        }
+        self.campaigns = (try? repository.loadCampaigns()) ?? []
     }
     
-    func saveCampaign() {
-        let newCampaign = CampaignModel(name: campaignName)
-        
-        campaigns.append(newCampaign)
+    func saveCampaign(_ campaign: CampaignModel) {
+        //TODO: Deberías de comprobar que no haya campaña previa, si es así reemplazarla
+        campaigns.append(campaign)
         try? repository.saveCampaigns(campaigns)
-        campaignName = ""
     }
     
     func getCampaigns() {
-        do {
-            campaigns = try repository.loadCampaigns()
-        } catch {
-            campaigns = []
-        }
-    }
-    
-    func showCampaignForm() {
-        showCampaignCreation.toggle()
+        self.campaigns = (try? repository.loadCampaigns()) ?? []
     }
 }
 

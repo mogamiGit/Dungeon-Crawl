@@ -1,5 +1,5 @@
 //
-//  CampaignView.swift
+//  CampaignListView.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 19/9/23.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CampaignView: View {
-    @State var vm = CampaignViewModel()
+struct CampaignListView: View {
+    @State var vm = CampaignListViewModel()
     
     var body: some View {
         NavigationStack {
@@ -24,7 +24,7 @@ struct CampaignView: View {
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        vm.campaignsLogic.showCampaignForm()
+                        vm.showCampaignCreation.toggle()
                     } label: {
                         Text("Create Campaign")
                     }
@@ -32,12 +32,12 @@ struct CampaignView: View {
             }
             .navigationTitle("My Campaigns")
         }
-        .sheet(isPresented: $vm.campaignsLogic.showCampaignCreation, content: {
-            CreateCampaignView(vm: vm)
-        })
+        .sheet(isPresented: $vm.showCampaignCreation) {
+            CreateCampaignView()
+        }
     }
 }
 
 #Preview {
-    CampaignView()
+    CampaignListView()
 }
