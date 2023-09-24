@@ -1,15 +1,16 @@
 //
-//  CampaignVM.swift
+//  CampaignListViewModel.swift
 //  Dungeon Crawl
 //
-//  Created by Monica Galan de la Llana on 19/9/23.
+//  Created by Monica Galan de la Llana on 20/9/23.
 //
 
 import Foundation
 
 @Observable
-final class CampaignViewModel {
+final class CampaignListViewModel {
     var campaignsLogic: CampaignsLogic
+    var showCampaignCreation = false
     
     init(campaignsLogic: CampaignsLogic = .shared) {
         self.campaignsLogic = campaignsLogic

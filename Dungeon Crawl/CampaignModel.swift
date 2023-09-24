@@ -10,9 +10,11 @@ import Foundation
 struct CampaignModel: Codable, Identifiable {
     var id = UUID()
     let name: String
-//    let players: [Player]
-//    let NPCs: [NPC]?
-//    let encounters: [Encounter]?
+    let location: String
+    let level: Int
+    let players: [Player]
+    let NPCs: [NPC]?
+    let encounters: [Encounter]?
 }
 
 struct Player: Codable {
@@ -57,11 +59,10 @@ struct DriveNPC: Codable {
 }
 
 struct Monster: Codable {
-    let index: String
     let name: String
     let locationInMap: String
+    let quantity: Int // por defecto 1. Por cada uno se añade un icono. Cuando son más de 5 de añade un icono + number nada más.
     let size: String
-    let speed: String //first walk(?)
     let strength: Int
     let dexterity: Int
     let constitution: Int
@@ -84,7 +85,8 @@ struct Senses: Codable {
 }
 
 struct Action: Codable {
-    
+    let name: String
+    let description: String
 }
 
 

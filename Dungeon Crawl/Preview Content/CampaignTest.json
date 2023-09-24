@@ -1,0 +1,185 @@
+{
+    "id": "8ED7A3F2-7FCD-4F62-BB2E-0E6F057FB092",
+    "name": "Epic Adventure",
+    "location": "Neverwinter",
+    "level": 10,
+    "players": [
+        {
+            "name": "Sefard The Scapist",
+            "level": "5",
+            "raceType": "Human",
+            "classType": "Wizard",
+            "age": 25,
+            "alignment": "Lawful Good",
+            "ideals": "Justice and Freedom",
+            "defects": "Impatient",
+            "inspiration": true,
+            "notes": "Has a pet owl named Hoot"
+        },
+        {
+            "name": "Durumlin The Hunger",
+            "level": "6",
+            "raceType": "Dwarf",
+            "classType": "Warrior",
+            "age": 40,
+            "alignment": "Neutral",
+            "ideals": "Honor and Loyalty",
+            "defects": "Stubborn",
+            "inspiration": false,
+            "notes": null
+        }
+    ],
+    "npcs": [
+        {
+            "name": "Handsome Jackpot",
+            "level": "4",
+            "raceType": "Elf",
+            "age": 150,
+            "occupation": "Merchant",
+            "location": "Village",
+            "background": "Traveller",
+            "alignment": "Chaotic Neutral",
+            "appearance": "Tall and slender",
+            "drives": {
+                "legacy": "Protect the Forest",
+                "value": "Freedom",
+                "beliefs": "Nature is sacred"
+            },
+            "notes": "Carries a mysterious amulet"
+        },
+        {
+            "name": "Sylvan Whisper",
+            "level": "3",
+            "raceType": "Half-Elf",
+            "age": 120,
+            "occupation": "Herbalist",
+            "location": "Forest",
+            "background": "Nature Acolyte",
+            "alignment": "Neutral Good",
+            "appearance": "Graceful and wise",
+            "drives": {
+                "legacy": "Preserve the Balance",
+                "value": "Harmony",
+                "beliefs": "Every plant has a purpose"
+            },
+            "notes": "Known for healing remedies"
+        },
+        {
+            "name": "Grommash Ironfist",
+            "level": "5",
+            "raceType": "Orc",
+            "age": 45,
+            "occupation": "Blacksmith",
+            "location": "Mountain Stronghold",
+            "background": "Smith's Apprentice",
+            "alignment": "Lawful Neutral",
+            "appearance": "Muscular and scarred",
+            "drives": {
+                "legacy": "Forge Legendary Weapons",
+                "value": "Craftsmanship",
+                "beliefs": "Strength through metal"
+            },
+            "notes": "Famed for crafting enchanted swords"
+        }
+    ],
+    "encounters": [
+        {
+            "name": "First Encounter",
+            "level": "8",
+            "location": "Moist Cave",
+            "monsters": [
+                {
+                    "name": "Ghost",
+                    "locationInMap": "Dungeon",
+                    "quantity": 2,
+                    "size": "Small",
+                    "strength": 6,
+                    "dexterity": 16,
+                    "constitution": 10,
+                    "intelligence": 12,
+                    "wisdom": 14,
+                    "charisma": 18,
+                    "senses": {
+                        "darkvision": "60 feet",
+                        "passivePerception": 15
+                    },
+                    "actions": [
+                        {
+                            "name": "Possession",
+                            "description": "Attempts to possess a target's body."
+                        },
+                        {
+                            "name": "Etherealness",
+                            "description": "Can move through walls and objects."
+                        }
+                    ]
+                },
+                {
+                    "name": "Banshee",
+                    "locationInMap": "Abandoned Castle",
+                    "quantity": 4,
+                    "size": "Medium",
+                    "strength": 8,
+                    "dexterity": 18,
+                    "constitution": 12,
+                    "intelligence": 10,
+                    "wisdom": 16,
+                    "charisma": 20,
+                    "senses": {
+                      "darkvision": "120 feet",
+                      "passivePerception": 18
+                    },
+                    "actions": [
+                      {
+                        "name": "Wail",
+                        "description": "Let out a horrifying wail, causing fear in all who hear it."
+                      },
+                      {
+                        "name": "Ethereal Form",
+                        "description": "Transform into an ethereal form, becoming incorporeal."
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Fire Elemental",
+                    "locationInMap": "Volcanic Cavern",
+                    "quantity": 1,
+                    "size": "Large",
+                    "strength": 18,
+                    "dexterity": 14,
+                    "constitution": 16,
+                    "intelligence": 6,
+                    "wisdom": 10,
+                    "charisma": 8,
+                    "senses": {
+                      "darkvision": "60 feet",
+                      "passivePerception": 12
+                    },
+                    "actions": [
+                      {
+                        "name": "Fire Strike",
+                        "description": "Unleash a fiery attack on a target, dealing fire damage."
+                      },
+                      {
+                        "name": "Flame Form",
+                        "description": "Transform into a living flame, becoming immune to physical attacks."
+                      }
+                    ]
+                  }
+                  
+            ],
+            "treasures": [
+                {
+                    "name": "Magic Sword",
+                    "cuantity": 1,
+                    "value": "500 gold"
+                },
+                {
+                    "name": "Potion of Healing",
+                    "cuantity": 3,
+                    "value": "50 gold"
+                }
+            ]
+        }
+    ]
+}
