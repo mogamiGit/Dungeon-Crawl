@@ -6,18 +6,30 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CampaignListView: View {
     @State var vm = CampaignListViewModel()
     
+    @Environment(\.modelContext) var context
+    @Query(sort: \CampaignModel.name, order: .forward, animation: .easeOut)
+    private var campaigns: [CampaignModel]
+    
     var body: some View {
         NavigationStack {
             VStack {
-                if vm.campaignsLogic.campaigns.isEmpty {
+                if campaigns.isEmpty {
                     Text("No available campaigns")
                 } else {
-                    List(vm.campaignsLogic.campaigns) { campaign in
-                        CampaignCell(campaign: campaign)
+                    List {
+                        ForEach(campaigns) { campaign in
+                            CampaignCell(campaign: campaign)
+                        }
+                        .onDelete { indexSet in
+                            for index in indexSet {
+                                context.delete(campaigns[index])
+                            }
+                        }
                     }
                 }
             }
@@ -39,5 +51,6 @@ struct CampaignListView: View {
 }
 
 #Preview {
-    CampaignListView(vm: .preview)
+    CampaignListView()
+        .modelContainer(for: CampaignModel.self)
 }

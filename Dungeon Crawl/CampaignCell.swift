@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CampaignCell: View {
-    let campaign: CampaignModel
+    @Bindable var campaign: CampaignModel
     
     var body: some View {
         VStack(alignment: .leading, spacing: 25) {
@@ -18,7 +18,7 @@ struct CampaignCell: View {
                     .fontWeight(.bold)
                     .lineLimit(2)
                 HStack {
-                    Image(systemName: "heart")
+                    Image(systemName: "mappin.and.ellipse")
                     Text(campaign.location)
                 }
                 .font(.title3)
@@ -42,13 +42,7 @@ struct CampaignCell: View {
                 .fontWeight(.bold)
             }
         }
-        .padding(25)
-        .background {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(.gray)
-                .opacity(0.4)
-        }
-        
+        .padding(16)
     }
 }
 

@@ -27,6 +27,6 @@ struct Dungeon_CrawlApp: App {
         WindowGroup {
             CampaignListView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [CampaignModel.self, Player.self])
     }
 }

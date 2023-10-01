@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CreateCampaignView: View {
     @State var vm = CreateCampaignViewModel()
-    @State var user = ""
     @State var isEditing = false
+    
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -40,7 +42,9 @@ struct CreateCampaignView: View {
                     }
                 }
                 Button {
-                    vm.campaignsLogic.saveCampaign(vm.newCampaign)
+                    //vm.campaignsLogic.saveCampaign(vm.newCampaign)
+                    let campaign = vm.newCampaign
+                    context.insert(campaign)
                     dismiss()
                 } label: {
                     Text("Create Campaign")
@@ -85,4 +89,5 @@ struct CreateCampaignView: View {
 
 #Preview {
     CreateCampaignView()
+        .modelContainer(for: CampaignModel.self)
 }

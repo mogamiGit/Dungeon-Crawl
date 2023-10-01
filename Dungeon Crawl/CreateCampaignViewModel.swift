@@ -16,7 +16,7 @@ final class CreateCampaignViewModel {
     var campaignsLogic: CampaignsLogic
     
     var newCampaign: CampaignModel {
-        CampaignModel(name: campaignName, location: campaignLocation, level: Int(campaignLevel), players:[], NPCs: [], encounters: [])
+        CampaignModel(name: campaignName, location: campaignLocation, level: Int(campaignLevel), players:[])
     }
     
     init(campaignsLogic: CampaignsLogic = .shared) {
