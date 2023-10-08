@@ -30,7 +30,7 @@ struct CampaignCell: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image(systemName: "person.2.fill")
-                        Text("\(campaign.players.count)")
+                        Text("0")
                     }
                     if !(campaign.encounters?.count == 0) {
                         HStack(spacing: 3) {
@@ -43,6 +43,11 @@ struct CampaignCell: View {
             }
         }
         .padding(16)
+        .foregroundStyle(.white)
+        .background {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.redDungeon)
+                }
     }
 }
 

@@ -1,11 +1,12 @@
 //
-//  CampaignVM.swift
+//  CreateCampaignViewModel.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 19/9/23.
 //
 
 import Foundation
+import SwiftUI
 
 @Observable
 final class CreateCampaignViewModel {
@@ -13,13 +14,15 @@ final class CreateCampaignViewModel {
     var campaignLocation = ""
     var campaignLevel = 0
     
-    var campaignsLogic: CampaignsLogic
+    var createPlayerViewModel: CreatePlayerViewModel
+    var campaignLogic: CampaignLogic
     
     var newCampaign: CampaignModel {
-        CampaignModel(name: campaignName, location: campaignLocation, level: Int(campaignLevel), players:[])
+        CampaignModel(name: campaignName, location: campaignLocation, level: Int(campaignLevel), players: [createPlayerViewModel.newPlayer])
     }
     
-    init(campaignsLogic: CampaignsLogic = .shared) {
-        self.campaignsLogic = campaignsLogic
+    init(campaignLogic: CampaignLogic = .shared, createPlayerViewModel: CreatePlayerViewModel = .shared ) {
+        self.campaignLogic = campaignLogic
+        self.createPlayerViewModel = createPlayerViewModel
     }
 }

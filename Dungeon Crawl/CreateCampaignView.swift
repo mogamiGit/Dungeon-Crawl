@@ -12,16 +12,16 @@ struct CreateCampaignView: View {
     @State var vm = CreateCampaignViewModel()
     @State var isEditing = false
     
-    @Environment(\.modelContext) var context
+    @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
             Color.bgDungeon.ignoresSafeArea()
             VStack(spacing: 30) {
-                mainTextField(titleKey: "Campaign Name", text: $vm.campaignName, prompt: "Enter campaign name")
-                mainTextField(titleKey: "Campaign Location", text: $vm.campaignLocation, prompt: "Enter location")
-                formSlider()
+                MainTextField(titleKey: "Campaign Name", binding: $vm.campaignName, prompt: "Enter campaign name")
+                MainTextField(titleKey: "Campaign Location", binding: $vm.campaignLocation, prompt: "Enter location")
+                CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel)
                 VStack(alignment: .leading) {
                     Text("Players")
                         .font(.title2)
@@ -42,7 +42,6 @@ struct CreateCampaignView: View {
                     }
                 }
                 Button {
-                    //vm.campaignsLogic.saveCampaign(vm.newCampaign)
                     let campaign = vm.newCampaign
                     context.insert(campaign)
                     dismiss()
@@ -58,32 +57,6 @@ struct CreateCampaignView: View {
             .padding(30)
             .foregroundStyle(.white)
         }
-    }
-    
-    @ViewBuilder
-    func mainTextField(titleKey: String, text:Binding<String>, prompt:String) -> some View {
-        TextField(titleKey, text:text, prompt: Text(prompt).foregroundStyle(.gray))
-            .disableAutocorrection(true)
-            .padding()
-            .foregroundStyle(.white)
-            .background() {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.white).opacity(0.1)
-            }
-    }
-    
-    @ViewBuilder
-    func formSlider() -> some View {
-        VStack {
-            Slider(value: .convert(from: $vm.campaignLevel), in: 0...20, onEditingChanged: { editing in
-                isEditing = editing
-            })
-            .tint(.creamDungeon)
-            Text("\(vm.campaignLevel) / 20")
-                .font(.title3)
-                .foregroundStyle(isEditing ? .creamDungeon : .white)
-        }
-        .padding()
     }
 }
 

@@ -2,17 +2,30 @@
 //  CustomSlider.swift
 //  Dungeon Crawl
 //
-//  Created by Monica Galan de la Llana on 24/9/23.
+//  Created by Monica Galan de la Llana on 7/10/23.
 //
 
 import SwiftUI
 
 struct CustomSlider: View {
+    var binding: Binding<Int>
+    var number: Int
+    @State var isEditing = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Slider(value: .convert(from: binding), in: 0...20, onEditingChanged: { editing in
+                isEditing = editing
+            })
+            .tint(.creamDungeon)
+            Text("\(number) / 20")
+                .font(.title3)
+                .foregroundStyle(isEditing ? .creamDungeon : .white)
+        }
+        .padding()
     }
 }
 
-#Preview {
-    CustomSlider()
-}
+//#Preview {
+//    CustomSlider()
+//}

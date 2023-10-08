@@ -11,7 +11,7 @@ import SwiftData
 @Model
 final class Player {
     @Attribute(.unique) var name: String
-    var level: String
+    var level: Int
     var raceType: String
     var classType: String
     var age: Int
@@ -21,7 +21,7 @@ final class Player {
     var inspiration: Bool
     var notes: String?
     
-    init(name: String, level: String, raceType: String, classType: String, age: Int, alignment: String, ideals: String, defects: String, inspiration: Bool, notes: String?) {
+    init(name: String, level: Int, raceType: String, classType: String, age: Int, alignment: String, ideals: String, defects: String, inspiration: Bool, notes: String?) {
         self.name = name
         self.level = level
         self.raceType = raceType

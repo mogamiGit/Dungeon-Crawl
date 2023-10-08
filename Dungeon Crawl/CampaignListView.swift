@@ -11,7 +11,7 @@ import SwiftData
 struct CampaignListView: View {
     @State var vm = CampaignListViewModel()
     
-    @Environment(\.modelContext) var context
+    @Environment(\.modelContext) private var context
     @Query(sort: \CampaignModel.name, order: .forward, animation: .easeOut)
     private var campaigns: [CampaignModel]
     
@@ -30,7 +30,9 @@ struct CampaignListView: View {
                                 context.delete(campaigns[index])
                             }
                         }
+                        .listRowInsets(EdgeInsets(top: -10, leading: 0, bottom: -10, trailing: 0))
                     }
+                    .scrollContentBackground(.hidden)
                 }
             }
             .toolbar {
@@ -44,7 +46,7 @@ struct CampaignListView: View {
             }
             .navigationTitle("My Campaigns")
         }
-        .sheet(isPresented: $vm.showCampaignCreation, content: {
+        .fullScreenCover(isPresented: $vm.showCampaignCreation, content: {
             CreateCampaignView()
         })
     }

@@ -9,10 +9,10 @@ import Foundation
 
 @Observable
 final class CampaignListViewModel {
-    var campaignsLogic: CampaignsLogic
+    var campaignLogic: CampaignLogic
     var showCampaignCreation = false
     
-    init(campaignsLogic: CampaignsLogic = .shared) {
-        self.campaignsLogic = campaignsLogic
+    init(campaignLogic: CampaignLogic = .shared) {
+        self.campaignLogic = campaignLogic
     }
 }
