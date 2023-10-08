@@ -11,7 +11,6 @@ import SwiftUI
 import SwiftData
 
 @Observable
-
 final class CampaignLogic {
     static let shared = CampaignLogic()
 }

@@ -14,7 +14,7 @@ class CreatePlayerViewModel {
     var playerName = ""
     var playerLevel = 0
     var playerRaceType = ""
-    var playerClassType = ""
+    var playerClassType = ClassType.RawValue()
     var playerAge = 0
     var playerAlignment = ""
     var playerIdeals = ""
@@ -22,7 +22,7 @@ class CreatePlayerViewModel {
     var playerInspiration = false
     var playerNotes = ""
     
-    var newPlayer: Player {
-        Player(name: playerName, level: Int(playerLevel), raceType: playerRaceType, classType: playerClassType, age: playerAge, alignment: playerAlignment, ideals: playerIdeals, defects: playerDefects, inspiration: playerInspiration, notes: playerNotes)
+    var newPlayer: PlayerModel {
+        PlayerModel(name: playerName, level: playerLevel, raceType: playerRaceType, classType: ClassType(rawValue: playerClassType) ?? .wizard, age: playerAge, alignment: playerAlignment, ideals: playerIdeals, defects: playerDefects, inspiration: playerInspiration, notes: playerNotes)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CampaignCell: View {
     @Bindable var campaign: CampaignModel
@@ -30,7 +31,7 @@ struct CampaignCell: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image(systemName: "person.2.fill")
-                        Text("0")
+                        Text("\(campaign.players.count)")
                     }
                     if !(campaign.encounters?.count == 0) {
                         HStack(spacing: 3) {
@@ -42,15 +43,16 @@ struct CampaignCell: View {
                 .fontWeight(.bold)
             }
         }
-        .padding(16)
+        .padding(20)
         .foregroundStyle(.white)
         .background {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(.redDungeon)
-                }
+            RoundedRectangle(cornerRadius: 10)
+            .fill(Color.bgDungeon)
+        }
     }
 }
 
 #Preview {
     CampaignCell(campaign: .test)
+//        .modelContainer(for: CampaignModel.self)
 }

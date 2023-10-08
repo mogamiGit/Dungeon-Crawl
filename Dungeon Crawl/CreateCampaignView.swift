@@ -10,7 +10,6 @@ import SwiftData
 
 struct CreateCampaignView: View {
     @State var vm = CreateCampaignViewModel()
-    @State var isEditing = false
     
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
@@ -21,7 +20,7 @@ struct CreateCampaignView: View {
             VStack(spacing: 30) {
                 MainTextField(titleKey: "Campaign Name", binding: $vm.campaignName, prompt: "Enter campaign name")
                 MainTextField(titleKey: "Campaign Location", binding: $vm.campaignLocation, prompt: "Enter location")
-                CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel)
+                CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel, title: "Campaign Level")
                 VStack(alignment: .leading) {
                     Text("Players")
                         .font(.title2)
@@ -42,8 +41,9 @@ struct CreateCampaignView: View {
                     }
                 }
                 Button {
-                    let campaign = vm.newCampaign
-                    context.insert(campaign)
+//                    let campaign = vm.newCampaign
+//                    context.insert(campaign)
+                    addCampaigns()
                     dismiss()
                 } label: {
                     Text("Create Campaign")
@@ -58,9 +58,16 @@ struct CreateCampaignView: View {
             .foregroundStyle(.white)
         }
     }
+    
+    private func addCampaigns() {
+        let campaign = CampaignModel(name: vm.campaignName, location: vm.campaignLocation, level: vm.campaignLevel, players: [])
+        
+        context.insert(campaign)
+    }
+    
 }
 
 #Preview {
     CreateCampaignView()
-        .modelContainer(for: CampaignModel.self)
+        .modelContainer(for: CampaignModel.self, inMemory: true)
 }

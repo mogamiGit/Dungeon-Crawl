@@ -13,11 +13,11 @@ final class CampaignModel {
     @Attribute(.unique) var name: String
     var location: String
     var level: Int
-    @Relationship(deleteRule: .cascade) var players: [Player]?
-    @Relationship(deleteRule: .cascade) var NPCs: [NPC]?
-    @Relationship(deleteRule: .cascade) var encounters: [Encounter]?
+    @Relationship(deleteRule: .cascade) var players: [PlayerModel]
+    @Relationship(deleteRule: .cascade) var NPCs: [NPCModel]?
+    @Relationship(deleteRule: .cascade) var encounters: [EncounterModel]?
     
-    init(name: String, location: String, level: Int, players: [Player]?) {
+    init(name: String, location: String, level: Int, players: [PlayerModel]) {
         self.name = name
         self.location = location
         self.level = level

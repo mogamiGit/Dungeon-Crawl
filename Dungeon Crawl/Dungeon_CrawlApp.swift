@@ -10,9 +10,9 @@ import SwiftData
 
 @main
 struct Dungeon_CrawlApp: App {
-    var sharedModelContainer: ModelContainer = {
+    var customModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Item.self, CampaignModel.self, PlayerModel.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -27,6 +27,6 @@ struct Dungeon_CrawlApp: App {
         WindowGroup {
             CampaignListView()
         }
-        .modelContainer(for: [CampaignModel.self, Player.self])
+        .modelContainer(customModelContainer)
     }
 }

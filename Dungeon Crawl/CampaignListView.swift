@@ -17,34 +17,39 @@ struct CampaignListView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                if campaigns.isEmpty {
-                    Text("No available campaigns")
-                } else {
-                    List {
-                        ForEach(campaigns) { campaign in
-                            CampaignCell(campaign: campaign)
-                        }
-                        .onDelete { indexSet in
-                            for index in indexSet {
-                                context.delete(campaigns[index])
+            ZStack {
+                Color.secondaryDungeon.ignoresSafeArea().opacity(0.5)
+                VStack {
+                    if campaigns.isEmpty {
+                        Text("No available campaigns")
+                    } else {
+                        List {
+                            ForEach(campaigns) { campaign in
+                                CampaignCell(campaign: campaign)
                             }
+                            .onDelete { indexSet in
+                                for index in indexSet {
+                                    context.delete(campaigns[index])
+                                }
+                            }
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
                         }
-                        .listRowInsets(EdgeInsets(top: -10, leading: 0, bottom: -10, trailing: 0))
-                    }
-                    .scrollContentBackground(.hidden)
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        vm.showCampaignCreation.toggle()
-                    } label: {
-                        Text("Create Campaign")
+                        .listStyle(.plain)
+                        .scrollContentBackground(.hidden)
                     }
                 }
-            }
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button {
+                            vm.showCampaignCreation.toggle()
+                        } label: {
+                            Text("Create Campaign")
+                        }
+                    }
+                }
             .navigationTitle("My Campaigns")
+            }
         }
         .fullScreenCover(isPresented: $vm.showCampaignCreation, content: {
             CreateCampaignView()

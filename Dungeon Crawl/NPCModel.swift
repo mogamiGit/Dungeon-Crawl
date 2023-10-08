@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class NPC {
+final class NPCModel {
     var name: String
     var level: String? = nil
     var raceType: String

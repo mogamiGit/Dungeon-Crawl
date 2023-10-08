@@ -25,6 +25,8 @@
 		D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */; };
 		D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */; };
 		D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */; };
+		D39ED15B2AD30F7A0079B3B1 /* CarouselClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39ED15A2AD30F7A0079B3B1 /* CarouselClasses.swift */; };
+		D39ED15D2AD329A50079B3B1 /* IconClass.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */; };
 		D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */; };
 		D3B613A42AB29F87007BFFF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A32AB29F87007BFFF7 /* ContentView.swift */; };
 		D3B613A62AB29F87007BFFF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A52AB29F87007BFFF7 /* Item.swift */; };
@@ -52,6 +54,8 @@
 		D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListView.swift; sourceTree = "<group>"; };
 		D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignViewModel.swift; sourceTree = "<group>"; };
 		D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignView.swift; sourceTree = "<group>"; };
+		D39ED15A2AD30F7A0079B3B1 /* CarouselClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselClasses.swift; sourceTree = "<group>"; };
+		D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconClass.xcassets; sourceTree = "<group>"; };
 		D3B6139E2AB29F87007BFFF7 /* Dungeon Crawl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dungeon Crawl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon_CrawlApp.swift; sourceTree = "<group>"; };
 		D3B613A32AB29F87007BFFF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				D337589A2ABB9D0000DFECEF /* CampaignCell.swift */,
 				D3037FC62AD1E84E00E661BF /* CustomSlider.swift */,
 				D3037FC82AD1EA6700E661BF /* MainTextField.swift */,
+				D39ED15A2AD30F7A0079B3B1 /* CarouselClasses.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			children = (
 				D3B613A72AB29F88007BFFF7 /* Assets.xcassets */,
 				D3287CF52AC07AE7001E0A59 /* Colors.xcassets */,
+				D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */,
 			);
 			name = System;
 			sourceTree = "<group>";
@@ -259,6 +265,7 @@
 			files = (
 				D3287CF62AC07AE7001E0A59 /* Colors.xcassets in Resources */,
 				D3287CFD2AC0E6F5001E0A59 /* CampaignTest.json in Resources */,
+				D39ED15D2AD329A50079B3B1 /* IconClass.xcassets in Resources */,
 				D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */,
 				D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */,
 			);
@@ -277,6 +284,7 @@
 				D33BF1DF2AC883470071F901 /* CampaignDetail.swift in Sources */,
 				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,
 				D33758982ABB997A00DFECEF /* CampaignListViewModel.swift in Sources */,
+				D39ED15B2AD30F7A0079B3B1 /* CarouselClasses.swift in Sources */,
 				D3B613A62AB29F87007BFFF7 /* Item.swift in Sources */,
 				D337589B2ABB9D0000DFECEF /* CampaignCell.swift in Sources */,
 				D3037FBF2AD1D15400E661BF /* CreatePlayerView.swift in Sources */,

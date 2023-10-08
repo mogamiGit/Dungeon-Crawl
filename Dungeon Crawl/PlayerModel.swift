@@ -9,8 +9,8 @@ import Foundation
 import SwiftData
 
 @Model
-final class Player {
-    @Attribute(.unique) var name: String
+final class PlayerModel {
+    var name: String
     var level: Int
     var raceType: String
     var classType: String
@@ -21,11 +21,11 @@ final class Player {
     var inspiration: Bool
     var notes: String?
     
-    init(name: String, level: Int, raceType: String, classType: String, age: Int, alignment: String, ideals: String, defects: String, inspiration: Bool, notes: String?) {
+    init(name: String, level: Int, raceType: String, classType: ClassType = .barbarian, age: Int, alignment: String, ideals: String, defects: String, inspiration: Bool, notes: String?) {
         self.name = name
         self.level = level
         self.raceType = raceType
-        self.classType = classType
+        self.classType = classType.rawValue
         self.age = age
         self.alignment = alignment
         self.ideals = ideals
@@ -33,4 +33,19 @@ final class Player {
         self.inspiration = inspiration
         self.notes = notes
     }
+}
+
+enum ClassType: String, Codable, CaseIterable {
+    case barbarian = "Barbarian"
+    case bard = "Bard"
+    case cleric = "Cleric"
+    case druid = "Druid"
+    case fighter = "Fighter"
+    case monk = "Monk"
+    case paladin = "Paladin"
+    case ranger = "Ranger"
+    case rogue = "Rogue"
+    case sorcerer = "Sorcerer"
+    case warlock = "Warlock"
+    case wizard = "Wizard"
 }

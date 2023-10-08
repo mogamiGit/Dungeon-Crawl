@@ -10,10 +10,13 @@ import SwiftUI
 struct CustomSlider: View {
     var binding: Binding<Int>
     var number: Int
+    var title: String
     @State var isEditing = false
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            Text(title)
+                .padding(.bottom, 5)
             Slider(value: .convert(from: binding), in: 0...20, onEditingChanged: { editing in
                 isEditing = editing
             })

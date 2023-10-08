@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class Encounter {
+final class EncounterModel {
     @Attribute(.unique) var name: String
     var level: String
     var location: String
