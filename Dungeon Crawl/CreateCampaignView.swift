@@ -9,10 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct CreateCampaignView: View {
-    @State var vm = CreateCampaignViewModel()
-    
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
+    
+    @State var vm = CreateCampaignViewModel()
     
     var body: some View {
         ZStack {
@@ -21,27 +21,8 @@ struct CreateCampaignView: View {
                 MainTextField(titleKey: "Campaign Name", binding: $vm.campaignName, prompt: "Enter campaign name")
                 MainTextField(titleKey: "Campaign Location", binding: $vm.campaignLocation, prompt: "Enter location")
                 CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel, title: "Campaign Level", limit: 20)
-                VStack(alignment: .leading) {
-                    Text("Players")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    Button() {
-                        //
-                    } label: {
-                        HStack() {
-                            Image(systemName: "person.fill.badge.plus")
-                            Text("Add new player")
-                            Spacer()
-                        }
-                        .padding()
-                        .background() {
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(.white).opacity(0.1).ignoresSafeArea()
-                        }
-                    }
-                }
                 Button {
-                    addCampaigns()
+                    addCampaign()
                     dismiss()
                 } label: {
                     Text("Create Campaign")
@@ -57,8 +38,8 @@ struct CreateCampaignView: View {
         }
     }
     
-    private func addCampaigns() {
-        let campaign = CampaignModel(name: vm.campaignName, location: vm.campaignLocation, level: vm.campaignLevel, players: [])
+    private func addCampaign() {
+        let campaign = Campaign(name: vm.campaignName, location: vm.campaignLocation, level: vm.campaignLevel, players: [])
         
         context.insert(campaign)
     }
@@ -67,5 +48,5 @@ struct CreateCampaignView: View {
 
 #Preview {
     CreateCampaignView()
-        .modelContainer(for: CampaignModel.self, inMemory: true)
+        .modelContainer(for: Campaign.self, inMemory: true)
 }

@@ -6,11 +6,48 @@
 //
 
 import Foundation
+import SwiftData
 
-extension CampaignModel {
-    static let test = CampaignModel(name: "Magic DnD Trip", location: "Castle Darkhold", level: 4, players: [PlayerModel(name: "Sefard The Scapist", level: 5, raceType: "Human", classType: ClassType.wizard.rawValue, age: 25, alignment: "Lawful Good", ideals: "Justice and Freedom", defects: "Impatient", inspiration: true, notes: "Has a pet owl named Hoot"), PlayerModel(name: "Jimmy HugBear", level: 5, raceType: "Human", classType: ClassType.wizard.rawValue, age: 25, alignment: "Lawful Good", ideals: "Justice and Freedom", defects: "Impatient", inspiration: false, notes: "Has a pet owl named Hoot")])
+extension Campaign {
+    static let previewContainer: ModelContainer = {
+        do {
+            let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+            let container = try ModelContainer(for: Campaign.self, configurations: configuration)
+            let test = Campaign.test
+            let context = ModelContext(container)
+            context.insert(test)
+            return container
+        } catch {
+            fatalError()
+        }
+    }()
+    
+    static let test = Campaign(name: "Magic DnD Trip",
+                             location: "Castle Darkhold",
+                             level: 4,
+                             players: [
+                                Player(name: "Sefard The Scapist",
+                                            level: 5,
+                                            raceType: "Human",
+                                            classType: "Wizard",
+                                            age: 25,
+                                            alignment: "Lawful Good",
+                                            ideals: "Justice and Freedom",
+                                            defects: "Impatient",
+                                            inspiration: true,
+                                            notes: "Has a pet owl named Hoot"),
+                                Player(name: "Jimmy HugBear",
+                                            level: 3,
+                                            raceType: "Elf",
+                                            classType: "Druid",
+                                            age: 80,
+                                            alignment: "Chaotic Good",
+                                            ideals: "Justice and Freedom",
+                                            defects: "Impatient",
+                                            inspiration: false,
+                                            notes: "He transforms in Owlbear")])
 }
 
-extension PlayerModel {
-    static let test = PlayerModel(name: "Sefard The Scapist", level: 5, raceType: "Human", classType: ClassType.wizard.rawValue, age: 25, alignment: "Lawful Good", ideals: "Justice and Freedom", defects: "Impatient", inspiration: true, notes: "Has a pet owl named Hoot")
+extension Player {
+    static let test = Player(name: "Sefard The Scapist", level: 5, raceType: "Human", classType: ClassType.wizard.rawValue, age: 25, alignment: "Lawful Good", ideals: "Justice and Freedom", defects: "Impatient", inspiration: true, notes: "Has a pet owl named Hoot")
 }

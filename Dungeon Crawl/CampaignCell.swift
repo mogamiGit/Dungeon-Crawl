@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct CampaignCell: View {
-    @Bindable var campaign: CampaignModel
+    @Bindable var campaign: Campaign
     
     var body: some View {
         VStack(alignment: .leading, spacing: 25) {
@@ -20,6 +20,7 @@ struct CampaignCell: View {
                     .lineLimit(2)
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
+                        .foregroundStyle(Color.mainDungeon)
                     Text(campaign.location)
                 }
                 .font(.title3)
@@ -31,8 +32,11 @@ struct CampaignCell: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image(systemName: "person.2.fill")
-                        Text("0")
-//                        Text("\(campaign.players.count)")
+                        if let players = campaign.players {
+                            Text("\(players.count)")
+                        } else {
+                            Text("0")
+                        }
                     }
                     if !(campaign.encounters?.count == 0) {
                         HStack(spacing: 3) {
@@ -54,6 +58,5 @@ struct CampaignCell: View {
 }
 
 #Preview {
-    CampaignCell(campaign: .test)
-//        .modelContainer(for: CampaignModel.self)
+    CampaignCell(campaign: Campaign.test)
 }

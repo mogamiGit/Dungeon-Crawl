@@ -12,7 +12,7 @@ import SwiftData
 struct Dungeon_CrawlApp: App {
     var customModelContainer: ModelContainer = {
         let schema = Schema([
-            CampaignModel.self, PlayerModel.self
+            Campaign.self, Player.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

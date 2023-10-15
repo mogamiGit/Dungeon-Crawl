@@ -10,10 +10,8 @@ import SwiftData
 
 struct CampaignListView: View {
     @State var vm = CampaignListViewModel()
-    
     @Environment(\.modelContext) private var context
-    @Query(sort: \CampaignModel.name, order: .forward, animation: .easeOut)
-    private var campaigns: [CampaignModel]
+    @Query(sort: \Campaign.name, order: .forward, animation: .easeOut) private var campaigns: [Campaign]
     
     var body: some View {
         NavigationStack {
@@ -25,7 +23,11 @@ struct CampaignListView: View {
                     } else {
                         List {
                             ForEach(campaigns) { campaign in
-                                CampaignCell(campaign: campaign)
+                                NavigationLink {
+                                    DetailCampaignView(campaign: campaign)
+                                } label: {
+                                    CampaignCell(campaign: campaign)
+                                }
                             }
                             .onDelete { indexSet in
                                 for index in indexSet {
@@ -59,5 +61,5 @@ struct CampaignListView: View {
 
 #Preview {
     CampaignListView()
-        .modelContainer(for: CampaignModel.self)
+        .modelContainer(for: Campaign.self)
 }

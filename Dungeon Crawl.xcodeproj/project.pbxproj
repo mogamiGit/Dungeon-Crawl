@@ -11,9 +11,10 @@
 		D3037FC32AD1D53A00E661BF /* CreatePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */; };
 		D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC62AD1E84E00E661BF /* CustomSlider.swift */; };
 		D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC82AD1EA6700E661BF /* MainTextField.swift */; };
+		D310B3032ADC98D400AFBE25 /* DetailCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D310B3022ADC98D400AFBE25 /* DetailCampaignViewModel.swift */; };
 		D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */; };
 		D317E92F2AC84A7E00D6D158 /* EncounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E92E2AC84A7E00D6D158 /* EncounterModel.swift */; };
-		D317E9312AC84B2D00D6D158 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E9302AC84B2D00D6D158 /* PlayerModel.swift */; };
+		D317E9312AC84B2D00D6D158 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E9302AC84B2D00D6D158 /* Player.swift */; };
 		D317E9332AC84B7E00D6D158 /* NPCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E9322AC84B7E00D6D158 /* NPCModel.swift */; };
 		D3287CF62AC07AE7001E0A59 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3287CF52AC07AE7001E0A59 /* Colors.xcassets */; };
 		D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3287CF82AC08E55001E0A59 /* Extensions.swift */; };
@@ -21,8 +22,8 @@
 		D3287CFF2AC0E71D001E0A59 /* RepositoryPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3287CFE2AC0E71D001E0A59 /* RepositoryPreview.swift */; };
 		D33758982ABB997A00DFECEF /* CampaignListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33758972ABB997A00DFECEF /* CampaignListViewModel.swift */; };
 		D337589B2ABB9D0000DFECEF /* CampaignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D337589A2ABB9D0000DFECEF /* CampaignCell.swift */; };
-		D33BF1DF2AC883470071F901 /* CampaignDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33BF1DE2AC883470071F901 /* CampaignDetail.swift */; };
-		D35486E62AB98C9E00A3DFD0 /* CampaignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */; };
+		D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */; };
+		D35486E62AB98C9E00A3DFD0 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E52AB98C9E00A3DFD0 /* Campaign.swift */; };
 		D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */; };
 		D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */; };
 		D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */; };
@@ -32,7 +33,6 @@
 		D3B613A62AB29F87007BFFF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A52AB29F87007BFFF7 /* Item.swift */; };
 		D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613A72AB29F88007BFFF7 /* Assets.xcassets */; };
 		D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */; };
-		D3E045AD2ACCC01D00EA7D41 /* CampaignLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E045AC2ACCC01D00EA7D41 /* CampaignLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,9 +40,10 @@
 		D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlayerViewModel.swift; sourceTree = "<group>"; };
 		D3037FC62AD1E84E00E661BF /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		D3037FC82AD1EA6700E661BF /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		D310B3022ADC98D400AFBE25 /* DetailCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignViewModel.swift; sourceTree = "<group>"; };
 		D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMultipleTextField.swift; sourceTree = "<group>"; };
 		D317E92E2AC84A7E00D6D158 /* EncounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterModel.swift; sourceTree = "<group>"; };
-		D317E9302AC84B2D00D6D158 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		D317E9302AC84B2D00D6D158 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		D317E9322AC84B7E00D6D158 /* NPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCModel.swift; sourceTree = "<group>"; };
 		D3287CF52AC07AE7001E0A59 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D3287CF82AC08E55001E0A59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -50,8 +51,8 @@
 		D3287CFE2AC0E71D001E0A59 /* RepositoryPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryPreview.swift; sourceTree = "<group>"; };
 		D33758972ABB997A00DFECEF /* CampaignListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListViewModel.swift; sourceTree = "<group>"; };
 		D337589A2ABB9D0000DFECEF /* CampaignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCell.swift; sourceTree = "<group>"; };
-		D33BF1DE2AC883470071F901 /* CampaignDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignDetail.swift; sourceTree = "<group>"; };
-		D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignModel.swift; sourceTree = "<group>"; };
+		D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignView.swift; sourceTree = "<group>"; };
+		D35486E52AB98C9E00A3DFD0 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListView.swift; sourceTree = "<group>"; };
 		D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignViewModel.swift; sourceTree = "<group>"; };
 		D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignView.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		D3B613A52AB29F87007BFFF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D3B613A72AB29F88007BFFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D3E045AC2ACCC01D00EA7D41 /* CampaignLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,6 @@
 				D35486EF2AB9ED6500A3DFD0 /* Views */,
 				D33758992ABB9CEA00DFECEF /* Components */,
 				D35486F02AB9ED6C00A3DFD0 /* ViewModels */,
-				D3E045AB2ACCBF6500EA7D41 /* Model Logic */,
 				D35486F12AB9ED8200A3DFD0 /* Models */,
 			);
 			name = Campaign;
@@ -121,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */,
-				D33BF1DE2AC883470071F901 /* CampaignDetail.swift */,
+				D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */,
 				D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */,
 				D3037FBE2AD1D15400E661BF /* CreatePlayerView.swift */,
 			);
@@ -134,6 +133,7 @@
 				D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */,
 				D33758972ABB997A00DFECEF /* CampaignListViewModel.swift */,
 				D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */,
+				D310B3022ADC98D400AFBE25 /* DetailCampaignViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -141,9 +141,9 @@
 		D35486F12AB9ED8200A3DFD0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D35486E52AB98C9E00A3DFD0 /* CampaignModel.swift */,
+				D35486E52AB98C9E00A3DFD0 /* Campaign.swift */,
 				D317E92E2AC84A7E00D6D158 /* EncounterModel.swift */,
-				D317E9302AC84B2D00D6D158 /* PlayerModel.swift */,
+				D317E9302AC84B2D00D6D158 /* Player.swift */,
 				D317E9322AC84B7E00D6D158 /* NPCModel.swift */,
 			);
 			name = Models;
@@ -195,14 +195,6 @@
 				D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */,
 			);
 			name = System;
-			sourceTree = "<group>";
-		};
-		D3E045AB2ACCBF6500EA7D41 /* Model Logic */ = {
-			isa = PBXGroup;
-			children = (
-				D3E045AC2ACCC01D00EA7D41 /* CampaignLogic.swift */,
-			);
-			name = "Model Logic";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,9 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D317E9312AC84B2D00D6D158 /* PlayerModel.swift in Sources */,
-				D3E045AD2ACCC01D00EA7D41 /* CampaignLogic.swift in Sources */,
-				D33BF1DF2AC883470071F901 /* CampaignDetail.swift in Sources */,
+				D317E9312AC84B2D00D6D158 /* Player.swift in Sources */,
+				D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */,
 				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,
 				D33758982ABB997A00DFECEF /* CampaignListViewModel.swift in Sources */,
 				D39ED15B2AD30F7A0079B3B1 /* CarouselClasses.swift in Sources */,
@@ -292,11 +283,12 @@
 				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* EncounterModel.swift in Sources */,
 				D317E9332AC84B7E00D6D158 /* NPCModel.swift in Sources */,
+				D310B3032ADC98D400AFBE25 /* DetailCampaignViewModel.swift in Sources */,
 				D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */,
 				D3037FC32AD1D53A00E661BF /* CreatePlayerViewModel.swift in Sources */,
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
 				D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */,
-				D35486E62AB98C9E00A3DFD0 /* CampaignModel.swift in Sources */,
+				D35486E62AB98C9E00A3DFD0 /* Campaign.swift in Sources */,
 				D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */,
 				D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */,
 			);

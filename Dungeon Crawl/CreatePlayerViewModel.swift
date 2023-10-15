@@ -22,10 +22,6 @@ class CreatePlayerViewModel {
     var playerInspiration = false
     var playerNotes = ""
     
-    var newPlayer: PlayerModel {
-        PlayerModel(name: playerName, level: playerLevel, raceType: playerRaceType.rawValue, classType: playerClassType.rawValue, age: playerAge, alignment: playerAlignment.rawValue, ideals: playerIdeals, defects: playerDefects, inspiration: playerInspiration, notes: playerNotes)
-    }
-    
     func getNumberForRace(playerRace: RaceType) -> Double {
         switch RaceType(rawValue: playerRace.rawValue) {
         case .dragonborn:

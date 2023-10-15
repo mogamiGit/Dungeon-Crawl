@@ -1,5 +1,5 @@
 //
-//  PlayerModel.swift
+//  Player.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 30/9/23.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class PlayerModel {
+final class Player {
     var name: String
     var level: Int
     var raceType: RaceType.RawValue

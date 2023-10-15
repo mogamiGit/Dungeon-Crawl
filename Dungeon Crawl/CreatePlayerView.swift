@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CreatePlayerView: View {
+    @Environment(\.dismiss) var dismiss
     @State var vm = CreatePlayerViewModel()
+    @Bindable var campaign: Campaign
     
     var body: some View {
         ZStack {
             Color.bgDungeon.ignoresSafeArea()
             ScrollView {
                 VStack(alignment: .leading, spacing: 30) {
+                    Spacer()
                     VStack(spacing: 30) {
                         MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Enter player name")
                         CustomSlider(binding: $vm.playerLevel, number:vm.playerLevel, title: "Player Level", limit: 20)
@@ -80,7 +84,9 @@ struct CreatePlayerView: View {
                         }
                         CustomMultipleTextField(title: "Notes", titleKey: "Player Notes", binding: $vm.playerNotes)
                         Button {
-                            //
+                            let player = Player(name: vm.playerName, level: vm.playerLevel, raceType: vm.playerRaceType.rawValue, classType: vm.playerClassType.rawValue, age: vm.playerAge, alignment: vm.playerAlignment.rawValue, ideals: vm.playerIdeals, defects: vm.playerDefects, inspiration: vm.playerInspiration, notes: vm.playerNotes)
+                            campaign.players?.append(player)
+                            dismiss()
                         } label: {
                             Text("Create Player")
                         }
@@ -100,5 +106,6 @@ struct CreatePlayerView: View {
 }
 
 #Preview {
-    CreatePlayerView()
+    CreatePlayerView(campaign: Campaign.test)
+        .modelContainer(for: Player.self, inMemory: true)
 }
