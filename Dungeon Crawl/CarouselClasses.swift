@@ -8,35 +8,44 @@
 import SwiftUI
 
 struct CarouselClasses: View {
+    @State var vm = CreatePlayerViewModel()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
+            Text("Select Class")
+                .padding(.horizontal, 30)
+                .foregroundStyle(.white)
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(ClassType.allCases, id: \.self) { c in
+                    ForEach(ClassType.allCases, id: \.self) { option in
                         VStack {
-                            getTypeImage(playerClass:c)
+                            getTypeImage(playerClass:option)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 80)
-                            Text(c.rawValue)
+                            Text(option.rawValue)
                                 .font(.title2)
                         }
                         .padding()
-                        .foregroundStyle(Color.secondaryDungeon)
-                        .frame(width: 320, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .foregroundStyle(.white)
+                        .frame(width: 300)
                         .background() {
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(.black)
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(vm.playerClassType == option ? Color.mainDungeon : .black)
+                        }
+                        .onTapGesture {
+                            print(option)
+                            self.vm.playerClassType = option
                         }
                     }
                 }
                 .scrollTargetLayout()
             }
             .scrollTargetBehavior(.viewAligned)
-        .safeAreaPadding(.horizontal, 40)
+        .safeAreaPadding(.horizontal, 30)
         }
     }
+
     
     func getTypeImage(playerClass: ClassType) -> Image {
         switch ClassType(rawValue: playerClass.rawValue) {

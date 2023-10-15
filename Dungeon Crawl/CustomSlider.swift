@@ -11,19 +11,20 @@ struct CustomSlider: View {
     var binding: Binding<Int>
     var number: Int
     var title: String
+    var limit: Double
     @State var isEditing = false
     
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .padding(.bottom, 5)
-            Slider(value: .convert(from: binding), in: 0...20, onEditingChanged: { editing in
+            Slider(value: .convert(from: binding), in: 0...limit, onEditingChanged: { editing in
                 isEditing = editing
             })
-            .tint(.creamDungeon)
-            Text("\(number) / 20")
+            .tint(Color.mainDungeon)
+            Text("\(number) / \(Int(limit))")
                 .font(.title3)
-                .foregroundStyle(isEditing ? .creamDungeon : .white)
+                .foregroundStyle(isEditing ? Color.secondaryDungeon : .white)
         }
         .padding()
     }

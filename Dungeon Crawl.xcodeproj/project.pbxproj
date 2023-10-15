@@ -11,6 +11,7 @@
 		D3037FC32AD1D53A00E661BF /* CreatePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */; };
 		D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC62AD1E84E00E661BF /* CustomSlider.swift */; };
 		D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC82AD1EA6700E661BF /* MainTextField.swift */; };
+		D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */; };
 		D317E92F2AC84A7E00D6D158 /* EncounterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E92E2AC84A7E00D6D158 /* EncounterModel.swift */; };
 		D317E9312AC84B2D00D6D158 /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E9302AC84B2D00D6D158 /* PlayerModel.swift */; };
 		D317E9332AC84B7E00D6D158 /* NPCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E9322AC84B7E00D6D158 /* NPCModel.swift */; };
@@ -28,7 +29,6 @@
 		D39ED15B2AD30F7A0079B3B1 /* CarouselClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39ED15A2AD30F7A0079B3B1 /* CarouselClasses.swift */; };
 		D39ED15D2AD329A50079B3B1 /* IconClass.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */; };
 		D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */; };
-		D3B613A42AB29F87007BFFF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A32AB29F87007BFFF7 /* ContentView.swift */; };
 		D3B613A62AB29F87007BFFF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A52AB29F87007BFFF7 /* Item.swift */; };
 		D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613A72AB29F88007BFFF7 /* Assets.xcassets */; };
 		D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */; };
@@ -40,6 +40,7 @@
 		D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlayerViewModel.swift; sourceTree = "<group>"; };
 		D3037FC62AD1E84E00E661BF /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		D3037FC82AD1EA6700E661BF /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
+		D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMultipleTextField.swift; sourceTree = "<group>"; };
 		D317E92E2AC84A7E00D6D158 /* EncounterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterModel.swift; sourceTree = "<group>"; };
 		D317E9302AC84B2D00D6D158 /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		D317E9322AC84B7E00D6D158 /* NPCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPCModel.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconClass.xcassets; sourceTree = "<group>"; };
 		D3B6139E2AB29F87007BFFF7 /* Dungeon Crawl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dungeon Crawl.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon_CrawlApp.swift; sourceTree = "<group>"; };
-		D3B613A32AB29F87007BFFF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D3B613A52AB29F87007BFFF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D3B613A72AB29F88007BFFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -91,6 +91,7 @@
 				D3037FC62AD1E84E00E661BF /* CustomSlider.swift */,
 				D3037FC82AD1EA6700E661BF /* MainTextField.swift */,
 				D39ED15A2AD30F7A0079B3B1 /* CarouselClasses.swift */,
+				D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -168,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				D35486EA2AB9E9FF00A3DFD0 /* Features */,
-				D3B613A32AB29F87007BFFF7 /* ContentView.swift */,
 				D3287CF72AC08E27001E0A59 /* Helpers */,
 				D3C538622AB8B43D00C0C1E9 /* System */,
 				D3B613A52AB29F87007BFFF7 /* Item.swift */,
@@ -279,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D317E9312AC84B2D00D6D158 /* PlayerModel.swift in Sources */,
-				D3B613A42AB29F87007BFFF7 /* ContentView.swift in Sources */,
 				D3E045AD2ACCC01D00EA7D41 /* CampaignLogic.swift in Sources */,
 				D33BF1DF2AC883470071F901 /* CampaignDetail.swift in Sources */,
 				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,
@@ -290,6 +289,7 @@
 				D3037FBF2AD1D15400E661BF /* CreatePlayerView.swift in Sources */,
 				D3287CFF2AC0E71D001E0A59 /* RepositoryPreview.swift in Sources */,
 				D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */,
+				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* EncounterModel.swift in Sources */,
 				D317E9332AC84B7E00D6D158 /* NPCModel.swift in Sources */,
 				D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */,

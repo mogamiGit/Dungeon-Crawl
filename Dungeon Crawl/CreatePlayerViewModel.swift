@@ -13,16 +13,41 @@ class CreatePlayerViewModel {
     
     var playerName = ""
     var playerLevel = 0
-    var playerRaceType = ""
-    var playerClassType = ClassType.RawValue()
+    var playerRaceType = RaceType.dragonborn
+    var playerClassType = ClassType.barbarian
     var playerAge = 0
-    var playerAlignment = ""
+    var playerAlignment = AlignmentType.neutral
     var playerIdeals = ""
     var playerDefects = ""
     var playerInspiration = false
     var playerNotes = ""
     
     var newPlayer: PlayerModel {
-        PlayerModel(name: playerName, level: playerLevel, raceType: playerRaceType, classType: ClassType(rawValue: playerClassType) ?? .wizard, age: playerAge, alignment: playerAlignment, ideals: playerIdeals, defects: playerDefects, inspiration: playerInspiration, notes: playerNotes)
+        PlayerModel(name: playerName, level: playerLevel, raceType: playerRaceType.rawValue, classType: playerClassType.rawValue, age: playerAge, alignment: playerAlignment.rawValue, ideals: playerIdeals, defects: playerDefects, inspiration: playerInspiration, notes: playerNotes)
+    }
+    
+    func getNumberForRace(playerRace: RaceType) -> Double {
+        switch RaceType(rawValue: playerRace.rawValue) {
+        case .dragonborn:
+            return 80
+        case .dwarf:
+            return 350
+        case .elf:
+            return 750
+        case .gnome:
+            return 500
+        case .halfelf:
+            return 180
+        case .halforc:
+            return 75
+        case .halfling:
+            return 150
+        case .human:
+            return 120
+        case .tiefling:
+            return 270
+        case .none:
+            return 0
+        }
     }
 }

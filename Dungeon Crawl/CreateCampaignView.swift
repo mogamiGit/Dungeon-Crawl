@@ -20,7 +20,7 @@ struct CreateCampaignView: View {
             VStack(spacing: 30) {
                 MainTextField(titleKey: "Campaign Name", binding: $vm.campaignName, prompt: "Enter campaign name")
                 MainTextField(titleKey: "Campaign Location", binding: $vm.campaignLocation, prompt: "Enter location")
-                CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel, title: "Campaign Level")
+                CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel, title: "Campaign Level", limit: 20)
                 VStack(alignment: .leading) {
                     Text("Players")
                         .font(.title2)
@@ -41,8 +41,6 @@ struct CreateCampaignView: View {
                     }
                 }
                 Button {
-//                    let campaign = vm.newCampaign
-//                    context.insert(campaign)
                     addCampaigns()
                     dismiss()
                 } label: {
@@ -50,7 +48,7 @@ struct CreateCampaignView: View {
                 }
                 .padding()
                 .background {
-                    Color.black
+                    Color.mainDungeon
                 }
                 .cornerRadius(10)
             }
