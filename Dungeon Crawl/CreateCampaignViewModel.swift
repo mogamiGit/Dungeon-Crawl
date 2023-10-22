@@ -17,4 +17,11 @@ final class CreateCampaignViewModel {
     init(createPlayerViewModel: CreatePlayerViewModel = .shared) {
         self.createPlayerViewModel = createPlayerViewModel
     }
+    
+    func isFormValidate() -> Bool {
+        if campaignName.isEmpty || campaignLocation.isEmpty || campaignLevel == 0 {
+            return false
+        }
+        return true
+    }
 }

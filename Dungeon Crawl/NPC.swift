@@ -1,5 +1,5 @@
 //
-//  NPCModel.swift
+//  NPC.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 30/9/23.
@@ -9,9 +9,9 @@ import Foundation
 import SwiftData
 
 @Model
-final class NPCModel {
+final class NPC {
     var name: String
-    var level: String? = nil
+    var level: Int
     var raceType: String
     var age: Int
     var occupation: String
@@ -22,7 +22,7 @@ final class NPCModel {
     var drives: DriveNPC
     var notes: String?
     
-    init(name: String, level: String? = nil, raceType: String, age: Int, occupation: String, location: String, background: String, alignment: String, appearance: String, drives: DriveNPC) {
+    init(name: String, level: Int, raceType: String, age: Int, occupation: String, location: String, background: String, alignment: String, appearance: String, drives: DriveNPC) {
         self.name = name
         self.level = level
         self.raceType = raceType

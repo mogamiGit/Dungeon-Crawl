@@ -14,8 +14,7 @@ final class Campaign {
     var location: String
     var level: Int
     @Relationship(deleteRule: .cascade) var players: [Player]?
-    @Relationship(deleteRule: .cascade) var NPCs: [NPCModel]?
-    @Relationship(deleteRule: .cascade) var encounters: [EncounterModel]?
+    @Relationship(deleteRule: .cascade) var encounters: [Encounter]?
     
     init(name: String, location: String, level: Int, players: [Player]) {
         self.name = name

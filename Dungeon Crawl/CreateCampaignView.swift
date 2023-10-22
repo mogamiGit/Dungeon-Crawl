@@ -11,30 +11,46 @@ import SwiftData
 struct CreateCampaignView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
-    
     @State var vm = CreateCampaignViewModel()
     
     var body: some View {
-        ZStack {
-            Color.bgDungeon.ignoresSafeArea()
-            VStack(spacing: 30) {
-                MainTextField(titleKey: "Campaign Name", binding: $vm.campaignName, prompt: "Enter campaign name")
-                MainTextField(titleKey: "Campaign Location", binding: $vm.campaignLocation, prompt: "Enter location")
-                CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel, title: "Campaign Level", limit: 20)
-                Button {
-                    addCampaign()
-                    dismiss()
-                } label: {
-                    Text("Create Campaign")
+        NavigationStack {
+            ZStack {
+                Color.bgDungeon.ignoresSafeArea()
+                VStack(spacing: 30) {
+                    MainTextField(titleKey: "Campaign Name", binding: $vm.campaignName, prompt: "Enter campaign name")
+                    MainTextField(titleKey: "Campaign Location", binding: $vm.campaignLocation, prompt: "Enter location")
+                    CustomSlider(binding: $vm.campaignLevel, number: vm.campaignLevel, title: "Campaign Level", limit: 20)
+                    Button {
+                        if vm.isFormValidate() {
+                            addCampaign()
+                            dismiss()
+                        }
+                    } label: {
+                        Text("Create Campaign")
+                    }
+                    .buttonStyle(DungeonMainButton(isButtonEnabled: vm.isFormValidate()))
                 }
-                .padding()
-                .background {
-                    Color.mainDungeon
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundStyle(.white)
+                                .padding(8)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.mainDungeon)
+                                }
+                                .padding(.bottom)
+                        }
+                        .padding()
+                    }
                 }
-                .cornerRadius(10)
+                .padding(30)
+                .foregroundStyle(.white)
             }
-            .padding(30)
-            .foregroundStyle(.white)
         }
     }
     
@@ -43,7 +59,6 @@ struct CreateCampaignView: View {
         
         context.insert(campaign)
     }
-    
 }
 
 #Preview {

@@ -46,4 +46,11 @@ class CreatePlayerViewModel {
             return 0
         }
     }
+    
+    func isFormValidate() -> Bool {
+        if playerName.isEmpty || playerLevel == 0 || playerAge == 0 || playerIdeals.isEmpty || playerDefects.isEmpty {
+            return false
+        }
+        return true
+    }
 }

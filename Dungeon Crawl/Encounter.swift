@@ -1,5 +1,5 @@
 //
-//  EncounterModel.swift
+//  Encounter.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 30/9/23.
@@ -9,14 +9,16 @@ import Foundation
 import SwiftData
 
 @Model
-final class EncounterModel {
-    @Attribute(.unique) var name: String
+final class Encounter {
+    @Attribute(.unique) var id: UUID
+    var name: String
     var level: String
     var location: String
     var monsters: [Monster]?
     var treasures: [Treasure]?
     
-    init(name: String, level: String, location: String) {
+    init(id: UUID = UUID(), name: String, level: String, location: String) {
+        self.id = id
         self.name = name
         self.level = level
         self.location = location
