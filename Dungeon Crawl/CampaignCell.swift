@@ -20,7 +20,7 @@ struct CampaignCell: View {
                     .lineLimit(2)
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
-                        .foregroundStyle(Color.mainDungeon)
+                        .foregroundStyle(Color.accentDungeon)
                     Text(campaign.location)
                 }
                 .font(.title3)
@@ -32,6 +32,7 @@ struct CampaignCell: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image(systemName: "person.2.fill")
+                            .foregroundStyle(Color.accentDungeon)
                         if let players = campaign.players {
                             Text("\(players.count)")
                         } else {
@@ -41,6 +42,7 @@ struct CampaignCell: View {
                     if !(campaign.encounters?.count == 0) {
                         HStack(spacing: 3) {
                             Image(systemName: "bolt.shield.fill")
+                                .foregroundStyle(Color.accentDungeon)
                             Text("\(campaign.encounters!.count)")
                         }
                     }

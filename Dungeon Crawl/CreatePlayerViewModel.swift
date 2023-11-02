@@ -5,18 +5,19 @@
 //  Created by Monica Galan de la Llana on 7/10/23.
 //
 
-import Foundation
+import SwiftUI
 
 @Observable
 class CreatePlayerViewModel {
     static let shared = CreatePlayerViewModel()
     
     var playerName = ""
+    var characterName = ""
     var playerLevel = 0
-    var playerRaceType = RaceType.dragonborn
-    var playerClassType = ClassType.barbarian
+    var playerRaceType: RaceType = .human
+    var playerClassType: ClassType = .fighter
     var playerAge = 0
-    var playerAlignment = AlignmentType.neutral
+    var playerAlignment: AlignmentType = .neutral
     var playerIdeals = ""
     var playerDefects = ""
     var playerInspiration = false
@@ -52,5 +53,36 @@ class CreatePlayerViewModel {
             return false
         }
         return true
+    }
+    
+    func getTypeImage(playerClass: ClassType) -> Image {
+        switch ClassType(rawValue: playerClass.rawValue) {
+        case .barbarian:
+            Image("barbarian")
+        case .bard:
+            Image("bard")
+        case .cleric:
+            Image("cleric")
+        case .druid:
+            Image("druid")
+        case .fighter:
+            Image("fighter")
+        case .monk:
+            Image("monk")
+        case .paladin:
+            Image("paladin")
+        case .ranger:
+            Image("ranger")
+        case .rogue:
+            Image("rogue")
+        case .sorcerer:
+            Image("sorcerer")
+        case .warlock:
+            Image("warlock")
+        case .wizard:
+            Image("wizard")
+        case .none:
+            Image(systemName: "circle")
+        }
     }
 }

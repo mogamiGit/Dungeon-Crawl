@@ -41,17 +41,21 @@ struct CampaignListView: View {
                         .scrollContentBackground(.hidden)
                     }
                 }
-                .toolbar {
-                    ToolbarItem(placement: .bottomBar) {
-                        Button {
-                            vm.showCampaignCreation.toggle()
-                        } label: {
+            }
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        vm.showCampaignCreation.toggle()
+                    } label: {
+                        HStack {
                             Text("Create Campaign")
+                            Image(systemName: "add")
                         }
+                        .foregroundStyle(Color.mainDungeon)
                     }
                 }
-            .navigationTitle("My Campaigns")
             }
+            .navigationTitle("My Campaigns")
         }
         .fullScreenCover(isPresented: $vm.showCampaignCreation, content: {
             CreateCampaignView()

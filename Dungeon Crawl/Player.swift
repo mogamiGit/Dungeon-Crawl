@@ -7,22 +7,27 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 final class Player {
-    var name: String
+    @Attribute(.unique) var id: UUID
+    var nameCharacter: String
+    var namePlayer: String
     var level: Int
-    var raceType: RaceType.RawValue
-    var classType: ClassType.RawValue
+    var raceType: RaceType
+    var classType: ClassType
     var age: Int
-    var alignment: AlignmentType.RawValue
+    var alignment: AlignmentType
     var ideals: String
     var defects: String
     var inspiration: Bool
     var notes: String?
     
-    init(name: String, level: Int, raceType: RaceType.RawValue, classType: ClassType.RawValue, age: Int, alignment: AlignmentType.RawValue, ideals: String, defects: String, inspiration: Bool, notes: String?) {
-        self.name = name
+    init(id: UUID = UUID(), nameCharacter: String, namePlayer: String, level: Int, raceType: RaceType, classType: ClassType, age: Int, alignment: AlignmentType, ideals: String, defects: String, inspiration: Bool, notes: String?) {
+        self.id = id
+        self.nameCharacter = nameCharacter
+        self.namePlayer = namePlayer
         self.level = level
         self.raceType = raceType
         self.classType = classType

@@ -21,15 +21,15 @@ struct CreatePlayerView: View {
                     VStack(alignment: .leading) {
                         Spacer()
                         VStack(spacing: 30) {
-                            MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Enter player name")
+                            MainTextField(titleKey: "Character Name", binding: $vm.characterName, prompt: "Character name")
                             CustomSlider(binding: $vm.playerLevel, number:vm.playerLevel, title: "Player Level", limit: 20)
                             HStack {
                                 Text("Select Race")
                                     .padding(.horizontal)
                                 Spacer()
                                 Picker("Select PC Race", selection: $vm.playerRaceType) {
-                                    ForEach(RaceType.allCases, id: \.self) { option in
-                                        Text(option.rawValue)
+                                    ForEach(RaceType.allCases, id: \.self) { item in
+                                        Text(item.rawValue)
                                     }
                                 }
                                 .accentColor(.creamDungeon)
@@ -46,16 +46,17 @@ struct CreatePlayerView: View {
                         }
                         .padding(.horizontal, 30)
                         .foregroundStyle(.white)
-                        CarouselClasses()
-                            .padding(.bottom)
+                        carouselClasses()
+                            .padding(.top, 30)
+                            .padding(.bottom, 40)
                         VStack(spacing: 30) {
                             HStack {
                                 Text("Alignement")
                                     .padding(.horizontal)
                                 Spacer()
                                 Picker("Select PC Race", selection: $vm.playerAlignment) {
-                                    ForEach(AlignmentType.allCases, id: \.self) { option in
-                                        Text(option.rawValue)
+                                    ForEach(AlignmentType.allCases, id: \.self) { item in
+                                        Text(item.rawValue)
                                     }
                                 }
                                 .accentColor(.creamDungeon)
@@ -83,11 +84,11 @@ struct CreatePlayerView: View {
                                         .opacity(0.5)
                                 }
                             }
+                            MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Player name")
                             CustomMultipleTextField(title: "Notes", titleKey: "Player Notes", binding: $vm.playerNotes)
                             Button {
                                 if vm.isFormValidate() {
-                                    let player = Player(name: vm.playerName, level: vm.playerLevel, raceType: vm.playerRaceType.rawValue, classType: vm.playerClassType.rawValue, age: vm.playerAge, alignment: vm.playerAlignment.rawValue, ideals: vm.playerIdeals, defects: vm.playerDefects, inspiration: vm.playerInspiration, notes: vm.playerNotes)
-                                    campaign.players?.append(player)
+                                    savePlayer()
                                     dismiss()
                                 }
                             } label: {
@@ -120,6 +121,51 @@ struct CreatePlayerView: View {
                     .padding()
                 }
             }
+        }
+    }
+    
+    @ViewBuilder
+    func carouselClasses() -> some View {
+        VStack(alignment: .leading, spacing: 20) {
+            Text("Select Class")
+                .padding(.horizontal, 30)
+                .foregroundStyle(.white)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack {
+                    ForEach(ClassType.allCases, id: \.self) { item in
+                        VStack {
+                            vm.getTypeImage(playerClass:item)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 80)
+                            Text(item.rawValue)
+                                .font(.title2)
+                        }
+                        .onTapGesture {
+                            vm.playerClassType = item
+                            print(vm.playerClassType)
+                        }
+                        .padding()
+                        .foregroundStyle(.white)
+                        .frame(width: 300)
+                        .background() {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(vm.playerClassType == item ? Color.mainDungeon : .black)
+                        }
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .scrollTargetBehavior(.viewAligned)
+        .safeAreaPadding(.horizontal, 30)
+        }
+    }
+    
+    func savePlayer() {
+        withAnimation {
+            let player = Player(nameCharacter: vm.characterName, namePlayer: vm.playerName,  level: vm.playerLevel, raceType: vm.playerRaceType, classType: vm.playerClassType, age: vm.playerAge, alignment: vm.playerAlignment, ideals: vm.playerIdeals, defects: vm.playerDefects, inspiration: vm.playerInspiration, notes: vm.playerNotes)
+            print(player)
+            campaign.players?.append(player)
         }
     }
 }
