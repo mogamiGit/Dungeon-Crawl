@@ -15,7 +15,7 @@ class CreatePlayerViewModel {
     var characterName = ""
     var playerLevel = 0
     var playerRaceType: RaceType = .human
-    var playerClassType: ClassType = .fighter
+    var playerClassType: ClassType = .barbarian
     var playerAge = 0
     var playerAlignment: AlignmentType = .neutral
     var playerIdeals = ""

@@ -10,8 +10,8 @@ import SwiftData
 
 struct DetailCampaignView: View {
     @Bindable var campaign: Campaign
+    @Query(sort: \Player.nameCharacter, order: .forward, animation: .bouncy) var players: [Player]
     @Environment(\.modelContext) private var context
-    @Query(sort: \Player.nameCharacter, order: .forward, animation: .smooth) var players: [Player]
     @State var vm = DetailCampaignViewModel()
     @State var isEditing = false
     
@@ -33,7 +33,7 @@ struct DetailCampaignView: View {
                                 Text("Adventurers")
                                     .font(.title2)
                                 Spacer()
-                                Button() {
+                                Button {
                                     vm.showPlayerCreation.toggle()
                                 } label: {
                                     HStack(alignment: .center) {
@@ -52,26 +52,31 @@ struct DetailCampaignView: View {
                         }
                         .background(.black)
                         if let players = campaign.players {
-                            if !players.isEmpty {
-                                List {
-                                    ForEach(players, id:\.self) { player in
-                                        NavigationLink {
-                                            DetailPlayerView(player: player)
-                                        } label: {
-                                            PlayerCell(player: player)
-                                        }
+                            List {
+                                ForEach(players) { player in
+                                    NavigationLink {
+                                        DetailPlayerView(player: player)
+                                    } label: {
+                                        PlayerCell(player: player)
+                                            .swipeActions(edge: .trailing) {
+                                                Button(role: .destructive) {
+                                                    Task {
+                                                        await MainActor.run {
+                                                            context.delete(player)
+                                                            try? context.save()
+                                                        }
+                                                    }
+                                                } label: {
+                                                    Label("Delete", systemImage: "trash")
+                                                }
+                                            }
                                     }
-                                    .onDelete(perform: { indexSet in
-                                        for index in indexSet {
-                                            context.delete(players[index])
-                                        }
-                                    })
-                                    .listRowBackground(Color.clear)
-                                    .listRowSeparator(.hidden)
                                 }
-                                .listStyle(.plain)
-                                .scrollContentBackground(.hidden)
+                                .listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
                             }
+                            .listStyle(.plain)
+                            .scrollContentBackground(.hidden)
                         }
                     }
                     Spacer()
@@ -92,11 +97,10 @@ struct DetailCampaignView: View {
             })
         }
     }
-    
 }
 
 
 #Preview {
     DetailCampaignView(campaign: Campaign.test)
-        .modelContainer(Campaign.previewContainer)
+        .modelContainer(for: Player.self, inMemory: true)
 }

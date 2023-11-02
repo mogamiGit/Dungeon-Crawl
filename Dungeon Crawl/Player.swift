@@ -11,7 +11,6 @@ import SwiftUI
 
 @Model
 final class Player {
-    @Attribute(.unique) var id: UUID
     var nameCharacter: String
     var namePlayer: String
     var level: Int
@@ -24,8 +23,7 @@ final class Player {
     var inspiration: Bool
     var notes: String?
     
-    init(id: UUID = UUID(), nameCharacter: String, namePlayer: String, level: Int, raceType: RaceType, classType: ClassType, age: Int, alignment: AlignmentType, ideals: String, defects: String, inspiration: Bool, notes: String?) {
-        self.id = id
+    init(nameCharacter: String, namePlayer: String, level: Int, raceType: RaceType, classType: ClassType, age: Int, alignment: AlignmentType, ideals: String, defects: String, inspiration: Bool, notes: String?) {
         self.nameCharacter = nameCharacter
         self.namePlayer = namePlayer
         self.level = level
