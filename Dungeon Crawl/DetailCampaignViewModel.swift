@@ -10,4 +10,5 @@ import Foundation
 @Observable
 class DetailCampaignViewModel {
     var showPlayerCreation = false
+    var showDeleteConfirmation = false
 }

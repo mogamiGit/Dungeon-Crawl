@@ -26,6 +26,7 @@ struct Dungeon_CrawlApp: App {
     var body: some Scene {
         WindowGroup {
             CampaignListView()
+                .preferredColorScheme(.dark)
         }
         .modelContainer(customModelContainer)
     }

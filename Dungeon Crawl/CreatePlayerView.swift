@@ -35,7 +35,7 @@ struct CreatePlayerView: View {
                                 .accentColor(.creamDungeon)
                                 .pickerStyle(.menu)
                             }
-                            .onChange(of: vm.playerRaceType) { newValue in
+                            .onChange(of: vm.playerRaceType) { oldValue, newValue in
                                 vm.playerAge = 0
                             }
                             .padding(10)
@@ -72,8 +72,16 @@ struct CreatePlayerView: View {
                             CustomMultipleTextField(title: "Defects", titleKey: "Player Defects", binding: $vm.playerDefects)
                             HStack(spacing:5) {
                                 Toggle(isOn: $vm.playerInspiration){
-                                    Text("Player Inspiration")
+                                    HStack(spacing: 10) {
+                                        Image(vm.playerInspiration ? "D20.fill" : "D20.empty")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 22)
+                                            .foregroundStyle(vm.playerInspiration ? .white : .white.opacity(0.3))
+                                        Text("Player Inspiration")
+                                    }
                                 }
+                                .toggleStyle(SwitchToggleStyle(tint: Color.mainDungeon))
                                 Spacer()
                                 if vm.playerInspiration {
                                     Text("Yes!")
@@ -138,8 +146,9 @@ struct CreatePlayerView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 80)
+                                .foregroundStyle(Color.secondaryDungeon)
                             Text(item.rawValue)
-                                .font(.title2)
+                                .font(.title3)
                         }
                         .onTapGesture {
                             vm.playerClassType = item

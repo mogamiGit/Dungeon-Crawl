@@ -19,8 +19,11 @@ struct CampaignCell: View {
                     .fontWeight(.bold)
                     .lineLimit(2)
                 HStack {
-                    Image(systemName: "mappin.and.ellipse")
-                        .foregroundStyle(Color.accentDungeon)
+                    Image("location")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28)
+                        .foregroundStyle(Color.secondaryDungeon)
                     Text(campaign.location)
                 }
                 .font(.title3)
@@ -32,7 +35,7 @@ struct CampaignCell: View {
                 HStack {
                     HStack(spacing: 3) {
                         Image(systemName: "person.2.fill")
-                            .foregroundStyle(Color.accentDungeon)
+                            .foregroundStyle(Color.mainDungeon)
                         if let players = campaign.players {
                             Text("\(players.count)")
                         } else {

@@ -18,6 +18,7 @@ struct PlayerCell: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 60, height: 60)
+                    .foregroundStyle(Color.secondaryDungeon)
                     .padding(15)
                     .background {
                         RoundedRectangle(cornerRadius: 20)
@@ -34,7 +35,7 @@ struct PlayerCell: View {
                     .padding(.bottom, 10)
                 HStack {
                     Image(systemName: "person.fill")
-                        .foregroundStyle(Color.accentDungeon)
+                        .foregroundStyle(Color.mainDungeon)
                     Text(player.namePlayer)
                         .font(.callout)
                         .foregroundStyle(.gray)

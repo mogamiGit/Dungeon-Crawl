@@ -12,21 +12,35 @@ struct DetailCampaignView: View {
     @Bindable var campaign: Campaign
     @Query(sort: \Player.nameCharacter, order: .forward, animation: .bouncy) var players: [Player]
     @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) var dismiss
     @State var vm = DetailCampaignViewModel()
-    @State var isEditing = false
+    @State private var campaignEdit: Campaign?
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
                 VStack(alignment: .leading, spacing: 30) {
-                    VStack(alignment: .leading, spacing: 15) {
+                    VStack(spacing: 15) {
                         Text(campaign.name)
-                            .font(.title)
-                        Text(campaign.location)
-                        Text("Lv. \(campaign.level)")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        HStack(spacing: 30) {
+                            HStack {
+                                Image("location")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20)
+                                    .foregroundStyle(Color.secondaryDungeon)
+                                Text(campaign.location)
+                            }
+                            Text("Lv. \(campaign.level)")
+                                .foregroundStyle(Color.secondaryDungeon)
+                        }
+                        .foregroundStyle(Color.gray)
                     }
                     .padding(.horizontal)
+                    .frame(maxWidth: .infinity)
                     VStack(alignment: .leading) {
                         VStack {
                             HStack() {
@@ -38,13 +52,13 @@ struct DetailCampaignView: View {
                                 } label: {
                                     HStack(alignment: .center) {
                                         Image(systemName: "person.fill.badge.plus")
-                                            .foregroundStyle(Color.mainDungeon)
+                                            .foregroundStyle(Color.accentDungeon)
                                         Text("Add player")
                                     }
                                     .padding()
                                     .overlay {
                                         RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.mainDungeon, lineWidth: 1)
+                                            .stroke(Color.accentDungeon, lineWidth: 1)
                                     }
                                 }
                             }
@@ -59,17 +73,24 @@ struct DetailCampaignView: View {
                                     } label: {
                                         PlayerCell(player: player)
                                             .swipeActions(edge: .trailing) {
-                                                Button(role: .destructive) {
+                                                Button {
+                                                    vm.showDeleteConfirmation.toggle()
+                                                } label: {
+                                                    Label("Delete", systemImage: "eraser")
+                                                }
+                                                .tint(Color.mainDungeon)
+                                            }
+                                            .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $vm.showDeleteConfirmation, actions: {
+                                                Button("Delete", role: .destructive) {
                                                     Task {
                                                         await MainActor.run {
                                                             context.delete(player)
                                                             try? context.save()
                                                         }
                                                     }
-                                                } label: {
-                                                    Label("Delete", systemImage: "trash")
                                                 }
-                                            }
+                                                Button("Cancel", role: .cancel) { }
+                                            })
                                     }
                                 }
                                 .listRowBackground(Color.clear)
@@ -86,15 +107,22 @@ struct DetailCampaignView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        isEditing.toggle()
+                        campaignEdit = campaign
                     }, label: {
-                        Text("Edit")
+                        Image("edit")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .foregroundStyle(.white)
                     })
                 }
             }
             .fullScreenCover(isPresented: $vm.showPlayerCreation, content: {
                 CreatePlayerView(campaign: campaign)
             })
+            .fullScreenCover(item: $campaignEdit) { campaign in
+                UpdateCampaignView(campaign: campaign)
+            }
         }
     }
 }

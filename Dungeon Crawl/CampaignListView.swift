@@ -16,7 +16,7 @@ struct CampaignListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.secondaryDungeon.ignoresSafeArea().opacity(0.5)
+                Color.secondaryDungeon.ignoresSafeArea()
                 VStack {
                     if campaigns.isEmpty {
                         Text("No available campaigns")
@@ -51,7 +51,7 @@ struct CampaignListView: View {
                             Text("Create Campaign")
                             Image(systemName: "add")
                         }
-                        .foregroundStyle(Color.mainDungeon)
+                        .foregroundStyle(Color.accentDungeon)
                     }
                 }
             }

@@ -12,7 +12,7 @@ import SwiftUI
 @Model
 final class Player {
     var nameCharacter: String
-    var namePlayer: String
+    @Attribute(.unique) var namePlayer: String
     var level: Int
     var raceType: RaceType
     var classType: ClassType
