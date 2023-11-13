@@ -1,5 +1,5 @@
 //
-//  NpcListView.swift
+//  EncounterCampaignListView.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 12/11/23.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct NpcListView: View {
+struct EncounterCampaignListView: View {
     var body: some View {
-        Text("NPCs")
+        Text("Encounter")
     }
 }
 
 #Preview {
-    NpcListView()
+    EncounterCampaignListView()
 }

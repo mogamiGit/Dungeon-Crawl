@@ -1,5 +1,5 @@
 //
-//  PlayerListView.swift
+//  PlayerCampaignListView.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 12/11/23.
@@ -8,12 +8,9 @@
 import SwiftUI
 import SwiftData
 
-struct PlayerListView: View {
+struct PlayerCampaignListView: View {
     @Bindable var campaign: Campaign
     @Query(sort: \Player.nameCharacter, order: .forward, animation: .bouncy) var players: [Player]
-    @Environment(\.modelContext) private var context
-    @Environment(\.dismiss) var dismiss
-    @State var showDeleteConfirmation = false
     @State var showPlayerCreation = false
     
     var body: some View {
@@ -43,25 +40,6 @@ struct PlayerListView: View {
                             DetailPlayerView(player: player)
                         } label: {
                             PlayerCell(player: player)
-                                .swipeActions(edge: .trailing) {
-                                    Button {
-                                        showDeleteConfirmation.toggle()
-                                    } label: {
-                                        Label("Delete", systemImage: "eraser")
-                                    }
-                                    .tint(Color.mainDungeon)
-                                }
-                                .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $showDeleteConfirmation, actions: {
-                                    Button("Delete", role: .destructive) {
-                                        Task {
-                                            await MainActor.run {
-                                                context.delete(player)
-                                                try? context.save()
-                                            }
-                                        }
-                                    }
-                                    Button("Cancel", role: .cancel) { }
-                                })
                         }
                     }
                     .listRowBackground(Color.clear)
@@ -78,6 +56,6 @@ struct PlayerListView: View {
 }
 
 #Preview {
-    PlayerListView(campaign: Campaign.exampleCampaign())
+    PlayerCampaignListView(campaign: Campaign.exampleCampaign())
         .modelContainer(PreviewSampleData.container)
 }

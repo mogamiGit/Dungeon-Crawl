@@ -14,7 +14,6 @@ struct DetailCampaignView: View {
     @State private var tabProgress: CGFloat = 0
     @State var vm = DetailCampaignViewModel()
     @Bindable var campaign: Campaign
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -49,13 +48,12 @@ struct DetailCampaignView: View {
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 0) {
-                                PlayerListView(campaign: campaign)
+                                PlayerCampaignListView(campaign: campaign)
                                     .id(Tab.players)
                                     .containerRelativeFrame(.horizontal)
-                                NpcListView()
-                                    .id(Tab.npcs)
+                                NpcCampaignListView()              .id(Tab.npcs)
                                     .containerRelativeFrame(.horizontal)
-                                EncounterListView()
+                                EncounterCampaignListView()
                                     .id(Tab.encounters)
                                     .containerRelativeFrame(.horizontal)
                             }
@@ -100,8 +98,8 @@ struct DetailCampaignView: View {
                 ForEach(Tab.allCases, id: \.rawValue) { tab in
                     HStack(spacing: 5) {
                         Image(systemName: tab.iconTab)
-//                        Text(tab.rawValue)
-//                            .font(.caption)
+                        //                        Text(tab.rawValue)
+                        //                            .font(.caption)
                     }
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
@@ -134,4 +132,5 @@ struct DetailCampaignView: View {
 
 #Preview {
     DetailCampaignView(campaign: Campaign.exampleCampaign())
+        .modelContainer(PreviewSampleData.container)
 }

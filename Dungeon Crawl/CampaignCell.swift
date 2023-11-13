@@ -67,4 +67,5 @@ struct CampaignCell: View {
 
 #Preview {
     CampaignCell(campaign: Campaign.exampleCampaign())
+        .modelContainer(PreviewSampleData.container)
 }

@@ -12,7 +12,7 @@ actor PreviewSampleData {
     @MainActor
     static var container: ModelContainer = {
         do {
-            let schema = Schema([Campaign.self, Player.self])
+            let schema = Schema([Campaign.self, Player.self, NPC.self])
             let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
             let container = try ModelContainer(for: schema, configurations: [configuration])
             let sampleData: [any PersistentModel] = [
