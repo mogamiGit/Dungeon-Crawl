@@ -55,7 +55,7 @@ struct CreatePlayerView: View {
                                     .padding(.horizontal)
                                 Spacer()
                                 Picker("Select PC Race", selection: $vm.playerAlignment) {
-                                    ForEach(AlignmentType.allCases, id: \.self) { item in
+                                    ForEach(AlignmentPlayer.allCases, id: \.self) { item in
                                         Text(item.rawValue)
                                     }
                                 }
@@ -164,5 +164,5 @@ struct CreatePlayerView: View {
 }
 
 #Preview {
-    CreatePlayerView(campaign: Campaign.test)
+    CreatePlayerView(campaign: Campaign.exampleCampaign())
 }

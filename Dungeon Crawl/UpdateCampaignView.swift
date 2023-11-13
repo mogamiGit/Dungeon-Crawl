@@ -69,5 +69,5 @@ struct UpdateCampaignView: View {
 }
 
 #Preview {
-    UpdateCampaignView(campaign: Campaign.test)
+    UpdateCampaignView(campaign: Campaign.exampleCampaign())
 }

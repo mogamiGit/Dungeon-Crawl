@@ -31,6 +31,7 @@ struct PlayerListView: View {
                                 Image(systemName: "person.fill.badge.plus")
                                     .foregroundStyle(Color.mainDungeon)
                                 Text("Add player")
+                                    .foregroundStyle(.white)
                             }
                         }
                     }
@@ -77,6 +78,6 @@ struct PlayerListView: View {
 }
 
 #Preview {
-    PlayerListView(campaign: .test)
-        .modelContainer(CampaignDataController.previewCampaign)
+    PlayerListView(campaign: Campaign.exampleCampaign())
+        .modelContainer(PreviewSampleData.container)
 }

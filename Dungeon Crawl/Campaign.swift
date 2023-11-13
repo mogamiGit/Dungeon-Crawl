@@ -22,6 +22,22 @@ final public class Campaign {
         self.location = location
         self.level = level
     }
+    
+    static func exampleCampaign() -> Campaign {
+        return Campaign(name: "Left Handed Company",
+                        location: "Nevewinter",
+                        level: 4,
+                        players: [])
+    }
+    
+    static func exampleCampaignWithPlayers() -> Campaign {
+        let campaign = Campaign(name: "Magic DnD Trip",
+                        location: "Castle Darkhold",
+                                level: 4, players: [])
+        campaign.players?.append(Player.examplePlayer())
+        campaign.players?.append(Player.examplePlayer2())
+        return campaign
+    }
 }
 
 

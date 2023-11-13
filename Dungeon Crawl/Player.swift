@@ -17,13 +17,13 @@ final public class Player {
     var raceType: RaceType
     var classType: ClassType
     var age: Int
-    var alignment: AlignmentType
+    var alignment: AlignmentPlayer
     var ideals: String
     var defects: String
     var inspiration: Bool
     var notes: String?
     
-    init(nameCharacter: String, namePlayer: String, level: Int, raceType: RaceType, classType: ClassType, age: Int, alignment: AlignmentType, ideals: String, defects: String, inspiration: Bool, notes: String?) {
+    init(nameCharacter: String, namePlayer: String, level: Int, raceType: RaceType, classType: ClassType, age: Int, alignment: AlignmentPlayer, ideals: String, defects: String, inspiration: Bool, notes: String?) {
         self.nameCharacter = nameCharacter
         self.namePlayer = namePlayer
         self.level = level
@@ -35,6 +35,34 @@ final public class Player {
         self.defects = defects
         self.inspiration = inspiration
         self.notes = notes
+    }
+    
+    static func examplePlayer() -> Player {
+        return Player(nameCharacter: "Sefard The Scapist",
+                      namePlayer: "Leon",
+                      level: 5,
+                      raceType: RaceType.human,
+                      classType: ClassType.wizard,
+                      age: 25,
+                      alignment: AlignmentPlayer.chaoticgood,
+                      ideals: "Justice and Freedom",
+                      defects: "Impatient",
+                      inspiration: true,
+                      notes: "Has a pet owl named Hoot")
+    }
+    
+    static func examplePlayer2() -> Player {
+        return Player(nameCharacter: "Pleok",
+                      namePlayer: "Jane",
+                      level: 5,
+                      raceType: RaceType.halforc,
+                      classType: ClassType.fighter,
+                      age: 45,
+                      alignment: AlignmentPlayer.neutral,
+                      ideals: "Revenge",
+                      defects: "Dumb",
+                      inspiration: false,
+                      notes: "Has a vampire sword")
     }
 }
 
@@ -65,7 +93,7 @@ enum RaceType: String, Codable, CaseIterable {
     case tiefling = "Tiefling"
 }
 
-enum AlignmentType: String, Codable, CaseIterable {
+enum AlignmentPlayer: String, Codable, CaseIterable {
     case chaoticevil = "Chaotic-evil"
     case chaoticgood = "Chaotic-good"
     case chaoticneutral = "Chaotic-neutral"

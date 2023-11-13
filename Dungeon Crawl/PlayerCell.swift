@@ -48,5 +48,5 @@ struct PlayerCell: View {
 }
 
 #Preview {
-    PlayerCell(player: .test)
+    PlayerCell(player: Player.examplePlayer2())
 }

@@ -133,5 +133,5 @@ struct DetailCampaignView: View {
 
 
 #Preview {
-    DetailCampaignView(campaign: Campaign.test)
+    DetailCampaignView(campaign: Campaign.exampleCampaign())
 }

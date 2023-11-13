@@ -16,5 +16,5 @@ struct DetailPlayerView: View {
 }
 
 #Preview {
-    DetailPlayerView(player: Player.test)
+    DetailPlayerView(player: Player.examplePlayer2())
 }

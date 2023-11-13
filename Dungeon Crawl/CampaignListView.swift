@@ -65,5 +65,5 @@ struct CampaignListView: View {
 
 #Preview {
     CampaignListView()
-        .modelContainer(CampaignDataController.previewCampaign)
+        .modelContainer(PreviewSampleData.container)
 }

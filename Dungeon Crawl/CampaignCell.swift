@@ -34,7 +34,7 @@ struct CampaignCell: View {
                     .foregroundStyle(Color.secondaryDungeon)
                 Spacer()
                 HStack {
-                    if !(campaign.players?.count == 0) {
+                    if ((campaign.players) != []) {
                         HStack(spacing: 3) {
                             Image(systemName: "person.2.fill")
                                 .foregroundStyle(Color.accentDungeon)
@@ -66,5 +66,5 @@ struct CampaignCell: View {
 }
 
 #Preview {
-    CampaignCell(campaign: .test)
+    CampaignCell(campaign: Campaign.exampleCampaign())
 }
