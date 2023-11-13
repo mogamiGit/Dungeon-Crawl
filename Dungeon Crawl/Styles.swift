@@ -30,3 +30,34 @@ struct DungeonMainButton: ButtonStyle {
         }
     }
 }
+
+struct CustomToggleStyle: ToggleStyle {
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            RoundedRectangle(cornerRadius: 50)
+                .foregroundStyle(configuration.isOn ? Color.mainDungeon : .white.opacity(0.2))
+                .frame(width: 70, height: 45, alignment: .center)
+                .overlay(
+                    Circle()
+                        .foregroundColor(.white)
+                        .padding(.all, 3)
+                        .overlay(
+                            Image(configuration.isOn ? "D20.fill" : "D20.empty")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20, alignment: .center)
+                                .foregroundColor(configuration.isOn ? Color.mainDungeon : .gray.opacity(0.8))
+                        )
+                        .offset(x: configuration.isOn ? 15 : -15, y: 0)
+                )
+                .onTapGesture {
+                    withAnimation(.spring(duration: 0.2)) {
+                        configuration.isOn.toggle()
+                    }
+                }
+        }
+    }
+}

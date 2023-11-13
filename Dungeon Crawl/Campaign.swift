@@ -9,12 +9,13 @@ import Foundation
 import SwiftData
 
 @Model
-final class Campaign {
+final public class Campaign {
     @Attribute(.unique) var name: String
     var location: String
     var level: Int
     @Relationship(deleteRule: .cascade) var players: [Player]?
     @Relationship(deleteRule: .cascade) var encounters: [Encounter]?
+    @Relationship(inverse: \NPC.campaign) var npcs: [NPC]?
     
     init(name: String, location: String, level: Int, players: [Player]) {
         self.name = name

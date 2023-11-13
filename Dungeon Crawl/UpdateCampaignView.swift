@@ -33,6 +33,11 @@ struct UpdateCampaignView: View {
                     }
                     .cornerRadius(10)
                 }
+                .onAppear {
+                    vm.updatedCampaignName = campaign.name
+                    vm.updatedCampaignLocation = campaign.location
+                    vm.updatedCampaignLevel = campaign.level
+                }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {

@@ -72,25 +72,9 @@ struct CreatePlayerView: View {
                             CustomMultipleTextField(title: "Defects", titleKey: "Player Defects", binding: $vm.playerDefects)
                             HStack(spacing:5) {
                                 Toggle(isOn: $vm.playerInspiration){
-                                    HStack(spacing: 10) {
-                                        Image(vm.playerInspiration ? "D20.fill" : "D20.empty")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 22)
-                                            .foregroundStyle(vm.playerInspiration ? .white : .white.opacity(0.3))
-                                        Text("Player Inspiration")
-                                    }
+                                    Text("Player Inspiration")
                                 }
-                                .toggleStyle(SwitchToggleStyle(tint: Color.mainDungeon))
-                                Spacer()
-                                if vm.playerInspiration {
-                                    Text("Yes!")
-                                        .foregroundStyle(Color.secondaryDungeon)
-                                        .fontWeight(.bold)
-                                } else {
-                                    Text("No")
-                                        .opacity(0.5)
-                                }
+                                .toggleStyle(CustomToggleStyle())
                             }
                             MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Player name")
                             CustomMultipleTextField(title: "Notes", titleKey: "Player Notes", binding: $vm.playerNotes)
@@ -181,5 +165,4 @@ struct CreatePlayerView: View {
 
 #Preview {
     CreatePlayerView(campaign: Campaign.test)
-        .modelContainer(for: Player.self, inMemory: true)
 }

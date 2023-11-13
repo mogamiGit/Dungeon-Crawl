@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftData
 
 struct CampaignListView: View {
-    @State var vm = CampaignListViewModel()
     @Environment(\.modelContext) private var context
     @Query(sort: \Campaign.name, order: .forward, animation: .easeOut) private var campaigns: [Campaign]
+    @State var showCampaignCreation = false
     
     var body: some View {
         NavigationStack {
@@ -45,19 +45,19 @@ struct CampaignListView: View {
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
-                        vm.showCampaignCreation.toggle()
+                        showCampaignCreation.toggle()
                     } label: {
                         HStack {
+                            Image(systemName: "plus")
                             Text("Create Campaign")
-                            Image(systemName: "add")
                         }
-                        .foregroundStyle(Color.accentDungeon)
+                        .foregroundStyle(Color.mainDungeon)
                     }
                 }
             }
             .navigationTitle("My Campaigns")
         }
-        .fullScreenCover(isPresented: $vm.showCampaignCreation, content: {
+        .fullScreenCover(isPresented: $showCampaignCreation, content: {
             CreateCampaignView()
         })
     }
@@ -65,5 +65,5 @@ struct CampaignListView: View {
 
 #Preview {
     CampaignListView()
-        .modelContainer(for: Campaign.self)
+        .modelContainer(CampaignDataController.previewCampaign)
 }

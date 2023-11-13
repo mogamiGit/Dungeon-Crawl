@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-final class Player {
+final public class Player {
     var nameCharacter: String
     @Attribute(.unique) var namePlayer: String
     var level: Int

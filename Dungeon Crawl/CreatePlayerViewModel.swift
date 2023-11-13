@@ -8,7 +8,7 @@
 import SwiftUI
 
 @Observable
-class CreatePlayerViewModel {
+final class CreatePlayerViewModel {
     static let shared = CreatePlayerViewModel()
     
     var playerName = ""

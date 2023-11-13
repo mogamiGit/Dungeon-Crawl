@@ -9,18 +9,18 @@ import SwiftUI
 import SwiftData
 
 struct DetailCampaignView: View {
-    @Bindable var campaign: Campaign
-    @Query(sort: \Player.nameCharacter, order: .forward, animation: .bouncy) var players: [Player]
-    @Environment(\.modelContext) private var context
-    @Environment(\.dismiss) var dismiss
-    @State var vm = DetailCampaignViewModel()
     @State private var campaignEdit: Campaign?
+    @State private var selectedTab: Tab?
+    @State private var tabProgress: CGFloat = 0
+    @State var vm = DetailCampaignViewModel()
+    @Bindable var campaign: Campaign
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
-                VStack(alignment: .leading, spacing: 30) {
+                VStack(alignment: .leading, spacing: 10) {
                     VStack(spacing: 15) {
                         Text(campaign.name)
                             .font(.largeTitle)
@@ -40,67 +40,37 @@ struct DetailCampaignView: View {
                         .foregroundStyle(Color.gray)
                     }
                     .padding(.horizontal)
+                    .padding(.bottom, 20)
                     .frame(maxWidth: .infinity)
-                    VStack(alignment: .leading) {
-                        VStack {
-                            HStack() {
-                                Text("Adventurers")
-                                    .font(.title2)
-                                Spacer()
-                                Button {
-                                    vm.showPlayerCreation.toggle()
-                                } label: {
-                                    HStack(alignment: .center) {
-                                        Image(systemName: "person.fill.badge.plus")
-                                            .foregroundStyle(Color.accentDungeon)
-                                        Text("Add player")
-                                    }
-                                    .padding()
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color.accentDungeon, lineWidth: 1)
-                                    }
-                                }
+                    CustomTopTabBar()
+                        .padding(.top, 10)
+                    GeometryReader {
+                        let size = $0.size
+                        
+                        ScrollView(.horizontal) {
+                            LazyHStack(spacing: 0) {
+                                PlayerListView(campaign: campaign)
+                                    .id(Tab.players)
+                                    .containerRelativeFrame(.horizontal)
+                                NpcListView()
+                                    .id(Tab.npcs)
+                                    .containerRelativeFrame(.horizontal)
+                                EncounterListView()
+                                    .id(Tab.encounters)
+                                    .containerRelativeFrame(.horizontal)
                             }
-                            .padding()
-                        }
-                        .background(.black)
-                        if let players = campaign.players {
-                            List {
-                                ForEach(players) { player in
-                                    NavigationLink {
-                                        DetailPlayerView(player: player)
-                                    } label: {
-                                        PlayerCell(player: player)
-                                            .swipeActions(edge: .trailing) {
-                                                Button {
-                                                    vm.showDeleteConfirmation.toggle()
-                                                } label: {
-                                                    Label("Delete", systemImage: "eraser")
-                                                }
-                                                .tint(Color.mainDungeon)
-                                            }
-                                            .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $vm.showDeleteConfirmation, actions: {
-                                                Button("Delete", role: .destructive) {
-                                                    Task {
-                                                        await MainActor.run {
-                                                            context.delete(player)
-                                                            try? context.save()
-                                                        }
-                                                    }
-                                                }
-                                                Button("Cancel", role: .cancel) { }
-                                            })
-                                    }
-                                }
-                                .listRowBackground(Color.clear)
-                                .listRowSeparator(.hidden)
+                            .scrollTargetLayout()
+                            .offsetX { value in
+                                print(value)
+                                let progress = -value / (size.width * CGFloat(Tab.allCases.count - 1))
+                                tabProgress = max(min(progress, 1), 0)
                             }
-                            .listStyle(.plain)
-                            .scrollContentBackground(.hidden)
                         }
+                        .scrollPosition(id: $selectedTab)
+                        .scrollIndicators(.hidden)
+                        .scrollTargetBehavior(.paging)
+                        .scrollClipDisabled()
                     }
-                    Spacer()
                 }
             }
             .foregroundStyle(.white)
@@ -117,12 +87,46 @@ struct DetailCampaignView: View {
                     })
                 }
             }
-            .fullScreenCover(isPresented: $vm.showPlayerCreation, content: {
-                CreatePlayerView(campaign: campaign)
-            })
             .fullScreenCover(item: $campaignEdit) { campaign in
                 UpdateCampaignView(campaign: campaign)
             }
+        }
+    }
+    
+    @ViewBuilder
+    func CustomTopTabBar() -> some View {
+        VStack(alignment: .center) {
+            HStack(spacing: 0) {
+                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                    HStack(spacing: 5) {
+                        Image(systemName: tab.iconTab)
+//                        Text(tab.rawValue)
+//                            .font(.caption)
+                    }
+                    .foregroundStyle(.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .onTapGesture {
+                        withAnimation(.spring) {
+                            selectedTab = tab
+                        }
+                    }
+                }
+            }
+            .background {
+                GeometryReader {
+                    let size = $0.size
+                    let capsuleWidth = size.width / CGFloat(Tab.allCases.count)
+                    
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(.black)
+                        .padding(5)
+                        .frame(width: capsuleWidth)
+                        .offset(x: tabProgress * (size.width - capsuleWidth))
+                }
+            }
+            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16))
+            .padding(.horizontal, 14)
         }
     }
 }
@@ -130,5 +134,4 @@ struct DetailCampaignView: View {
 
 #Preview {
     DetailCampaignView(campaign: Campaign.test)
-        .modelContainer(for: Player.self, inMemory: true)
 }

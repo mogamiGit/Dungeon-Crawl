@@ -12,7 +12,6 @@
 		D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC62AD1E84E00E661BF /* CustomSlider.swift */; };
 		D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3037FC82AD1EA6700E661BF /* MainTextField.swift */; };
 		D30C05EF2AFD9474003DEA49 /* UpdateCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C05EE2AFD9473003DEA49 /* UpdateCampaignViewModel.swift */; };
-		D310B3032ADC98D400AFBE25 /* DetailCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D310B3022ADC98D400AFBE25 /* DetailCampaignViewModel.swift */; };
 		D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */; };
 		D317E92F2AC84A7E00D6D158 /* Encounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E92E2AC84A7E00D6D158 /* Encounter.swift */; };
 		D317E9312AC84B2D00D6D158 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317E9302AC84B2D00D6D158 /* Player.swift */; };
@@ -20,8 +19,7 @@
 		D3287CF62AC07AE7001E0A59 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3287CF52AC07AE7001E0A59 /* Colors.xcassets */; };
 		D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3287CF82AC08E55001E0A59 /* Extensions.swift */; };
 		D3287CFD2AC0E6F5001E0A59 /* CampaignTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3287CFC2AC0E6F5001E0A59 /* CampaignTest.json */; };
-		D3287CFF2AC0E71D001E0A59 /* RepositoryPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3287CFE2AC0E71D001E0A59 /* RepositoryPreview.swift */; };
-		D33758982ABB997A00DFECEF /* CampaignListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33758972ABB997A00DFECEF /* CampaignListViewModel.swift */; };
+		D3287CFF2AC0E71D001E0A59 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3287CFE2AC0E71D001E0A59 /* PreviewSampleData.swift */; };
 		D337589B2ABB9D0000DFECEF /* CampaignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D337589A2ABB9D0000DFECEF /* CampaignCell.swift */; };
 		D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */; };
 		D3407A022AF31A270021B590 /* DetailPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3407A012AF31A270021B590 /* DetailPlayerView.swift */; };
@@ -36,6 +34,12 @@
 		D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613A72AB29F88007BFFF7 /* Assets.xcassets */; };
 		D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */; };
 		D3BB37D32AE54145005DA57B /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB37D22AE54145005DA57B /* Styles.swift */; };
+		D3CAE0162B01585600BF03BF /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0152B01585600BF03BF /* PlayerListView.swift */; };
+		D3CAE0182B015FA400BF03BF /* DetailCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0172B015FA400BF03BF /* DetailCampaignViewModel.swift */; };
+		D3CAE01C2B0169DB00BF03BF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01B2B0169DB00BF03BF /* Tab.swift */; };
+		D3CAE01E2B016E6400BF03BF /* NpcListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01D2B016E6400BF03BF /* NpcListView.swift */; };
+		D3CAE0202B016E9100BF03BF /* EncounterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01F2B016E9100BF03BF /* EncounterListView.swift */; };
+		D3CAE0222B01907200BF03BF /* CreateNpcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0212B01907200BF03BF /* CreateNpcView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +48,6 @@
 		D3037FC62AD1E84E00E661BF /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		D3037FC82AD1EA6700E661BF /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		D30C05EE2AFD9473003DEA49 /* UpdateCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCampaignViewModel.swift; sourceTree = "<group>"; };
-		D310B3022ADC98D400AFBE25 /* DetailCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignViewModel.swift; sourceTree = "<group>"; };
 		D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMultipleTextField.swift; sourceTree = "<group>"; };
 		D317E92E2AC84A7E00D6D158 /* Encounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encounter.swift; sourceTree = "<group>"; };
 		D317E9302AC84B2D00D6D158 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -52,8 +55,7 @@
 		D3287CF52AC07AE7001E0A59 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D3287CF82AC08E55001E0A59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D3287CFC2AC0E6F5001E0A59 /* CampaignTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CampaignTest.json; sourceTree = "<group>"; };
-		D3287CFE2AC0E71D001E0A59 /* RepositoryPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryPreview.swift; sourceTree = "<group>"; };
-		D33758972ABB997A00DFECEF /* CampaignListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListViewModel.swift; sourceTree = "<group>"; };
+		D3287CFE2AC0E71D001E0A59 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		D337589A2ABB9D0000DFECEF /* CampaignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCell.swift; sourceTree = "<group>"; };
 		D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignView.swift; sourceTree = "<group>"; };
 		D3407A012AF31A270021B590 /* DetailPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlayerView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,12 @@
 		D3B613A72AB29F88007BFFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3BB37D22AE54145005DA57B /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		D3CAE0152B01585600BF03BF /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
+		D3CAE0172B015FA400BF03BF /* DetailCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignViewModel.swift; sourceTree = "<group>"; };
+		D3CAE01B2B0169DB00BF03BF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		D3CAE01D2B016E6400BF03BF /* NpcListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcListView.swift; sourceTree = "<group>"; };
+		D3CAE01F2B016E9100BF03BF /* EncounterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterListView.swift; sourceTree = "<group>"; };
+		D3CAE0212B01907200BF03BF /* CreateNpcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNpcView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */,
-				D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */,
+				D3CAE0142B01581D00BF03BF /* Detail Campaign */,
+				D3407A012AF31A270021B590 /* DetailPlayerView.swift */,
 				D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */,
 				D3037FBE2AD1D15400E661BF /* CreatePlayerView.swift */,
-				D3407A012AF31A270021B590 /* DetailPlayerView.swift */,
+				D3CAE0212B01907200BF03BF /* CreateNpcView.swift */,
 				D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */,
 			);
 			name = Views;
@@ -140,10 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */,
-				D33758972ABB997A00DFECEF /* CampaignListViewModel.swift */,
 				D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */,
-				D310B3022ADC98D400AFBE25 /* DetailCampaignViewModel.swift */,
 				D30C05EE2AFD9473003DEA49 /* UpdateCampaignViewModel.swift */,
+				D3CAE0172B015FA400BF03BF /* DetailCampaignViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 				D317E92E2AC84A7E00D6D158 /* Encounter.swift */,
 				D317E9302AC84B2D00D6D158 /* Player.swift */,
 				D317E9322AC84B7E00D6D158 /* NPC.swift */,
+				D3CAE01B2B0169DB00BF03BF /* Tab.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -191,7 +200,7 @@
 			children = (
 				D3287CFC2AC0E6F5001E0A59 /* CampaignTest.json */,
 				D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */,
-				D3287CFE2AC0E71D001E0A59 /* RepositoryPreview.swift */,
+				D3287CFE2AC0E71D001E0A59 /* PreviewSampleData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -204,6 +213,17 @@
 				D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		D3CAE0142B01581D00BF03BF /* Detail Campaign */ = {
+			isa = PBXGroup;
+			children = (
+				D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */,
+				D3CAE0152B01585600BF03BF /* PlayerListView.swift */,
+				D3CAE01D2B016E6400BF03BF /* NpcListView.swift */,
+				D3CAE01F2B016E9100BF03BF /* EncounterListView.swift */,
+			);
+			name = "Detail Campaign";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,20 +299,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CAE01E2B016E6400BF03BF /* NpcListView.swift in Sources */,
 				D317E9312AC84B2D00D6D158 /* Player.swift in Sources */,
 				D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */,
 				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,
-				D33758982ABB997A00DFECEF /* CampaignListViewModel.swift in Sources */,
 				D337589B2ABB9D0000DFECEF /* CampaignCell.swift in Sources */,
 				D3037FBF2AD1D15400E661BF /* CreatePlayerView.swift in Sources */,
 				D3BB37D32AE54145005DA57B /* Styles.swift in Sources */,
 				D30C05EF2AFD9474003DEA49 /* UpdateCampaignViewModel.swift in Sources */,
-				D3287CFF2AC0E71D001E0A59 /* RepositoryPreview.swift in Sources */,
+				D3CAE01C2B0169DB00BF03BF /* Tab.swift in Sources */,
+				D3CAE0182B015FA400BF03BF /* DetailCampaignViewModel.swift in Sources */,
+				D3287CFF2AC0E71D001E0A59 /* PreviewSampleData.swift in Sources */,
+				D3CAE0202B016E9100BF03BF /* EncounterListView.swift in Sources */,
 				D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */,
+				D3CAE0162B01585600BF03BF /* PlayerListView.swift in Sources */,
 				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* Encounter.swift in Sources */,
 				D317E9332AC84B7E00D6D158 /* NPC.swift in Sources */,
-				D310B3032ADC98D400AFBE25 /* DetailCampaignViewModel.swift in Sources */,
 				D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */,
 				D3037FC32AD1D53A00E661BF /* CreatePlayerViewModel.swift in Sources */,
 				D3AEA7272AE5354E00757993 /* PlayerCell.swift in Sources */,
@@ -302,6 +325,7 @@
 				D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */,
 				D35486E62AB98C9E00A3DFD0 /* Campaign.swift in Sources */,
 				D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */,
+				D3CAE0222B01907200BF03BF /* CreateNpcView.swift in Sources */,
 				D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

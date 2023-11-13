@@ -9,8 +9,9 @@ import Foundation
 import SwiftData
 
 @Model
-final class NPC {
+final public class NPC {
     var name: String
+    var campaign: [Campaign]?
     var level: Int
     var raceType: String
     var age: Int

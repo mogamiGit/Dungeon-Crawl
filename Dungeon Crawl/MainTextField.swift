@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct MainTextField: View {
-    var titleKey: String
-    var binding: Binding<String>
-    var prompt: String
+    let titleKey: String
+    let binding: Binding<String>
+    let prompt: String
     
     var body: some View {
         TextField(titleKey, text:binding, prompt: Text(prompt).foregroundStyle(.gray))

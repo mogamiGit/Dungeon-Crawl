@@ -31,15 +31,18 @@ struct CampaignCell: View {
             HStack {
                 Text("Lv.\(campaign.level)")
                     .font(.title3)
+                    .foregroundStyle(Color.secondaryDungeon)
                 Spacer()
                 HStack {
-                    HStack(spacing: 3) {
-                        Image(systemName: "person.2.fill")
-                            .foregroundStyle(Color.mainDungeon)
-                        if let players = campaign.players {
-                            Text("\(players.count)")
-                        } else {
-                            Text("0")
+                    if !(campaign.players?.count == 0) {
+                        HStack(spacing: 3) {
+                            Image(systemName: "person.2.fill")
+                                .foregroundStyle(Color.accentDungeon)
+                            if let players = campaign.players {
+                                Text("\(players.count)")
+                            } else {
+                                Text("0")
+                            }
                         }
                     }
                     if !(campaign.encounters?.count == 0) {
@@ -63,5 +66,5 @@ struct CampaignCell: View {
 }
 
 #Preview {
-    CampaignCell(campaign: Campaign.test)
+    CampaignCell(campaign: .test)
 }

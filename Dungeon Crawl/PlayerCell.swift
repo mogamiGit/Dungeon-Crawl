@@ -35,7 +35,7 @@ struct PlayerCell: View {
                     .padding(.bottom, 10)
                 HStack {
                     Image(systemName: "person.fill")
-                        .foregroundStyle(Color.mainDungeon)
+                        .foregroundStyle(Color.accentDungeon)
                     Text(player.namePlayer)
                         .font(.callout)
                         .foregroundStyle(.gray)
@@ -48,5 +48,5 @@ struct PlayerCell: View {
 }
 
 #Preview {
-    PlayerCell(player: Player.test)
+    PlayerCell(player: .test)
 }
