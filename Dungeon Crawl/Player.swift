@@ -23,6 +23,9 @@ final public class Player {
     var inspiration: Bool
     var notes: String?
     
+    @Relationship(inverse: \Campaign.players)
+    var campaign: Campaign?
+    
     init(nameCharacter: String, namePlayer: String, level: Int, raceType: RaceType, classType: ClassType, age: Int, alignment: AlignmentPlayer, ideals: String, defects: String, inspiration: Bool, notes: String?) {
         self.nameCharacter = nameCharacter
         self.namePlayer = namePlayer

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct DetailPlayerView: View {
     @Bindable var player: Player
+    @Bindable var campaign: Campaign
     @Environment(\.modelContext) private var context
-    @Environment(\.dismiss) var dismiss
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) private var presentationMode
     @State var showDeleteConfirmation = false
     @State var playerEdit: Player?
     
@@ -50,20 +51,27 @@ struct DetailPlayerView: View {
             }
             .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {
-                    Task {
-                        await MainActor.run {
-                            context.delete(player)
-                            try? context.save()
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    }
+                    delete(player)
                 }
                 Button("Cancel", role: .cancel) { }
             })
         }
     }
+    
+    private func delete(_ player: Player) {
+        context.delete(player)
+        campaign.players.removeAll(where: { innerPlayer in
+            innerPlayer == player
+        })
+        do {
+            try context.save()
+            presentationMode.wrappedValue.dismiss()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 #Preview {
-    DetailPlayerView(player: Player.examplePlayer2())
+    DetailPlayerView(player: Player.examplePlayer2(), campaign: Campaign.exampleCampaign())
 }

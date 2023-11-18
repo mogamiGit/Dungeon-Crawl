@@ -11,7 +11,6 @@ import SwiftData
 @Model
 final public class NPC {
     var name: String
-    var campaign: [Campaign]?
     var level: Int
     var raceType: String
     var age: Int
@@ -20,8 +19,11 @@ final public class NPC {
     var background: String
     var alignment: AlignmentNPC
     var appearance: String
-    var drives: DriveNPC
+    @Relationship(deleteRule: .cascade) var drives: DriveNPC
     var notes: String?
+    
+    @Relationship(inverse: \Campaign.npcs)
+    var campaign: [Campaign] = []
     
     init(name: String, level: Int, raceType: String, age: Int, occupation: String, location: String, background: String, alignment: AlignmentNPC, appearance: String, drives: DriveNPC) {
         self.name = name

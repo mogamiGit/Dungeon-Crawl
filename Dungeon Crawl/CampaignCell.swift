@@ -34,22 +34,18 @@ struct CampaignCell: View {
                     .foregroundStyle(Color.secondaryDungeon)
                 Spacer()
                 HStack {
-                    if ((campaign.players) != []) {
+                    if !(campaign.players.count == 0) {
                         HStack(spacing: 3) {
                             Image(systemName: "person.2.fill")
                                 .foregroundStyle(Color.accentDungeon)
-                            if let players = campaign.players {
-                                Text("\(players.count)")
-                            } else {
-                                Text("0")
-                            }
+                            Text("\(campaign.players.count)")
                         }
                     }
-                    if !(campaign.encounters?.count == 0) {
+                    if !(campaign.encounters.count == 0) {
                         HStack(spacing: 3) {
                             Image(systemName: "bolt.shield.fill")
                                 .foregroundStyle(Color.accentDungeon)
-                            Text("\(campaign.encounters!.count)")
+                            Text("\(campaign.encounters.count)")
                         }
                     }
                 }

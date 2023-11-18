@@ -13,10 +13,11 @@ final public class Campaign {
     @Attribute(.unique) var name: String
     var location: String
     var level: Int
-    @Relationship(deleteRule: .cascade) var players: [Player]?
-    @Relationship(deleteRule: .cascade) var encounters: [Encounter]?
+    @Relationship(deleteRule: .cascade) var players: [Player] = []
+    @Relationship(deleteRule: .cascade) var encounters: [Encounter] = []
+    @Relationship var npcs: [NPC] = []
     
-    init(name: String, location: String, level: Int, players: [Player]) {
+    init(name: String, location: String, level: Int) {
         self.name = name
         self.location = location
         self.level = level
@@ -25,16 +26,15 @@ final public class Campaign {
     static func exampleCampaign() -> Campaign {
         return Campaign(name: "Left Handed Company",
                         location: "Nevewinter",
-                        level: 4,
-                        players: [])
+                        level: 4)
     }
     
     static func exampleCampaignWithPlayers() -> Campaign {
         let campaign = Campaign(name: "Magic DnD Trip",
                         location: "Castle Darkhold",
-                                level: 4, players: [])
-        campaign.players?.append(Player.examplePlayer())
-        campaign.players?.append(Player.examplePlayer2())
+                                level: 4)
+        campaign.players.append(Player.examplePlayer())
+        campaign.players.append(Player.examplePlayer2())
         return campaign
     }
 }

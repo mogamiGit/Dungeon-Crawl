@@ -55,7 +55,7 @@ struct CreateCampaignView: View {
     }
     
     private func addCampaign() {
-        let campaign = Campaign(name: vm.campaignName, location: vm.campaignLocation, level: vm.campaignLevel, players: [])
+        let campaign = Campaign(name: vm.campaignName, location: vm.campaignLocation, level: vm.campaignLevel)
         
         context.insert(campaign)
     }

@@ -157,9 +157,15 @@ struct CreatePlayerView: View {
     func savePlayer() {
         withAnimation {
             let player = Player(nameCharacter: vm.characterName, namePlayer: vm.playerName,  level: vm.playerLevel, raceType: vm.playerRaceType, classType: vm.playerClassType, age: vm.playerAge, alignment: vm.playerAlignment, ideals: vm.playerIdeals, defects: vm.playerDefects, inspiration: vm.playerInspiration, notes: vm.playerNotes)
-            print(player)
-            campaign.players?.append(player)
+            player.campaign = campaign
+            campaign.players.append(player)
         }
+        
+        vm.characterName = ""
+        vm.playerName = ""
+        vm.playerIdeals = ""
+        vm.playerDefects = ""
+        vm.playerNotes = ""
     }
 }
 

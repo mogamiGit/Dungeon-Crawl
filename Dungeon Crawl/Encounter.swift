@@ -17,6 +17,9 @@ final class Encounter {
     var monsters: [Monster]?
     var treasures: [Treasure]?
     
+    @Relationship(inverse: \Campaign.encounters)
+    var campaign: Campaign?
+    
     init(id: UUID = UUID(), name: String, level: String, location: String) {
         self.id = id
         self.name = name
@@ -39,6 +42,9 @@ final class Monster {
     var charisma: Int
     var senses: Senses?
     var actions: [Action]
+    
+    @Relationship(inverse: \Campaign.encounters)
+    var campaign: Campaign?
     
     init(name: String, locationInMap: String, quantity: Int, size: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int, actions: [Action]) {
         self.name = name

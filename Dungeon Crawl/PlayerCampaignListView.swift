@@ -37,7 +37,7 @@ struct PlayerCampaignListView: View {
                 List {
                     ForEach(players) { player in
                         NavigationLink {
-                            DetailPlayerView(player: player)
+                            DetailPlayerView(player: player, campaign: campaign)
                         } label: {
                             PlayerCell(player: player)
                         }
