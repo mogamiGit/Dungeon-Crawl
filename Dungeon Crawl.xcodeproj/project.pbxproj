@@ -34,6 +34,8 @@
 		D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613A72AB29F88007BFFF7 /* Assets.xcassets */; };
 		D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */; };
 		D3BB37D32AE54145005DA57B /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB37D22AE54145005DA57B /* Styles.swift */; };
+		D3BFBF432B09651F0068A6A9 /* CreateNpcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */; };
+		D3BFBF452B0975C80068A6A9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFBF442B0975C80068A6A9 /* Home.swift */; };
 		D3CAE0162B01585600BF03BF /* PlayerCampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0152B01585600BF03BF /* PlayerCampaignListView.swift */; };
 		D3CAE0182B015FA400BF03BF /* DetailCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0172B015FA400BF03BF /* DetailCampaignViewModel.swift */; };
 		D3CAE01C2B0169DB00BF03BF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01B2B0169DB00BF03BF /* Tab.swift */; };
@@ -71,6 +73,8 @@
 		D3B613A72AB29F88007BFFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3BB37D22AE54145005DA57B /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNpcViewModel.swift; sourceTree = "<group>"; };
+		D3BFBF442B0975C80068A6A9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		D3CAE0152B01585600BF03BF /* PlayerCampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCampaignListView.swift; sourceTree = "<group>"; };
 		D3CAE0172B015FA400BF03BF /* DetailCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignViewModel.swift; sourceTree = "<group>"; };
 		D3CAE01B2B0169DB00BF03BF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -134,13 +138,11 @@
 		D35486EF2AB9ED6500A3DFD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */,
-				D3CAE0142B01581D00BF03BF /* Detail Campaign */,
+				D3BFBF442B0975C80068A6A9 /* Home.swift */,
+				D3CAE0142B01581D00BF03BF /* Campaign */,
 				D397C2EE2B02C1C3005B2736 /* Player */,
-				D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */,
-				D3037FBE2AD1D15400E661BF /* CreatePlayerView.swift */,
-				D3CAE0212B01907200BF03BF /* CreateNpcView.swift */,
-				D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */,
+				D3BFBF402B0964720068A6A9 /* NPC */,
+				D3BFBF412B0964980068A6A9 /* Encounter */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -150,6 +152,7 @@
 			children = (
 				D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */,
 				D3037FC22AD1D53A00E661BF /* CreatePlayerViewModel.swift */,
+				D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */,
 				D30C05EE2AFD9473003DEA49 /* UpdateCampaignViewModel.swift */,
 				D3CAE0172B015FA400BF03BF /* DetailCampaignViewModel.swift */,
 			);
@@ -171,6 +174,7 @@
 		D397C2EE2B02C1C3005B2736 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				D3037FBE2AD1D15400E661BF /* CreatePlayerView.swift */,
 				D3CAE0152B01585600BF03BF /* PlayerCampaignListView.swift */,
 				D3407A012AF31A270021B590 /* DetailPlayerView.swift */,
 			);
@@ -214,6 +218,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D3BFBF402B0964720068A6A9 /* NPC */ = {
+			isa = PBXGroup;
+			children = (
+				D3CAE0212B01907200BF03BF /* CreateNpcView.swift */,
+				D3CAE01D2B016E6400BF03BF /* NpcCampaignListView.swift */,
+			);
+			name = NPC;
+			sourceTree = "<group>";
+		};
+		D3BFBF412B0964980068A6A9 /* Encounter */ = {
+			isa = PBXGroup;
+			children = (
+				D3CAE01F2B016E9100BF03BF /* EncounterCampaignListView.swift */,
+			);
+			name = Encounter;
+			sourceTree = "<group>";
+		};
 		D3C538622AB8B43D00C0C1E9 /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,14 +245,15 @@
 			name = System;
 			sourceTree = "<group>";
 		};
-		D3CAE0142B01581D00BF03BF /* Detail Campaign */ = {
+		D3CAE0142B01581D00BF03BF /* Campaign */ = {
 			isa = PBXGroup;
 			children = (
+				D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */,
+				D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */,
 				D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */,
-				D3CAE01D2B016E6400BF03BF /* NpcCampaignListView.swift */,
-				D3CAE01F2B016E9100BF03BF /* EncounterCampaignListView.swift */,
+				D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */,
 			);
-			name = "Detail Campaign";
+			name = Campaign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,9 +351,11 @@
 				D3AEA7272AE5354E00757993 /* PlayerCell.swift in Sources */,
 				D35B40D12AF5CADC00C89CB7 /* UpdateCampaignView.swift in Sources */,
 				D3407A022AF31A270021B590 /* DetailPlayerView.swift in Sources */,
+				D3BFBF452B0975C80068A6A9 /* Home.swift in Sources */,
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
 				D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */,
 				D35486E62AB98C9E00A3DFD0 /* Campaign.swift in Sources */,
+				D3BFBF432B09651F0068A6A9 /* CreateNpcViewModel.swift in Sources */,
 				D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */,
 				D3CAE0222B01907200BF03BF /* CreateNpcView.swift in Sources */,
 				D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */,

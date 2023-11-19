@@ -35,16 +35,22 @@ struct CampaignCell: View {
                 Spacer()
                 HStack {
                     if !(campaign.players.count == 0) {
-                        HStack(spacing: 3) {
-                            Image(systemName: "person.2.fill")
+                        HStack(spacing: 7) {
+                            Image("D20.empty")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
                                 .foregroundStyle(Color.accentDungeon)
                             Text("\(campaign.players.count)")
                         }
                     }
                     if !(campaign.encounters.count == 0) {
                         HStack(spacing: 3) {
-                            Image(systemName: "bolt.shield.fill")
-                                .foregroundStyle(Color.accentDungeon)
+                            Image("swords")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 20)
+                                .foregroundStyle(.white)
                             Text("\(campaign.encounters.count)")
                         }
                     }

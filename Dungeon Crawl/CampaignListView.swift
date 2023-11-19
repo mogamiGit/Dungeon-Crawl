@@ -52,6 +52,7 @@ struct CampaignListView: View {
                             Text("Create Campaign")
                         }
                         .foregroundStyle(Color.mainDungeon)
+                        .padding(.bottom, 40)
                     }
                 }
             }

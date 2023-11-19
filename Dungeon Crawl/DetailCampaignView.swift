@@ -96,10 +96,14 @@ struct DetailCampaignView: View {
         VStack(alignment: .center) {
             HStack(spacing: 0) {
                 ForEach(Tab.allCases, id: \.rawValue) { tab in
-                    HStack(spacing: 5) {
-                        Image(systemName: tab.iconTab)
-                        //                        Text(tab.rawValue)
-                        //                            .font(.caption)
+                    HStack(spacing: 10) {
+                        Image(tab.iconTab)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 20)
+                            .foregroundStyle(.white)
+                        Text(tab.rawValue)
+                            .font(.caption)
                     }
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
@@ -117,7 +121,7 @@ struct DetailCampaignView: View {
                     let capsuleWidth = size.width / CGFloat(Tab.allCases.count)
                     
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(.black)
+                        .fill(Color.mainDungeon)
                         .padding(5)
                         .frame(width: capsuleWidth)
                         .offset(x: tabProgress * (size.width - capsuleWidth))

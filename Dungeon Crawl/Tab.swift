@@ -15,11 +15,11 @@ enum Tab: String, CaseIterable {
     var iconTab: String {
         switch self {
         case .players:
-            return "person.2.fill"
+            return "D20.empty"
         case .npcs:
-            return "person.3"
+            return "group.persons"
         case .encounters:
-            return "exclamationmark.bubble.fill"
+            return "swords"
         }
     }
 }

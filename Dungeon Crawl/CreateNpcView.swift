@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateNpcView: View {
     @Environment(\.dismiss) var dismiss
-//    @Bindable var npc: NPC
+    @Bindable var npc: NPC
     
     var body: some View {
         NavigationView {
@@ -46,5 +46,5 @@ struct CreateNpcView: View {
 }
 
 #Preview {
-    CreateNpcView()
+    CreateNpcView(npc: NPC.exampleNPC())
 }

@@ -12,7 +12,7 @@ import SwiftData
 struct Dungeon_CrawlApp: App {
     var customModelContainer: ModelContainer = {
         let schema = Schema([
-            Campaign.self, Player.self, NPC.self
+            Campaign.self, Player.self, NPC.self, DriveNPC.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -25,8 +25,8 @@ struct Dungeon_CrawlApp: App {
 
     var body: some Scene {
         WindowGroup {
-            CampaignListView()
-                .preferredColorScheme(.dark)
+            Home()
+//                .preferredColorScheme(.dark)
         }
         .modelContainer(customModelContainer)
     }

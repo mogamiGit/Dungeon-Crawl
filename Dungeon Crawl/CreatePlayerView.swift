@@ -160,7 +160,6 @@ struct CreatePlayerView: View {
             player.campaign = campaign
             campaign.players.append(player)
         }
-        
         vm.characterName = ""
         vm.playerName = ""
         vm.playerIdeals = ""

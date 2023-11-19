@@ -20,8 +20,28 @@ struct DetailPlayerView: View {
         NavigationStack {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
-                VStack {
-                    Text(player.nameCharacter)
+                ScrollView {
+                    VStack(spacing: 20) {
+                        VStack {
+                            Text(player.nameCharacter)
+                                .font(.title)
+                            Text(player.namePlayer)
+                                .font(.caption)
+                        }
+                        Text("Lv.\(player.level)")
+                        Text(player.raceType.rawValue)
+                        Text(player.classType.rawValue)
+                        Text("\(player.age)")
+                        Text(player.alignment.rawValue)
+                        Text(player.ideals)
+                        Text(player.defects)
+                        Text(player.notes ?? "")
+                        if player.inspiration == true {
+                            Text("Inspiration YES")
+                        } else {
+                            Text("Inspiration NO")
+                        }
+                    }
                 }
             }
             .foregroundStyle(.white)
@@ -45,6 +65,7 @@ struct DetailPlayerView: View {
                             Image(systemName: "xmark")
                             Text("Delete player")
                         }
+                        .padding(.bottom, 40)
                         .foregroundStyle(Color.mainDungeon)
                     }
                 }
@@ -73,5 +94,5 @@ struct DetailPlayerView: View {
 }
 
 #Preview {
-    DetailPlayerView(player: Player.examplePlayer2(), campaign: Campaign.exampleCampaign())
+    DetailPlayerView(player: Player.examplePlayer(), campaign: Campaign.exampleCampaign())
 }
