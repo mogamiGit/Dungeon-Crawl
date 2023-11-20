@@ -12,7 +12,6 @@ struct DetailCampaignView: View {
     @State private var campaignEdit: Campaign?
     @State private var selectedTab: Tab?
     @State private var tabProgress: CGFloat = 0
-    @State var vm = DetailCampaignViewModel()
     @Bindable var campaign: Campaign
     
     var body: some View {
@@ -121,13 +120,13 @@ struct DetailCampaignView: View {
                     let capsuleWidth = size.width / CGFloat(Tab.allCases.count)
                     
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.mainDungeon)
+                        .fill(.black)
                         .padding(5)
                         .frame(width: capsuleWidth)
                         .offset(x: tabProgress * (size.width - capsuleWidth))
                 }
             }
-            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16))
+            .background(Color.secondaryDungeon.opacity(0.5), in: RoundedRectangle(cornerRadius: 16))
             .padding(.horizontal, 14)
         }
     }

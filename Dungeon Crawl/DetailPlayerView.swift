@@ -21,27 +21,105 @@ struct DetailPlayerView: View {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
                 ScrollView {
-                    VStack(spacing: 20) {
-                        VStack {
-                            Text(player.nameCharacter)
-                                .font(.title)
-                            Text(player.namePlayer)
-                                .font(.caption)
+                    VStack(alignment: .leading, spacing: 40) {
+                        HStack() {
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(player.nameCharacter)
+                                    .font(.title)
+                                    .fontWeight(.semibold)
+                                HStack {
+                                    Image(systemName: "person.fill")
+                                    Text(player.namePlayer)
+                                        .font(.subheadline)
+                                }
+                                .foregroundStyle(.gray)
+                            }
+                            Spacer()
+                            VStack {
+                                Text("Lv.\(player.level)")
+                            }
+                            .padding(10)
+                            .frame(width: 60, height: 60)
+                            .background {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 1.0)
+                                    .fill(Color.accentDungeon)
+                            }
                         }
-                        Text("Lv.\(player.level)")
-                        Text(player.raceType.rawValue)
-                        Text(player.classType.rawValue)
-                        Text("\(player.age)")
-                        Text(player.alignment.rawValue)
-                        Text(player.ideals)
-                        Text(player.defects)
-                        Text(player.notes ?? "")
-                        if player.inspiration == true {
-                            Text("Inspiration YES")
-                        } else {
-                            Text("Inspiration NO")
+                        VStack {
+                            HStack(spacing: 10) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                    Text("\(player.age)")
+                                        .font(.title)
+                                    Text("years")
+                                        .font(.caption)
+                                }
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                    Image(player.raceType.rawValue)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 50, maxHeight: 40)
+                                    Text(player.raceType.rawValue)
+                                        .font(.caption)
+                                }
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                    Image(player.classType.rawValue)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 50, maxHeight: 40)
+                                    Text(player.classType.rawValue)
+                                        .font(.caption)
+                                }
+                            }
+                            HStack(spacing: 10) {
+                                SquareFlexibleModule(useVStack: false, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                    Image(player.alignment.rawValue)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25)
+                                    Text(player.alignment.rawValue)
+                                        .font(.caption)
+                                }
+                                SquareFlexibleModule(useVStack: false, colorBackground: player.inspiration ? Color.mainDungeon :  Color.secondaryDungeon.opacity(0.2)) {
+                                    Image(player.inspiration ? "D20.fill" : "D20.empty")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25)
+                                    Text("Inspiration")
+                                        .font(.caption)
+                                }
+                            }
+                        }
+                        bigListModule(title: "Ideals", definition: player.idealsArray)
+                        bigListModule(title: "Defects", definition: player.defectsArray)
+                        VStack(alignment: .leading) {
+                            Text("Notes")
+                            VStack(alignment: .leading) {
+                                Text(player.notes ?? "")
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .padding(20)
+                            .background() {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(lineWidth: 1.0)
+                            }
+                        }
+                        HStack {
+                            Spacer()
+                            Button {
+                                showDeleteConfirmation.toggle()
+                            } label: {
+                                HStack {
+                                    Image(systemName: "xmark")
+                                    Text("Delete player")
+                                }
+                                .padding(.bottom, 40)
+                                .foregroundStyle(Color.mainDungeon)
+                            }
                         }
                     }
+                    .padding(.top)
+                    .padding(.horizontal, 30)
                 }
             }
             .foregroundStyle(.white)
@@ -57,18 +135,6 @@ struct DetailPlayerView: View {
                             .foregroundStyle(.white)
                     })
                 }
-                ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        showDeleteConfirmation.toggle()
-                    } label: {
-                        HStack {
-                            Image(systemName: "xmark")
-                            Text("Delete player")
-                        }
-                        .padding(.bottom, 40)
-                        .foregroundStyle(Color.mainDungeon)
-                    }
-                }
             }
             .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {
@@ -76,6 +142,38 @@ struct DetailPlayerView: View {
                 }
                 Button("Cancel", role: .cancel) { }
             })
+        }
+    }
+    
+    @ViewBuilder
+    func bigListModule(title: String, definition: [String]) -> some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("-")
+                Text(title)
+                Text("-")
+            }
+            .font(.subheadline)
+            LazyVGrid(columns: [GridItem(.flexible(minimum: 80, maximum: .infinity), spacing: 5)], alignment: .leading) {
+                ForEach(definition, id: \.self) { ideal in
+                    HStack(alignment: .center) {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 10)
+                            .foregroundStyle(Color.accentDungeon)
+                            .fontWeight(.bold)
+                        Text(ideal)
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+            .padding(20)
+            .background() {
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 1.0)
+                    .fill(Color.secondaryDungeon)
+            }
         }
     }
     

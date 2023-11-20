@@ -68,8 +68,8 @@ struct CreatePlayerView: View {
                                     .fill(.white).opacity(0.1)
                             }
                             CustomSlider(binding: $vm.playerAge, number: vm.playerAge, title: "Player Age", limit: vm.getNumberForRace(playerRace: vm.playerRaceType))
-                            CustomMultipleTextField(title: "Ideals", titleKey: "Player Ideals", binding: $vm.playerIdeals)
-                            CustomMultipleTextField(title: "Defects", titleKey: "Player Defects", binding: $vm.playerDefects)
+                            CustomMultipleTextField(title: "Ideals", titleKey: "Player Ideals", promptText: "Enter ideals separated by commas", binding: $vm.playerIdeals)
+                            CustomMultipleTextField(title: "Defects", titleKey: "Player Defects", promptText: "Enter defects separated by commas", binding: $vm.playerDefects)
                             HStack(spacing:5) {
                                 Toggle(isOn: $vm.playerInspiration){
                                     Text("Player Inspiration")
@@ -77,7 +77,7 @@ struct CreatePlayerView: View {
                                 .toggleStyle(CustomToggleStyle())
                             }
                             MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Player name")
-                            CustomMultipleTextField(title: "Notes", titleKey: "Player Notes", binding: $vm.playerNotes)
+                            CustomMultipleTextField(title: "Notes", titleKey: "Player Notes", promptText: "Enter text", binding: $vm.playerNotes)
                             Button {
                                 if vm.isFormValidate() {
                                     savePlayer()
@@ -126,7 +126,7 @@ struct CreatePlayerView: View {
                 LazyHStack {
                     ForEach(ClassType.allCases, id: \.self) { item in
                         VStack {
-                            vm.getTypeImage(playerClass:item)
+                            Image(item.rawValue)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 80)

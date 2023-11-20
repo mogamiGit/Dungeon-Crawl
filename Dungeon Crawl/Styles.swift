@@ -61,3 +61,41 @@ struct CustomToggleStyle: ToggleStyle {
         }
     }
 }
+
+struct SquareFlexibleModule<Content: View>: View {
+    var useVStack: Bool
+    var colorBackground: Color
+    var content: () -> Content
+
+    init(useVStack: Bool, colorBackground: Color, @ViewBuilder content: @escaping () -> Content) {
+        self.useVStack = useVStack
+        self.colorBackground = colorBackground
+        self.content = content
+    }
+
+    var body: some View {
+        if useVStack {
+            return AnyView(VStack {
+                content()
+            }.padding(5)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(height: 110)
+                .background {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(colorBackground)
+                }
+            )
+        } else {
+            return AnyView(HStack {
+                content()
+            }.padding(5)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(height: 90)
+                .background {
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(colorBackground)
+                }
+            )
+        }
+    }
+}

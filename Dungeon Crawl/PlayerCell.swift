@@ -14,7 +14,7 @@ struct PlayerCell: View {
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
             VStack {
-                vm.getTypeImage(playerClass:player.classType)
+                Image(player.classType.rawValue)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 60, height: 60)

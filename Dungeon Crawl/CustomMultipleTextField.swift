@@ -10,12 +10,13 @@ import SwiftUI
 struct CustomMultipleTextField: View {
     var title: String
     var titleKey: String
+    var promptText: String
     var binding: Binding<String>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(title)
-            TextField(titleKey, text:binding, prompt: Text("Enter text").foregroundStyle(.gray), axis: .vertical)
+            TextField(titleKey, text:binding, prompt: Text(promptText).foregroundStyle(.gray), axis: .vertical)
                 .lineLimit(3, reservesSpace: true)
                 .disableAutocorrection(true)
                 .padding()

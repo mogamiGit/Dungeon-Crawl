@@ -40,6 +40,14 @@ final public class Player {
         self.notes = notes
     }
     
+    var idealsArray: [String] {
+        ideals.components(separatedBy: ",")
+    }
+    
+    var defectsArray: [String] {
+        defects.components(separatedBy: ",")
+    }
+    
     static func examplePlayer() -> Player {
         return Player(nameCharacter: "Sefard The Scapist",
                       namePlayer: "Leon",
@@ -48,8 +56,8 @@ final public class Player {
                       classType: ClassType.wizard,
                       age: 25,
                       alignment: AlignmentPlayer.chaoticgood,
-                      ideals: "Justice and Freedom",
-                      defects: "Impatient",
+                      ideals: "Justice and Freedom, Become a hero, Have a family",
+                      defects: "Impatient, Good guy, Gullible, Braggart",
                       inspiration: true,
                       notes: "Has a pet owl named Hoot")
     }
@@ -62,8 +70,8 @@ final public class Player {
                       classType: ClassType.fighter,
                       age: 45,
                       alignment: AlignmentPlayer.neutral,
-                      ideals: "Revenge",
-                      defects: "Dumb",
+                      ideals: "Revenge, Become a leader, Have an evil army",
+                      defects: "Dumb, Sweet tooth, Big mouth",
                       inspiration: false,
                       notes: "Has a vampire sword")
     }

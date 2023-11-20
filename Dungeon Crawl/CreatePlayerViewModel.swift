@@ -54,35 +54,4 @@ final class CreatePlayerViewModel {
         }
         return true
     }
-    
-    func getTypeImage(playerClass: ClassType) -> Image {
-        switch ClassType(rawValue: playerClass.rawValue) {
-        case .barbarian:
-            Image("barbarian")
-        case .bard:
-            Image("bard")
-        case .cleric:
-            Image("cleric")
-        case .druid:
-            Image("druid")
-        case .fighter:
-            Image("fighter")
-        case .monk:
-            Image("monk")
-        case .paladin:
-            Image("paladin")
-        case .ranger:
-            Image("ranger")
-        case .rogue:
-            Image("rogue")
-        case .sorcerer:
-            Image("sorcerer")
-        case .warlock:
-            Image("warlock")
-        case .wizard:
-            Image("wizard")
-        case .none:
-            Image(systemName: "circle")
-        }
-    }
 }
