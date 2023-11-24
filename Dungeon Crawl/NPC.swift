@@ -11,7 +11,6 @@ import SwiftData
 @Model
 final public class NPC {
     var name: String
-    var level: Int
     var raceType: String
     var age: Int
     var occupation: String
@@ -25,9 +24,8 @@ final public class NPC {
     @Relationship(inverse: \Campaign.npcs)
     var campaign: [Campaign] = []
     
-    init(name: String, level: Int, raceType: String, age: Int, occupation: String, location: String, background: String, alignment: AlignmentNPC, appearance: String, drives: DriveNPC) {
+    init(name: String, raceType: String, age: Int, occupation: String, location: String, background: String, alignment: AlignmentNPC, appearance: String, drives: DriveNPC) {
         self.name = name
-        self.level = level
         self.raceType = raceType
         self.age = age
         self.occupation = occupation
@@ -40,7 +38,6 @@ final public class NPC {
     
     static func exampleNPC() -> NPC {
         return NPC(name: "Denolun",
-                   level: 2,
                    raceType: "Akaosian",
                    age: 34,
                    occupation: "Artist",

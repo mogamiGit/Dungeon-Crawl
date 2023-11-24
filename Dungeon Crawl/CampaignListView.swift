@@ -56,6 +56,7 @@ struct CampaignListView: View {
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.large)
             .navigationTitle("My Campaigns")
         }
         .fullScreenCover(isPresented: $showCampaignCreation, content: {

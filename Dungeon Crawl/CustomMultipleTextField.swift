@@ -12,10 +12,25 @@ struct CustomMultipleTextField: View {
     var titleKey: String
     var promptText: String
     var binding: Binding<String>
+    var description: String?
+    
+    init(title: String, titleKey: String, promptText: String, binding: Binding<String>, description: String? = nil) {
+        self.title = title
+        self.titleKey = titleKey
+        self.promptText = promptText
+        self.description = description
+        self.binding = binding
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(title)
+                .fontWeight(.bold)
+            if let description {
+                Text(description)
+                    .font(.callout)
+                    .foregroundStyle(.gray)
+            }
             TextField(titleKey, text:binding, prompt: Text(promptText).foregroundStyle(.gray), axis: .vertical)
                 .lineLimit(3, reservesSpace: true)
                 .disableAutocorrection(true)

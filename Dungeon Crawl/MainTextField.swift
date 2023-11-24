@@ -15,6 +15,7 @@ struct MainTextField: View {
     var body: some View {
         TextField(titleKey, text:binding, prompt: Text(prompt).foregroundStyle(.gray))
             .disableAutocorrection(true)
+            .frame(maxWidth: .infinity)
             .padding()
             .foregroundStyle(.white)
             .background() {

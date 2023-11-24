@@ -16,7 +16,7 @@ actor PreviewSampleData {
             let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
             let container = try ModelContainer(for: schema, configurations: [configuration])
             let sampleData: [any PersistentModel] = [
-                Campaign.exampleCampaign(), Player.examplePlayer()
+                Campaign.exampleCampaign(), Player.examplePlayer(), NPC.exampleNPC()
             ]
             sampleData.forEach {
                 container.mainContext.insert($0)

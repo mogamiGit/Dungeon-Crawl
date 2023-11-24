@@ -9,12 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct CreatePlayerView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var sizeClass
     @State var vm = CreatePlayerViewModel()
     @Bindable var campaign: Campaign
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
                 ScrollView {
@@ -45,7 +46,6 @@ struct CreatePlayerView: View {
                             }
                         }
                         .padding(.horizontal, 30)
-                        .foregroundStyle(.white)
                         carouselClasses()
                             .padding(.top, 30)
                             .padding(.bottom, 40)
@@ -90,10 +90,10 @@ struct CreatePlayerView: View {
                             .padding(.bottom, 30)
                         }
                         .padding(.horizontal, 30)
-                        .foregroundStyle(.white)
                         Spacer()
                     }
                     .padding(.vertical)
+                    .foregroundStyle(.white)
                 }
             }
             .toolbar {
@@ -122,25 +122,29 @@ struct CreatePlayerView: View {
             Text("Select Class")
                 .padding(.horizontal, 30)
                 .foregroundStyle(.white)
-            ScrollView(.horizontal, showsIndicators: false) {
+                .fontWeight(.bold)
+            ScrollView(.horizontal) {
                 LazyHStack {
                     ForEach(ClassType.allCases, id: \.self) { item in
                         VStack {
                             Image(item.rawValue)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: 80)
+                                .frame(height: 70)
                                 .foregroundStyle(Color.secondaryDungeon)
                             Text(item.rawValue)
                                 .font(.title3)
                         }
                         .onTapGesture {
                             vm.playerClassType = item
-                            print(vm.playerClassType)
                         }
-                        .padding()
+                        .scrollTransition(axis: .horizontal) { content, phase in
+                            content
+                                .scaleEffect(x: phase.isIdentity ? 1.0 : 0.8, y: phase.isIdentity ? 1.0 : 0.8)
+                        }
+                        .containerRelativeFrame(.horizontal, count: sizeClass == .regular ? 3 : 2, spacing: 10.0)
+                        .frame(height: 150)
                         .foregroundStyle(.white)
-                        .frame(width: 300)
                         .background() {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(vm.playerClassType == item ? Color.mainDungeon : .black)
@@ -149,8 +153,9 @@ struct CreatePlayerView: View {
                 }
                 .scrollTargetLayout()
             }
+            .contentMargins(.horizontal, 30)
             .scrollTargetBehavior(.viewAligned)
-        .safeAreaPadding(.horizontal, 30)
+            .scrollIndicators(.hidden)
         }
     }
     

@@ -88,7 +88,8 @@ struct SquareFlexibleModule<Content: View>: View {
         } else {
             return AnyView(HStack {
                 content()
-            }.padding(5)
+            }
+                .padding(5)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .frame(height: 90)
                 .background {

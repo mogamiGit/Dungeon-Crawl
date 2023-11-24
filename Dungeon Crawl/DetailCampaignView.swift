@@ -50,7 +50,7 @@ struct DetailCampaignView: View {
                                 PlayerCampaignListView(campaign: campaign)
                                     .id(Tab.players)
                                     .containerRelativeFrame(.horizontal)
-                                NpcCampaignListView()              .id(Tab.npcs)
+                                NpcCampaignListView(campaign: campaign)              .id(Tab.npcs)
                                     .containerRelativeFrame(.horizontal)
                                 EncounterCampaignListView()
                                     .id(Tab.encounters)

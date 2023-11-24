@@ -9,20 +9,19 @@ import SwiftUI
 
 @Observable
 final class CreateNpcViewModel {
-    var name = ""
-    var level = 0
-    var raceType = ""
-    var age = 0
-    var occupation = ""
-    var location = ""
-    var background = ""
-    var alignment: AlignmentNPC = .neutral
-    var appearance = ""
-    var notes = ""
+    var npcName = ""
+    var npcRaceType = ""
+    var npcAge = ""
+    var npcOccupation = ""
+    var npcLocation = ""
+    var npcBackground = ""
+    var npcAlignment: AlignmentNPC = .neutral
+    var npcAppearance = ""
+    var npcNotes = ""
     
     /*NPC Drives*/
-    var tags: [String] = []
-    var legacy = ""
-    var value = ""
-    var beliefs = ""
+    var npcTags: [String] = []
+    var npcLegacy = ""
+    var npcValue = ""
+    var npcBeliefs = ""
 }

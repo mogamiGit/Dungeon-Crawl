@@ -9,19 +9,22 @@ import SwiftUI
 import SwiftData
 
 struct NpcCampaignListView: View {
-    //Filter only NPCs == Campaign
+    @Bindable var campaign: Campaign
     @Query(sort: \NPC.name, order: .reverse, animation: .bouncy) var npcs: [NPC]
-    @Environment(\.modelContext) private var context
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
-            Text("NPC")
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 5) {
+                //Filter only NPCs == Campaign
+                ForEach(npcs) { npc in
+                    NpcCell(npc: npc)
+                }
+            }
         }
     }
 }
 
 #Preview {
-    NpcCampaignListView()
+    NpcCampaignListView(campaign: Campaign.exampleCampaign())
         .modelContainer(PreviewSampleData.container)
 }

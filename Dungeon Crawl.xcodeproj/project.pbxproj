@@ -43,6 +43,8 @@
 		D3CAE01E2B016E6400BF03BF /* NpcCampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01D2B016E6400BF03BF /* NpcCampaignListView.swift */; };
 		D3CAE0202B016E9100BF03BF /* EncounterCampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01F2B016E9100BF03BF /* EncounterCampaignListView.swift */; };
 		D3CAE0222B01907200BF03BF /* CreateNpcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0212B01907200BF03BF /* CreateNpcView.swift */; };
+		D3F90AB12B0E5EE600C1D9AB /* NpcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */; };
+		D3F90AB52B0E640A00C1D9AB /* NpcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB42B0E640A00C1D9AB /* NpcView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		D3CAE01D2B016E6400BF03BF /* NpcCampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcCampaignListView.swift; sourceTree = "<group>"; };
 		D3CAE01F2B016E9100BF03BF /* EncounterCampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterCampaignListView.swift; sourceTree = "<group>"; };
 		D3CAE0212B01907200BF03BF /* CreateNpcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNpcView.swift; sourceTree = "<group>"; };
+		D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcCell.swift; sourceTree = "<group>"; };
+		D3F90AB42B0E640A00C1D9AB /* NpcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +112,6 @@
 		D33758992ABB9CEA00DFECEF /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D337589A2ABB9D0000DFECEF /* CampaignCell.swift */,
-				D3AEA7262AE5354E00757993 /* PlayerCell.swift */,
 				D3037FC62AD1E84E00E661BF /* CustomSlider.swift */,
 				D3037FC82AD1EA6700E661BF /* MainTextField.swift */,
 				D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */,
@@ -178,6 +180,7 @@
 				D3037FBE2AD1D15400E661BF /* CreatePlayerView.swift */,
 				D3CAE0152B01585600BF03BF /* PlayerCampaignListView.swift */,
 				D3407A012AF31A270021B590 /* DetailPlayerView.swift */,
+				D3AEA7262AE5354E00757993 /* PlayerCell.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -222,8 +225,10 @@
 		D3BFBF402B0964720068A6A9 /* NPC */ = {
 			isa = PBXGroup;
 			children = (
+				D3F90AB42B0E640A00C1D9AB /* NpcView.swift */,
 				D3CAE0212B01907200BF03BF /* CreateNpcView.swift */,
 				D3CAE01D2B016E6400BF03BF /* NpcCampaignListView.swift */,
+				D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */,
 			);
 			name = NPC;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */,
 				D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */,
 				D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */,
+				D337589A2ABB9D0000DFECEF /* CampaignCell.swift */,
 			);
 			name = Campaign;
 			sourceTree = "<group>";
@@ -349,12 +355,14 @@
 				D3CAE0162B01585600BF03BF /* PlayerCampaignListView.swift in Sources */,
 				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* Encounter.swift in Sources */,
+				D3F90AB52B0E640A00C1D9AB /* NpcView.swift in Sources */,
 				D317E9332AC84B7E00D6D158 /* NPC.swift in Sources */,
 				D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */,
 				D3037FC32AD1D53A00E661BF /* CreatePlayerViewModel.swift in Sources */,
 				D3AEA7272AE5354E00757993 /* PlayerCell.swift in Sources */,
 				D35B40D12AF5CADC00C89CB7 /* UpdateCampaignView.swift in Sources */,
 				D3407A022AF31A270021B590 /* DetailPlayerView.swift in Sources */,
+				D3F90AB12B0E5EE600C1D9AB /* NpcCell.swift in Sources */,
 				D3BFBF452B0975C80068A6A9 /* Home.swift in Sources */,
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
 				D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */,

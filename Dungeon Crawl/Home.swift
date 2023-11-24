@@ -17,7 +17,7 @@ struct Home: View {
                         Text("Campaigns")
                     }
                     .tag(1)
-                NpcCampaignListView()
+                NpcView()
                     .tabItem {
                         VStack {
                             Image(systemName: "2.circle")

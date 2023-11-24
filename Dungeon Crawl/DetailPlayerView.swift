@@ -42,13 +42,13 @@ struct DetailPlayerView: View {
                             .frame(width: 60, height: 60)
                             .background {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 1.0)
+                                    .stroke(lineWidth: 2.0)
                                     .fill(Color.accentDungeon)
                             }
                         }
                         VStack {
                             HStack(spacing: 10) {
-                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.7)) {
                                     Text("\(player.age)")
                                         .font(.title)
                                     Text("years")
@@ -76,15 +76,15 @@ struct DetailPlayerView: View {
                                     Image(player.alignment.rawValue)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 25)
+                                        .frame(width: 22)
                                     Text(player.alignment.rawValue)
                                         .font(.caption)
                                 }
-                                SquareFlexibleModule(useVStack: false, colorBackground: player.inspiration ? Color.mainDungeon :  Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: false, colorBackground: player.inspiration ? Color.accentDungeon.opacity(0.9) :  Color.secondaryDungeon.opacity(0.2)) {
                                     Image(player.inspiration ? "D20.fill" : "D20.empty")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 25)
+                                        .frame(width: 22)
                                     Text("Inspiration")
                                         .font(.caption)
                                 }
@@ -94,6 +94,7 @@ struct DetailPlayerView: View {
                         bigListModule(title: "Defects", definition: player.defectsArray)
                         VStack(alignment: .leading) {
                             Text("Notes")
+                                .fontWeight(.bold)
                             VStack(alignment: .leading) {
                                 Text(player.notes ?? "")
                             }
@@ -102,6 +103,7 @@ struct DetailPlayerView: View {
                             .background() {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(lineWidth: 1.0)
+                                    .foregroundStyle(.gray)
                             }
                         }
                         HStack {
@@ -154,6 +156,7 @@ struct DetailPlayerView: View {
                 Text("-")
             }
             .font(.subheadline)
+            .fontWeight(.bold)
             LazyVGrid(columns: [GridItem(.flexible(minimum: 80, maximum: .infinity), spacing: 5)], alignment: .leading) {
                 ForEach(definition, id: \.self) { ideal in
                     HStack(alignment: .center) {
@@ -172,7 +175,7 @@ struct DetailPlayerView: View {
             .background() {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(lineWidth: 1.0)
-                    .fill(Color.secondaryDungeon)
+                    .fill(.gray)
             }
         }
     }
