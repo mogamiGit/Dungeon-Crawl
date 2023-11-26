@@ -19,77 +19,82 @@ struct CreateNpcView: View {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
                 VStack(alignment: .leading) {
-                    HStack {
-                        Button("Prev page") {
-                            scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! - 1)
-                            print(scrollPosition ?? 0)
-                        }
-                        Text("¿Cómo va a ser tu NPC?")
-                            .font(.title3)
-                            .foregroundStyle(.white)
-                        Button("Next page") {
-                            scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! + 1)
-                            print(scrollPosition ?? 0)
-                        }
-                    }
-                    ScrollView(.horizontal) {
-                        LazyHStack(alignment: .top) {
-                            VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name")
-                                HStack {
-                                    MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype")
-                                    MainTextField(titleKey: "Age", binding: $vm.npcAge, prompt: "Age")
-                                        .frame(width: 90)
-                                        .keyboardType(.numberPad)
-                                }
-                                HStack {
-                                    MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation")
-                                    MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location")
+                    ScrollViewReader { proxy in
+                        HStack {
+                            Button("Prev page") {
+                                withAnimation {
+                                    scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! - 1)
+                                    proxy.scrollTo(scrollPosition)
                                 }
                             }
-                            .padding(.horizontal)
-                            .containerRelativeFrame(.horizontal)
-                            .onAppear {
-                                scrollPosition = 0
+                            Text("¿Cómo va a ser tu NPC?")
+                                .font(.title3)
+                                .foregroundStyle(.white)
+                            Button("Next page") {
+                                withAnimation {
+                                    scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! + 1)
+                                    proxy.scrollTo(scrollPosition)
+                                }
                             }
-                            VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                CustomMultipleTextField(title: "Background", titleKey: "Background", promptText: "Enter Background", binding: $vm.npcBackground)
-                                HStack {
-                                    Text("Alignement")
-                                        .padding(.horizontal)
-                                    Spacer()
-                                    Picker("Select Alignment", selection: $vm.npcAlignment) {
-                                        ForEach(AlignmentNPC.allCases, id: \.self) { item in
-                                            Text(item.rawValue)
-                                        }
+                        }
+                        ScrollView(.horizontal) {
+                            LazyHStack(alignment: .top) {
+                                VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
+                                    MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name")
+                                    HStack {
+                                        MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype")
+                                        MainTextField(titleKey: "Age", binding: $vm.npcAge, prompt: "Age")
+                                            .frame(width: 90)
+                                            .keyboardType(.numberPad)
                                     }
-                                    .accentColor(.creamDungeon)
-                                    .pickerStyle(.menu)
+                                    HStack {
+                                        MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation")
+                                        MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location")
+                                    }
                                 }
-                                .padding(10)
-                                .background() {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(.white).opacity(0.1)
+                                .padding(.horizontal)
+                                .containerRelativeFrame(.horizontal)
+                                .id(0)
+                                VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
+                                    CustomMultipleTextField(title: "Background", titleKey: "Background", promptText: "Enter Background", binding: $vm.npcBackground)
+                                    HStack {
+                                        Text("Alignement")
+                                            .padding(.horizontal)
+                                        Spacer()
+                                        Picker("Select Alignment", selection: $vm.npcAlignment) {
+                                            ForEach(AlignmentNPC.allCases, id: \.self) { item in
+                                                Text(item.rawValue)
+                                            }
+                                        }
+                                        .accentColor(.creamDungeon)
+                                        .pickerStyle(.menu)
+                                    }
+                                    .padding(10)
+                                    .background() {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(.white).opacity(0.1)
+                                    }
+                                    CustomMultipleTextField(title: "Appearance", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.npcAppearance)
                                 }
-                                CustomMultipleTextField(title: "Appearance", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.npcAppearance)
+                                .padding(.horizontal)
+                                .containerRelativeFrame(.horizontal)
+                                .id(1)
+                                VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
+                                    CustomMultipleTextField(title: "Legacy", titleKey: "Legacy", promptText: "Enter Legacy", binding: $vm.npcLegacy, description: "Example: This NPC dreams of some truly ridiculous schemes.")
+                                    CustomMultipleTextField(title: "Value", titleKey: "Value", promptText: "Enter Value", binding: $vm.npcValue, description: "Example: Values solitude when they study, reveling in uninterrupted hours with their books.")
+                                    CustomMultipleTextField(title: "Beliefs", titleKey: "Beliefs", promptText: "Enter Beliefs", binding: $vm.npcBeliefs, description: "Example: Believes in the keeping knowledge alive not onlyin books")
+                                }
+                                .padding(.horizontal)
+                                .containerRelativeFrame(.horizontal)
+                                .id(2)
                             }
-                            .padding(.horizontal)
-                            .containerRelativeFrame(.horizontal)
-                            VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                CustomMultipleTextField(title: "Legacy", titleKey: "Legacy", promptText: "Enter Legacy", binding: $vm.npcLegacy, description: "Example: This NPC dreams of some truly ridiculous schemes.")
-                                CustomMultipleTextField(title: "Value", titleKey: "Value", promptText: "Enter Value", binding: $vm.npcValue, description: "Example: Values solitude when they study, reveling in uninterrupted hours with their books.")
-                                CustomMultipleTextField(title: "Beliefs", titleKey: "Beliefs", promptText: "Enter Beliefs", binding: $vm.npcBeliefs, description: "Example: Believes in the keeping knowledge alive not onlyin books")
-                            }
-                            .padding(.horizontal)
-                            .containerRelativeFrame(.horizontal)
+                            .scrollTargetLayout()
                         }
-                        .scrollTargetLayout()
+                        .scrollIndicators(.hidden)
+                        .contentMargins(.horizontal, 10)
+                        .scrollTargetBehavior(.viewAligned)
+                        .foregroundStyle(.white)
                     }
-                    .scrollIndicators(.hidden)
-                    .scrollPosition(id: $scrollPosition)
-                    .contentMargins(.horizontal, 10)
-                    .scrollTargetBehavior(.viewAligned)
-                    .foregroundStyle(.white)
                 }
             }
             .toolbar {
