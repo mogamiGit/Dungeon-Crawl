@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+enum Constant {
+    static let containerHPadding = 30.0
+    static let spaceBetweenElements = 30.0
+}
+
 struct DungeonMainButton: ButtonStyle {
     var isButtonEnabled: Bool
     

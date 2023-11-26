@@ -28,7 +28,7 @@ struct CustomMultipleTextField: View {
                 .fontWeight(.bold)
             if let description {
                 Text(description)
-                    .font(.callout)
+                    .font(.caption)
                     .foregroundStyle(.gray)
             }
             TextField(titleKey, text:binding, prompt: Text(promptText).foregroundStyle(.gray), axis: .vertical)

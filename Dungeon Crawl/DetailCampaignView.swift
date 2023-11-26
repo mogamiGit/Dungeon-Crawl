@@ -23,7 +23,7 @@ struct DetailCampaignView: View {
                         Text(campaign.name)
                             .font(.largeTitle)
                             .fontWeight(.bold)
-                        HStack(spacing: 30) {
+                        HStack(spacing: Constant.spaceBetweenElements) {
                             HStack {
                                 Image("location")
                                     .resizable()

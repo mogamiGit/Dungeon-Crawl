@@ -121,7 +121,7 @@ struct DetailPlayerView: View {
                         }
                     }
                     .padding(.top)
-                    .padding(.horizontal, 30)
+                    .padding(.horizontal, Constant.containerHPadding)
                 }
             }
             .foregroundStyle(.white)

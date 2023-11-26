@@ -16,7 +16,7 @@ struct UpdateCampaignView: View {
         NavigationStack {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
-                VStack(spacing: 30) {
+                VStack(spacing: Constant.spaceBetweenElements) {
                     MainTextField(titleKey: "Campaign Name", binding: $vm.updatedCampaignName, prompt: "Enter campaign name").foregroundColor(.gray)
                     MainTextField(titleKey: "Campaign Location", binding: $vm.updatedCampaignLocation, prompt: "Enter location")
                     CustomSlider(binding: $vm.updatedCampaignLevel, number: campaign.level, title: "Campaign Level", limit: 20)
@@ -55,7 +55,7 @@ struct UpdateCampaignView: View {
                         .padding()
                     }
                 }
-                .padding(30)
+                .padding(Constant.containerHPadding)
                 .foregroundStyle(.white)
             }
         }

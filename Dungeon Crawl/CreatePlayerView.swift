@@ -21,7 +21,7 @@ struct CreatePlayerView: View {
                 ScrollView {
                     VStack(alignment: .leading) {
                         Spacer()
-                        VStack(spacing: 30) {
+                        VStack(spacing: Constant.spaceBetweenElements) {
                             MainTextField(titleKey: "Character Name", binding: $vm.characterName, prompt: "Character name")
                             CustomSlider(binding: $vm.playerLevel, number:vm.playerLevel, title: "Player Level", limit: 20)
                             HStack {
@@ -45,11 +45,11 @@ struct CreatePlayerView: View {
                                     .fill(.white).opacity(0.1)
                             }
                         }
-                        .padding(.horizontal, 30)
+                        .padding(.horizontal, Constant.containerHPadding)
                         carouselClasses()
                             .padding(.top, 30)
                             .padding(.bottom, 40)
-                        VStack(spacing: 30) {
+                        VStack(spacing: Constant.spaceBetweenElements) {
                             HStack {
                                 Text("Alignement")
                                     .padding(.horizontal)
@@ -87,9 +87,8 @@ struct CreatePlayerView: View {
                                 Text("Create Player")
                             }
                             .buttonStyle(DungeonMainButton(isButtonEnabled: vm.isFormValidate()))
-                            .padding(.bottom, 30)
                         }
-                        .padding(.horizontal, 30)
+                        .padding(.horizontal, Constant.containerHPadding)
                         Spacer()
                     }
                     .padding(.vertical)
@@ -120,7 +119,7 @@ struct CreatePlayerView: View {
     func carouselClasses() -> some View {
         VStack(alignment: .leading, spacing: 20) {
             Text("Select Class")
-                .padding(.horizontal, 30)
+                .padding(.horizontal, Constant.containerHPadding)
                 .foregroundStyle(.white)
                 .fontWeight(.bold)
             ScrollView(.horizontal) {
@@ -133,7 +132,7 @@ struct CreatePlayerView: View {
                                 .frame(height: 70)
                                 .foregroundStyle(Color.secondaryDungeon)
                             Text(item.rawValue)
-                                .font(.title3)
+                                .font(.callout)
                         }
                         .onTapGesture {
                             vm.playerClassType = item
@@ -153,7 +152,7 @@ struct CreatePlayerView: View {
                 }
                 .scrollTargetLayout()
             }
-            .contentMargins(.horizontal, 30)
+            .contentMargins(.horizontal, Constant.containerHPadding)
             .scrollTargetBehavior(.viewAligned)
             .scrollIndicators(.hidden)
         }
