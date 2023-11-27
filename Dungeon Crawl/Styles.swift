@@ -67,17 +67,35 @@ struct CustomToggleStyle: ToggleStyle {
     }
 }
 
+struct CheckboxToggleStyle: ToggleStyle {
+    
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
+                .font(.title2)
+                .foregroundStyle(configuration.isOn ? Color.accentDungeon : .white)
+                .onTapGesture {
+                    withAnimation(.spring()) {
+                        configuration.isOn.toggle()
+                    }
+                }
+            
+            configuration.label
+        }
+    }
+}
+
 struct SquareFlexibleModule<Content: View>: View {
     var useVStack: Bool
     var colorBackground: Color
     var content: () -> Content
-
+    
     init(useVStack: Bool, colorBackground: Color, @ViewBuilder content: @escaping () -> Content) {
         self.useVStack = useVStack
         self.colorBackground = colorBackground
         self.content = content
     }
-
+    
     var body: some View {
         if useVStack {
             return AnyView(VStack {

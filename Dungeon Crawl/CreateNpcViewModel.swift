@@ -18,10 +18,8 @@ final class CreateNpcViewModel {
     var npcAlignment: AlignmentNPC = .neutral
     var npcAppearance = ""
     var npcNotes = ""
-    
-    /*NPC Drives*/
-    var npcTags: [String] = []
     var npcLegacy = ""
     var npcValue = ""
     var npcBeliefs = ""
+    var selectedCampaigns: [String] = []
 }

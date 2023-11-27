@@ -14,11 +14,15 @@ struct NpcCampaignListView: View {
     
     var body: some View {
         NavigationStack {
-            LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 5) {
-                //Filter only NPCs == Campaign
-                ForEach(npcs) { npc in
-                    NpcCell(npc: npc)
+            ScrollView {
+                LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 10) {
+                    //Filter only NPCs == Campaign
+                    ForEach(npcs) { npc in
+                        NpcCell(npc: npc, bgColor: Color.gray)
+                            .padding(.top)
+                    }
                 }
+                .padding()
             }
         }
     }

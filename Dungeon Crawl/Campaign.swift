@@ -15,7 +15,6 @@ final public class Campaign {
     var level: Int
     @Relationship(deleteRule: .cascade) var players: [Player] = []
     @Relationship(deleteRule: .cascade) var encounters: [Encounter] = []
-    @Relationship var npcs: [NPC] = []
     
     init(name: String, location: String, level: Int) {
         self.name = name
@@ -36,6 +35,23 @@ final public class Campaign {
         campaign.players.append(Player.examplePlayer())
         campaign.players.append(Player.examplePlayer2())
         return campaign
+    }
+}
+
+enum Tab: String, CaseIterable {
+    case players = "Players"
+    case npcs = "NPCs"
+    case encounters = "Fights"
+    
+    var iconTab: String {
+        switch self {
+        case .players:
+            return "D20.empty"
+        case .npcs:
+            return "group.persons"
+        case .encounters:
+            return "swords"
+        }
     }
 }
 

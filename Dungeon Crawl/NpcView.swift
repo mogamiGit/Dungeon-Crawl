@@ -12,18 +12,42 @@ struct NpcView: View {
     @Query(sort: \NPC.name, order: .reverse, animation: .bouncy) var npcs: [NPC]
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
+    @State var showNpcCreation = false
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 5) {
-                    ForEach(npcs) { npc in
-                        NpcCell(npc: npc)
+            ZStack {
+                Color.secondaryDungeon.ignoresSafeArea()
+                ScrollView {
+                    LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 10) {
+                        ForEach(npcs) { npc in
+                            NpcCell(npc: npc, bgColor: Color.bgDungeon)
+                                .padding(.top)
+                        }
+                    }
+                    .padding(10)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .bottomBar) {
+                    Button {
+                        showNpcCreation.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text("Create NPC")
+                        }
+                        .foregroundStyle(Color.mainDungeon)
+                        .padding(.bottom, 40)
                     }
                 }
-                .padding(10)
             }
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("NPCs")
         }
+        .fullScreenCover(isPresented: $showNpcCreation, content: {
+            CreateNpcView()
+        })
     }
 }
 

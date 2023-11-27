@@ -22,11 +22,11 @@ struct CampaignCell: View {
                     Image("location")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 28)
+                        .frame(width: 25)
                         .foregroundStyle(Color.secondaryDungeon)
                     Text(campaign.location)
                 }
-                .font(.title3)
+                .font(.subheadline)
             }
             HStack {
                 Text("Lv.\(campaign.level)")
@@ -61,7 +61,7 @@ struct CampaignCell: View {
         .padding(20)
         .foregroundStyle(.white)
         .background {
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 20)
             .fill(Color.bgDungeon)
         }
     }

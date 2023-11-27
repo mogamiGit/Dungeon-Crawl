@@ -9,10 +9,13 @@ import SwiftUI
 import SwiftData
 
 struct CreateNpcView: View {
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
+    @Query(sort: \Campaign.name, order: .forward) private var campaigns: [Campaign]
     @State var vm = CreateNpcViewModel()
     @State private var scrollPosition: Int? = 0
-    @Bindable var npc: NPC
+    @State private var isChecked = false
+    @State private var checkedCampaigns: [String] = []
     
     var body: some View {
         NavigationStack {
@@ -21,25 +24,67 @@ struct CreateNpcView: View {
                 VStack(alignment: .leading) {
                     ScrollViewReader { proxy in
                         HStack {
-                            Button("Prev page") {
+                            Button(action: {
                                 withAnimation {
                                     scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! - 1)
                                     proxy.scrollTo(scrollPosition)
                                 }
-                            }
-                            Text("¿Cómo va a ser tu NPC?")
-                                .font(.title3)
-                                .foregroundStyle(.white)
-                            Button("Next page") {
+                            }, label: {
+                                HStack {
+                                    Image(systemName: "arrow.left")
+                                    Text("Prev")
+                                }
+                                .font(.callout)
+                                .padding(.vertical, 10)
+                            })
+                            .opacity(scrollPosition == 0 ? 0.0 : 1.0)
+                            Spacer()
+                            if scrollPosition == 2 {
                                 withAnimation {
-                                    scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! + 1)
-                                    proxy.scrollTo(scrollPosition)
+                                    Button(action: {
+                                        addNpc()
+                                        dismiss()
+                                    }, label: {
+                                        HStack {
+                                            Image(systemName: "plus")
+                                            Text("Create NPC")
+                                        }
+                                        .font(.subheadline)
+                                        .foregroundStyle(.white)
+                                        .padding(10)
+                                        .background {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .stroke(lineWidth: 1.0)
+                                                .fill(Color.accentDungeon)
+                                        }
+                                    })
+                                }
+                            } else {
+                                withAnimation(.bouncy) {
+                                    Button(action: {
+                                        withAnimation {
+                                            scrollPosition = scrollPosition == nil ? 0 : (scrollPosition! + 1)
+                                            proxy.scrollTo(scrollPosition)
+                                        }
+                                    }, label: {
+                                        HStack {
+                                            Text("Next")
+                                            Image(systemName: "arrow.right")
+                                        }
+                                        .font(.callout)
+                                        .padding(.vertical, 10)
+                                    })
                                 }
                             }
                         }
+                        .padding(.top, 10)
+                        .padding(.horizontal, Constant.containerHPadding - 5)
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .top) {
-                                VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
+                                VStack(spacing: Constant.spaceBetweenElements) {
+                                    Circle()
+                                        .fill(.gray)
+                                        .frame(width: 150)
                                     MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name")
                                     HStack {
                                         MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype")
@@ -51,6 +96,26 @@ struct CreateNpcView: View {
                                         MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation")
                                         MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location")
                                     }
+                                    DisclosureGroup {
+                                        ScrollView {
+                                            ForEach(campaigns) { campaign in
+                                                HStack() {
+                                                    Toggle(isOn: $isChecked) {
+                                                        Text(campaign.name)
+                                                    }
+                                                    .onChange(of: isChecked, initial: false) {
+                                                        //
+                                                    }
+                                                    .padding()
+                                                    .toggleStyle(CheckboxToggleStyle())
+                                                    Spacer()
+                                                }
+                                            }
+                                        }
+                                    } label: {
+                                        Text("Campaigns associated")
+                                    }
+                                    
                                 }
                                 .padding(.horizontal)
                                 .containerRelativeFrame(.horizontal)
@@ -90,6 +155,7 @@ struct CreateNpcView: View {
                             }
                             .scrollTargetLayout()
                         }
+                        .scrollPosition(id: $scrollPosition)
                         .scrollIndicators(.hidden)
                         .contentMargins(.horizontal, 10)
                         .scrollTargetBehavior(.viewAligned)
@@ -116,8 +182,23 @@ struct CreateNpcView: View {
             }
         }
     }
+    
+    private func selectCampaign(name: String) {
+        if isChecked {
+            checkedCampaigns.append(name)
+        } else {
+            checkedCampaigns = checkedCampaigns.filter { $0 != name }
+        }
+    }
+    
+    private func addNpc() {
+        let npc = NPC(imageName: "", name: vm.npcName, raceType: vm.npcRaceType, age: Int(vm.npcAge) ?? 0, occupation: vm.npcOccupation, location: vm.npcLocation, background: vm.npcBackground, alignment: vm.npcAlignment, appearance: vm.npcAppearance, legacy: vm.npcLegacy, value: vm.npcValue, beliefs: vm.npcBeliefs, selectedCampaigns: [])
+        
+        context.insert(npc)
+    }
 }
 
 #Preview {
-    CreateNpcView(npc: NPC.exampleNPC())
+    CreateNpcView()
+        .modelContainer(PreviewSampleData.container)
 }
