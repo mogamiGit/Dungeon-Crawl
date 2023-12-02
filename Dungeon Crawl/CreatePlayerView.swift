@@ -11,6 +11,7 @@ import SwiftData
 struct CreatePlayerView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.horizontalSizeClass) private var sizeClass
+    
     @State var vm = CreatePlayerViewModel()
     @Bindable var campaign: Campaign
     
@@ -20,10 +21,9 @@ struct CreatePlayerView: View {
                 Color.bgDungeon.ignoresSafeArea()
                 ScrollView {
                     VStack(alignment: .leading) {
-                        Spacer()
                         VStack(spacing: Constant.spaceBetweenElements) {
-                            MainTextField(titleKey: "Character Name", binding: $vm.characterName, prompt: "Character name")
-                            CustomSlider(binding: $vm.playerLevel, number:vm.playerLevel, title: "Player Level", limit: 20)
+                            MainTextField(titleKey: "Character Name", binding: $vm.characterName, prompt: "Character name*")
+                            CustomSlider(binding: $vm.playerLevel, number:vm.playerLevel, title: "Player Level*", limit: 20)
                             HStack {
                                 Text("Select Race")
                                     .padding(.horizontal)
@@ -67,16 +67,16 @@ struct CreatePlayerView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(.white).opacity(0.1)
                             }
-                            CustomSlider(binding: $vm.playerAge, number: vm.playerAge, title: "Player Age", limit: vm.getNumberForRace(playerRace: vm.playerRaceType))
-                            CustomMultipleTextField(title: "Ideals", titleKey: "Player Ideals", promptText: "Enter ideals separated by commas", binding: $vm.playerIdeals)
-                            CustomMultipleTextField(title: "Defects", titleKey: "Player Defects", promptText: "Enter defects separated by commas", binding: $vm.playerDefects)
+                            CustomSlider(binding: $vm.playerAge, number: vm.playerAge, title: "Player Age*", limit: vm.getNumberForRace(playerRace: vm.playerRaceType))
+                            CustomMultipleTextField(title: "Ideals*", titleKey: "Player Ideals", promptText: "Enter ideals separated by commas", binding: $vm.playerIdeals)
+                            CustomMultipleTextField(title: "Defects*", titleKey: "Player Defects", promptText: "Enter defects separated by commas", binding: $vm.playerDefects)
                             HStack(spacing:5) {
                                 Toggle(isOn: $vm.playerInspiration){
                                     Text("Player Inspiration")
                                 }
                                 .toggleStyle(CustomToggleStyle())
                             }
-                            MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Player name")
+                            MainTextField(titleKey: "Player Name", binding: $vm.playerName, prompt: "Player name*")
                             CustomMultipleTextField(title: "Notes", titleKey: "Player Notes", promptText: "Enter text", binding: $vm.playerNotes)
                             Button {
                                 if vm.isFormValidate() {
@@ -87,11 +87,14 @@ struct CreatePlayerView: View {
                                 Text("Create Player")
                             }
                             .buttonStyle(DungeonMainButton(isButtonEnabled: vm.isFormValidate()))
+                            Text("Fill in all required fields in order to complete (*)")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
                         }
                         .padding(.horizontal, Constant.containerHPadding)
                         Spacer()
                     }
-                    .padding(.vertical)
+                    .padding(.vertical, 30)
                     .foregroundStyle(.white)
                 }
             }

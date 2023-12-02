@@ -14,18 +14,32 @@ struct NpcCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             ZStack(alignment: .trailing) {
-                Image("Half-orc")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .background(.gray)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                    .overlay {
-                        Circle()
-                            .stroke(lineWidth: 5.0)
-                            .fill(bgColor)
-                    }
-                    .offset(y: -70)
+                if let imageData = npc.imageData {
+                    Image(uiImage: UIImage(data: imageData)!)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 50)
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        .overlay {
+                            Circle()
+                                .stroke(lineWidth: 5.0)
+                                .fill(bgColor)
+                        }
+                        .offset(y: -70)
+                } else {
+                    Image("Human")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .background(.gray)
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                        .overlay {
+                            Circle()
+                                .stroke(lineWidth: 5.0)
+                                .fill(bgColor)
+                        }
+                        .offset(y: -70)
+                }
                 VStack(alignment: .leading) {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(npc.name)

@@ -21,4 +21,11 @@ final class CreateNpcViewModel {
     var npcLegacy = ""
     var npcValue = ""
     var npcBeliefs = ""
+    
+    func isFormValidate() -> Bool {
+        if npcName.isEmpty || npcRaceType.isEmpty || npcAge.isEmpty || npcOccupation.isEmpty || npcLocation.isEmpty || npcBackground.isEmpty || npcAppearance.isEmpty || npcLegacy.isEmpty || npcValue.isEmpty || npcBeliefs.isEmpty {
+            return false
+        }
+        return true
+    }
 }

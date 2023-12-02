@@ -36,6 +36,33 @@ struct DungeonMainButton: ButtonStyle {
     }
 }
 
+struct DungeonTopButton: ButtonStyle {
+    var isButtonEnabled: Bool
+    
+    func makeBody(configuration: Configuration) -> some View {
+        if isButtonEnabled {
+            configuration.label
+                .font(.subheadline)
+                .foregroundStyle(.white)
+                .padding(10)
+                .background {
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(lineWidth: 1.0)
+                        .fill(Color.accentDungeon)
+                }
+        } else {
+            configuration.label
+                .font(.subheadline)
+                .padding(10)
+                .foregroundStyle(.white.opacity(0.4))
+                .background {
+                    Color.gray
+                }
+                .cornerRadius(10)
+        }
+    }
+}
+
 struct CustomToggleStyle: ToggleStyle {
     
     func makeBody(configuration: Configuration) -> some View {

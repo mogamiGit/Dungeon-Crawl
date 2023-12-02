@@ -14,7 +14,7 @@ struct CreateNpcView: View {
     
     @State var vm = CreateNpcViewModel()
     @State private var scrollPosition: Int? = 0
-    
+    @State private var photoData: Data?
     
     var body: some View {
         NavigationStack {
@@ -41,22 +41,17 @@ struct CreateNpcView: View {
                             if scrollPosition == 2 {
                                 withAnimation {
                                     Button(action: {
-                                        addNpc()
-                                        dismiss()
+                                        if vm.isFormValidate() {
+                                            addNpc()
+                                            dismiss()
+                                        }
                                     }, label: {
                                         HStack {
                                             Image(systemName: "plus")
                                             Text("Create NPC")
                                         }
-                                        .font(.subheadline)
-                                        .foregroundStyle(.white)
-                                        .padding(10)
-                                        .background {
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .stroke(lineWidth: 1.0)
-                                                .fill(Color.accentDungeon)
-                                        }
                                     })
+                                    .buttonStyle(DungeonTopButton(isButtonEnabled: vm.isFormValidate()))
                                 }
                             } else {
                                 withAnimation(.bouncy) {
@@ -80,18 +75,20 @@ struct CreateNpcView: View {
                         .padding(.horizontal, Constant.containerHPadding - 5)
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .top) {
-                                VStack(spacing: Constant.spaceBetweenElements) {
-                                    PhotoPicker()
-                                    MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name")
-                                    HStack {
-                                        MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype")
-                                        MainTextField(titleKey: "Age", binding: $vm.npcAge, prompt: "Age")
-                                            .frame(width: 90)
-                                            .keyboardType(.numberPad)
-                                    }
-                                    HStack {
-                                        MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation")
-                                        MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location")
+                                VStack {
+                                    PhotoPicker(selectedPhotoData: $photoData)
+                                    VStack(spacing: Constant.spaceBetweenElements) {
+                                        MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name*")
+                                        HStack {
+                                            MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype*")
+                                            MainTextField(titleKey: "Age", binding: $vm.npcAge, prompt: "Age*")
+                                                .frame(width: 90)
+                                                .keyboardType(.numberPad)
+                                        }
+                                        HStack {
+                                            MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation*")
+                                            MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location*")
+                                        }
                                     }
                                     
                                 }
@@ -99,7 +96,7 @@ struct CreateNpcView: View {
                                 .containerRelativeFrame(.horizontal)
                                 .id(0)
                                 VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                    CustomMultipleTextField(title: "Background", titleKey: "Background", promptText: "Enter Background", binding: $vm.npcBackground)
+                                    CustomMultipleTextField(title: "Background*", titleKey: "Background", promptText: "Enter Background", binding: $vm.npcBackground)
                                     HStack {
                                         Text("Alignement")
                                             .padding(.horizontal)
@@ -117,15 +114,15 @@ struct CreateNpcView: View {
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(.white).opacity(0.1)
                                     }
-                                    CustomMultipleTextField(title: "Appearance", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.npcAppearance)
+                                    CustomMultipleTextField(title: "Appearance*", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.npcAppearance)
                                 }
                                 .padding(.horizontal)
                                 .containerRelativeFrame(.horizontal)
                                 .id(1)
                                 VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                    CustomMultipleTextField(title: "Legacy", titleKey: "Legacy", promptText: "Enter Legacy", binding: $vm.npcLegacy, description: "Example: This NPC dreams of some truly ridiculous schemes.")
-                                    CustomMultipleTextField(title: "Value", titleKey: "Value", promptText: "Enter Value", binding: $vm.npcValue, description: "Example: Values solitude when they study, reveling in uninterrupted hours with their books.")
-                                    CustomMultipleTextField(title: "Beliefs", titleKey: "Beliefs", promptText: "Enter Beliefs", binding: $vm.npcBeliefs, description: "Example: Believes in the keeping knowledge alive not onlyin books")
+                                    CustomMultipleTextField(title: "Legacy*", titleKey: "Legacy", promptText: "Enter Legacy", binding: $vm.npcLegacy, description: "Example: This NPC dreams of some truly ridiculous schemes.")
+                                    CustomMultipleTextField(title: "Value*", titleKey: "Value", promptText: "Enter Value", binding: $vm.npcValue, description: "Example: Values solitude when they study, reveling in uninterrupted hours with their books.")
+                                    CustomMultipleTextField(title: "Beliefs*", titleKey: "Beliefs", promptText: "Enter Beliefs", binding: $vm.npcBeliefs, description: "Example: Believes in the keeping knowledge alive not onlyin books")
                                 }
                                 .padding(.horizontal)
                                 .containerRelativeFrame(.horizontal)
@@ -139,6 +136,12 @@ struct CreateNpcView: View {
                         .scrollTargetBehavior(.viewAligned)
                         .foregroundStyle(.white)
                     }
+                    VStack(alignment: .center) {
+                        Text("Fill in all required fields in order to complete (*)")
+                            .font(.caption)
+                        .foregroundStyle(.gray)
+                    }
+                    .padding(.horizontal, Constant.containerHPadding)
                 }
             }
             .toolbar {
@@ -162,7 +165,7 @@ struct CreateNpcView: View {
     }
     
     private func addNpc() {
-        let npc = NPC(name: vm.npcName, raceType: vm.npcRaceType, age: Int(vm.npcAge) ?? 0, occupation: vm.npcOccupation, location: vm.npcLocation, background: vm.npcBackground, alignment: vm.npcAlignment, appearance: vm.npcAppearance, legacy: vm.npcLegacy, value: vm.npcValue, beliefs: vm.npcBeliefs, notes: "")
+        let npc = NPC(imageData: photoData, name: vm.npcName, raceType: vm.npcRaceType, age: Int(vm.npcAge) ?? 0, occupation: vm.npcOccupation, location: vm.npcLocation, background: vm.npcBackground, alignment: vm.npcAlignment, appearance: vm.npcAppearance, legacy: vm.npcLegacy, value: vm.npcValue, beliefs: vm.npcBeliefs, notes: "")
         context.insert(npc)
     }
 }

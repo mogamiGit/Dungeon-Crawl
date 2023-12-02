@@ -10,16 +10,20 @@ import PhotosUI
 
 struct PhotoPicker: View {
     @State var selectedPhoto: PhotosPickerItem?
-    @State var selectedPhotoData: Data?
+    @Binding var selectedPhotoData: Data?
     
     var body: some View {
         VStack {
             if selectedPhoto == nil {
-                Circle()
-                    .fill(.gray)
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .padding(50)
+                    .background(Color.gray)
+                    .clipShape(Circle())
                     .frame(width: 150)
             } else {
-                VStack(spacing: 10) {
+                VStack(spacing: 30) {
                     if let selectedPhotoData, let uiImage = UIImage(data: selectedPhotoData) {
                         Image(uiImage: uiImage)
                             .resizable()
@@ -38,10 +42,15 @@ struct PhotoPicker: View {
                     }
                 }
             }
-            
             PhotosPicker(selection: $selectedPhoto, matching: .images, photoLibrary: .shared()) {
-                Label("Add image", systemImage: "photo")
+                Image(systemName: "plus")
+                    .padding()
+                    .background(Color.accentDungeon)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .foregroundStyle(.black)
+                    .fontWeight(.bold)
             }
+            .offset(CGSize(width: 50, height: selectedPhoto == nil ? -50 : -100))
         }
         .task(id: selectedPhoto) {
             if let data = try? await selectedPhoto?.loadTransferable(type: Data.self) {
@@ -52,5 +61,5 @@ struct PhotoPicker: View {
 }
 
 #Preview {
-    PhotoPicker()
+    PhotoPicker(selectedPhotoData: .constant(Data()))
 }
