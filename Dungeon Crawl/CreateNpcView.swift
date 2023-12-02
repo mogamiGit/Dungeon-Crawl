@@ -11,11 +11,10 @@ import SwiftData
 struct CreateNpcView: View {
     @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
-    @Query(sort: \Campaign.name, order: .forward) private var campaigns: [Campaign]
+    
     @State var vm = CreateNpcViewModel()
     @State private var scrollPosition: Int? = 0
-    @State private var isChecked = false
-    @State private var checkedCampaigns: [String] = []
+    
     
     var body: some View {
         NavigationStack {
@@ -82,9 +81,7 @@ struct CreateNpcView: View {
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .top) {
                                 VStack(spacing: Constant.spaceBetweenElements) {
-                                    Circle()
-                                        .fill(.gray)
-                                        .frame(width: 150)
+                                    PhotoPicker()
                                     MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name")
                                     HStack {
                                         MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype")
@@ -95,25 +92,6 @@ struct CreateNpcView: View {
                                     HStack {
                                         MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation")
                                         MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location")
-                                    }
-                                    DisclosureGroup {
-                                        ScrollView {
-                                            ForEach(campaigns) { campaign in
-                                                HStack() {
-                                                    Toggle(isOn: $isChecked) {
-                                                        Text(campaign.name)
-                                                    }
-                                                    .onChange(of: isChecked, initial: false) {
-                                                        //
-                                                    }
-                                                    .padding()
-                                                    .toggleStyle(CheckboxToggleStyle())
-                                                    Spacer()
-                                                }
-                                            }
-                                        }
-                                    } label: {
-                                        Text("Campaigns associated")
                                     }
                                     
                                 }
@@ -183,17 +161,8 @@ struct CreateNpcView: View {
         }
     }
     
-    private func selectCampaign(name: String) {
-        if isChecked {
-            checkedCampaigns.append(name)
-        } else {
-            checkedCampaigns = checkedCampaigns.filter { $0 != name }
-        }
-    }
-    
     private func addNpc() {
-        let npc = NPC(imageName: "", name: vm.npcName, raceType: vm.npcRaceType, age: Int(vm.npcAge) ?? 0, occupation: vm.npcOccupation, location: vm.npcLocation, background: vm.npcBackground, alignment: vm.npcAlignment, appearance: vm.npcAppearance, legacy: vm.npcLegacy, value: vm.npcValue, beliefs: vm.npcBeliefs, selectedCampaigns: [])
-        
+        let npc = NPC(name: vm.npcName, raceType: vm.npcRaceType, age: Int(vm.npcAge) ?? 0, occupation: vm.npcOccupation, location: vm.npcLocation, background: vm.npcBackground, alignment: vm.npcAlignment, appearance: vm.npcAppearance, legacy: vm.npcLegacy, value: vm.npcValue, beliefs: vm.npcBeliefs, notes: "")
         context.insert(npc)
     }
 }

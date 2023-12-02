@@ -79,7 +79,6 @@ struct CheckboxToggleStyle: ToggleStyle {
                         configuration.isOn.toggle()
                     }
                 }
-            
             configuration.label
         }
     }

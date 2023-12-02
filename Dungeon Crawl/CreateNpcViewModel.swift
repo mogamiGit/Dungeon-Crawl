@@ -21,5 +21,4 @@ final class CreateNpcViewModel {
     var npcLegacy = ""
     var npcValue = ""
     var npcBeliefs = ""
-    var selectedCampaigns: [String] = []
 }
