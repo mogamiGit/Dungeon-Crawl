@@ -13,14 +13,14 @@ struct Home: View {
             Group {
                 CampaignListView()
                     .tabItem {
-                        Image(systemName: "1.circle")
+                        Image(systemName: "pencil.and.scribble")
                         Text("Campaigns")
                     }
                     .tag(1)
-                NpcView()
+                NpcListView()
                     .tabItem {
                         VStack {
-                            Image(systemName: "2.circle")
+                            Image(systemName: "person.2.fill")
                             Text("NPCs")
                         }
                     }
@@ -29,7 +29,6 @@ struct Home: View {
             .toolbarBackground(Color.black
                                , for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
-            
         }
         .accentColor(Color.accentDungeon)
     }

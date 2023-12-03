@@ -80,7 +80,7 @@ struct DetailPlayerView: View {
                                     Text(player.alignment.rawValue)
                                         .font(.caption)
                                 }
-                                SquareFlexibleModule(useVStack: false, colorBackground: player.inspiration ? Color.accentDungeon.opacity(0.9) :  Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: false, colorBackground: player.inspiration ? Color.accentDungeon.opacity(0.9) :  Color.secondaryDungeon.opacity(0.1)) {
                                     Image(player.inspiration ? "D20.fill" : "D20.empty")
                                         .resizable()
                                         .scaledToFit()
@@ -88,6 +88,7 @@ struct DetailPlayerView: View {
                                     Text("Inspiration")
                                         .font(.caption)
                                 }
+                                .foregroundStyle(player.inspiration ? .black : .gray)
                             }
                         }
                         bigListModule(title: "Ideals", definition: player.idealsArray)
@@ -107,16 +108,16 @@ struct DetailPlayerView: View {
                             }
                         }
                         HStack {
-                            Spacer()
                             Button {
                                 showDeleteConfirmation.toggle()
                             } label: {
                                 HStack {
-                                    Image(systemName: "xmark")
+                                    Image(systemName: "xmark.square.fill")
+                                        .foregroundStyle(Color.mainDungeon)
+                                        .font(.title2)
                                     Text("Delete player")
                                 }
                                 .padding(.bottom, 40)
-                                .foregroundStyle(Color.mainDungeon)
                             }
                         }
                     }
@@ -138,6 +139,9 @@ struct DetailPlayerView: View {
                     })
                 }
             }
+            .fullScreenCover(item: $playerEdit) { player in
+                UpdatePlayerView(player: player)
+            }
             .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {
                     delete(player)
@@ -151,9 +155,7 @@ struct DetailPlayerView: View {
     func bigListModule(title: String, definition: [String]) -> some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("-")
                 Text(title)
-                Text("-")
             }
             .font(.subheadline)
             .fontWeight(.bold)
@@ -195,5 +197,5 @@ struct DetailPlayerView: View {
 }
 
 #Preview {
-    DetailPlayerView(player: Player.examplePlayer(), campaign: Campaign.exampleCampaign())
+    DetailPlayerView(player: .examplePlayer(), campaign: .exampleCampaign())
 }

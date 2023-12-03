@@ -1,5 +1,5 @@
 //
-//  NpcView.swift
+//  NpcListView.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 22/11/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct NpcView: View {
+struct NpcListView: View {
     @Query(sort: \NPC.name, order: .reverse, animation: .bouncy) var npcs: [NPC]
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
@@ -21,8 +21,12 @@ struct NpcView: View {
                 ScrollView {
                     LazyVGrid(columns: Array(repeating: GridItem(), count: 2),spacing: 10) {
                         ForEach(npcs) { npc in
-                            NpcCell(npc: npc, bgColor: Color.bgDungeon)
-                                .padding(.top)
+                            NavigationLink {
+                                DetailNpcView(npc: npc)
+                            } label: {
+                                NpcCell(npc: npc, bgColor: Color.bgDungeon)
+                                    .padding(.top)
+                            }
                         }
                     }
                     .padding(10)
@@ -52,6 +56,6 @@ struct NpcView: View {
 }
 
 #Preview {
-    NpcView()
+    NpcListView()
         .modelContainer(PreviewSampleData.container)
 }

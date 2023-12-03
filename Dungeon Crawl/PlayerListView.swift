@@ -1,5 +1,5 @@
 //
-//  PlayerCampaignListView.swift
+//  PlayerListView.swift
 //  Dungeon Crawl
 //
 //  Created by Monica Galan de la Llana on 12/11/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct PlayerCampaignListView: View {
+struct PlayerListView: View {
     @Bindable var campaign: Campaign
     @Query(sort: \Player.nameCharacter, order: .forward, animation: .bouncy) var players: [Player]
     @State var showPlayerCreation = false
@@ -56,6 +56,6 @@ struct PlayerCampaignListView: View {
 }
 
 #Preview {
-    PlayerCampaignListView(campaign: Campaign.exampleCampaign())
+    PlayerListView(campaign: Campaign.exampleCampaign())
         .modelContainer(PreviewSampleData.container)
 }

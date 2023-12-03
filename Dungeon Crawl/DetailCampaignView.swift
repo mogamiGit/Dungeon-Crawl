@@ -47,7 +47,7 @@ struct DetailCampaignView: View {
                         
                         ScrollView(.horizontal) {
                             LazyHStack(spacing: 0) {
-                                PlayerCampaignListView(campaign: campaign)
+                                PlayerListView(campaign: campaign)
                                     .id(Tab.players)
                                     .containerRelativeFrame(.horizontal)
                                 EncounterCampaignListView()

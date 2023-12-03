@@ -12,4 +12,17 @@ final class UpdateCampaignViewModel {
     var updatedCampaignName = ""
     var updatedCampaignLocation = ""
     var updatedCampaignLevel = 0
+    
+    func fetchDataCampaign(campaign: Campaign) {
+        updatedCampaignName = campaign.name
+        updatedCampaignLocation = campaign.location
+        updatedCampaignLevel = campaign.level
+    }
+    
+    func isFormValidate() -> Bool {
+        if updatedCampaignName.isEmpty || updatedCampaignLocation.isEmpty || updatedCampaignLevel == 0 {
+            return false
+        }
+        return true
+    }
 }

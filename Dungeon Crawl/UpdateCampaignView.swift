@@ -19,10 +19,12 @@ struct UpdateCampaignView: View {
                 VStack(spacing: Constant.spaceBetweenElements) {
                     MainTextField(titleKey: "Campaign Name", binding: $vm.updatedCampaignName, prompt: "Enter campaign name").foregroundColor(.gray)
                     MainTextField(titleKey: "Campaign Location", binding: $vm.updatedCampaignLocation, prompt: "Enter location")
-                    CustomSlider(binding: $vm.updatedCampaignLevel, number: campaign.level, title: "Campaign Level", limit: 20)
+                    CustomSlider(binding: $vm.updatedCampaignLevel, number: vm.updatedCampaignLevel, title: "Campaign Level", limit: 20)
                     Button {
-                        updateCampaign()
-                        dismiss()
+                        if vm.isFormValidate() {
+                            updateCampaign()
+                            dismiss()
+                        }
                     } label: {
                         Text("Save Campaign")
                     }
@@ -34,9 +36,7 @@ struct UpdateCampaignView: View {
                     .cornerRadius(10)
                 }
                 .onAppear {
-                    vm.updatedCampaignName = campaign.name
-                    vm.updatedCampaignLocation = campaign.location
-                    vm.updatedCampaignLevel = campaign.level
+                    vm.fetchDataCampaign(campaign: campaign)
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -69,5 +69,5 @@ struct UpdateCampaignView: View {
 }
 
 #Preview {
-    UpdateCampaignView(campaign: Campaign.exampleCampaign())
+    UpdateCampaignView(campaign: .exampleCampaign())
 }
