@@ -34,7 +34,8 @@ struct CreateNpcView: View {
                                     Text("Prev")
                                 }
                                 .font(.callout)
-                                .padding(.vertical, 10)
+                                .padding(.top, 10)
+                                .padding(.bottom, 20)
                             })
                             .opacity(scrollPosition == 0 ? 0.0 : 1.0)
                             Spacer()
@@ -115,6 +116,7 @@ struct CreateNpcView: View {
                                             .fill(.white).opacity(0.1)
                                     }
                                     CustomMultipleTextField(title: "Appearance*", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.npcAppearance)
+                                    CustomMultipleTextField(title: "Notes", titleKey: "Notes", promptText: "Enter notes", binding: $vm.npcBeliefs)
                                 }
                                 .padding(.horizontal)
                                 .containerRelativeFrame(.horizontal)

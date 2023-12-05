@@ -23,7 +23,7 @@ struct CustomMultipleTextField: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: 10) {
             Text(title)
                 .fontWeight(.bold)
             if let description {

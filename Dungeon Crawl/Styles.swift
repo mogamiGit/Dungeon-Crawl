@@ -128,7 +128,7 @@ struct SquareFlexibleModule<Content: View>: View {
                 content()
             }.padding(5)
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .frame(height: 110)
+                .frame(height: 100)
                 .background {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(colorBackground)
@@ -140,7 +140,7 @@ struct SquareFlexibleModule<Content: View>: View {
             }
                 .padding(5)
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .frame(height: 90)
+                .frame(height: 100)
                 .background {
                     RoundedRectangle(cornerRadius: 20)
                         .fill(colorBackground)

@@ -38,6 +38,7 @@
 		D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */; };
 		D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613A72AB29F88007BFFF7 /* Assets.xcassets */; };
 		D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */; };
+		D3B96D112B1F9A6A00FE90F9 /* CustomNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B96D102B1F9A6A00FE90F9 /* CustomNotes.swift */; };
 		D3BB37D32AE54145005DA57B /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB37D22AE54145005DA57B /* Styles.swift */; };
 		D3BFBF432B09651F0068A6A9 /* CreateNpcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */; };
 		D3BFBF452B0975C80068A6A9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFBF442B0975C80068A6A9 /* Home.swift */; };
@@ -82,6 +83,7 @@
 		D3B613A12AB29F87007BFFF7 /* Dungeon_CrawlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dungeon_CrawlApp.swift; sourceTree = "<group>"; };
 		D3B613A72AB29F88007BFFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D3B96D102B1F9A6A00FE90F9 /* CustomNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotes.swift; sourceTree = "<group>"; };
 		D3BB37D22AE54145005DA57B /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNpcViewModel.swift; sourceTree = "<group>"; };
 		D3BFBF442B0975C80068A6A9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				D3037FC82AD1EA6700E661BF /* MainTextField.swift */,
 				D316C1012ADBFEED00BFB761 /* CustomMultipleTextField.swift */,
 				D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */,
+				D3B96D102B1F9A6A00FE90F9 /* CustomNotes.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3B96D112B1F9A6A00FE90F9 /* CustomNotes.swift in Sources */,
 				D317E9312AC84B2D00D6D158 /* Player.swift in Sources */,
 				D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */,
 				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,

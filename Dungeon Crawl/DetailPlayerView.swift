@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct DetailPlayerView: View {
-    @Bindable var player: Player
-    @Bindable var campaign: Campaign
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) private var presentationMode
+    
+    @Bindable var player: Player
+    @Bindable var campaign: Campaign
     @State var showDeleteConfirmation = false
     @State var playerEdit: Player?
     
@@ -93,20 +94,7 @@ struct DetailPlayerView: View {
                         }
                         bigListModule(title: "Ideals", definition: player.idealsArray)
                         bigListModule(title: "Defects", definition: player.defectsArray)
-                        VStack(alignment: .leading) {
-                            Text("Notes")
-                                .fontWeight(.bold)
-                            VStack(alignment: .leading) {
-                                Text(player.notes ?? "")
-                            }
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding(20)
-                            .background() {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(lineWidth: 1.0)
-                                    .foregroundStyle(.gray)
-                            }
-                        }
+                        CustomNotes(title: "Notes", description: player.notes ?? "")
                         HStack {
                             Button {
                                 showDeleteConfirmation.toggle()
@@ -117,11 +105,10 @@ struct DetailPlayerView: View {
                                         .font(.title2)
                                     Text("Delete player")
                                 }
-                                .padding(.bottom, 40)
                             }
+                            .padding(.bottom, 20)
                         }
                     }
-                    .padding(.top)
                     .padding(.horizontal, Constant.containerHPadding)
                 }
             }
@@ -144,7 +131,9 @@ struct DetailPlayerView: View {
             }
             .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {
-                    delete(player)
+                    withAnimation {
+                        deletePlayer(player)
+                    }
                 }
                 Button("Cancel", role: .cancel) { }
             })
@@ -182,7 +171,7 @@ struct DetailPlayerView: View {
         }
     }
     
-    private func delete(_ player: Player) {
+    private func deletePlayer(_ player: Player) {
         context.delete(player)
         campaign.players.removeAll(where: { innerPlayer in
             innerPlayer == player
