@@ -77,7 +77,7 @@ struct DetailNpcView: View {
                                 }
                             }
                         }
-                        VStack(spacing: 30) {
+                        VStack(spacing: 26) {
                             CustomNotes(title: "Appearance", description: npc.appearance)
                             CustomNotes(title: "Background", description: npc.background)
                             CustomNotes(title: "Legacy", description: npc.legacy)
@@ -99,7 +99,6 @@ struct DetailNpcView: View {
                                 }
                             }
                             .padding(.bottom, 20)
-                            Spacer()
                         }
                     }
                     .padding(.top)
@@ -119,6 +118,9 @@ struct DetailNpcView: View {
                             .foregroundStyle(.white)
                     })
                 }
+            }
+            .fullScreenCover(item: $npcEdit) { npc in
+                UpdateNpcView(npc: npc)
             }
             .alert("¿Are you sure you want to delete \(npc.name)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {

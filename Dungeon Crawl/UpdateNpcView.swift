@@ -1,18 +1,17 @@
 //
-//  CreateNpcView.swift
+//  UpdateNpcView.swift
 //  Dungeon Crawl
 //
-//  Created by Monica Galan de la Llana on 13/11/23.
+//  Created by Monica Galan de la Llana on 6/12/23.
 //
 
 import SwiftUI
-import SwiftData
 
-struct CreateNpcView: View {
-    @Environment(\.modelContext) var context
-    @Environment(\.dismiss) var dismiss
+struct UpdateNpcView: View {
+    @Environment(\.dismiss) private var dismiss
     
-    @State var vm = CreateNpcViewModel()
+    @Bindable var npc: NPC
+    @State var vm = UpdateNpcViewModel()
     @State private var scrollPosition: Int? = 0
     @State private var photoData: Data?
     
@@ -43,13 +42,13 @@ struct CreateNpcView: View {
                                 withAnimation {
                                     Button(action: {
                                         if vm.isFormValidate() {
-                                            addNpc()
+                                            updateNpc()
                                             dismiss()
                                         }
                                     }, label: {
                                         HStack {
-                                            Image(systemName: "plus")
-                                            Text("Create NPC")
+                                            Image(systemName: "checkmark")
+                                            Text("Save NPC")
                                         }
                                     })
                                     .buttonStyle(DungeonTopButton(isButtonEnabled: vm.isFormValidate()))
@@ -77,18 +76,18 @@ struct CreateNpcView: View {
                         ScrollView(.horizontal) {
                             LazyHStack(alignment: .top) {
                                 VStack {
-                                    PhotoPicker(selectedPhotoData: $photoData, iconName: "plus")
+                                    PhotoPicker(selectedPhotoData: $photoData, iconName: "square.and.pencil")
                                     VStack(spacing: Constant.spaceBetweenElements) {
-                                        MainTextField(titleKey: "Name", binding: $vm.npcName, prompt: "Name*")
+                                        MainTextField(titleKey: "Name", binding: $vm.updateNpcName, prompt: "Name*")
                                         HStack {
-                                            MainTextField(titleKey: "Racetype", binding: $vm.npcRaceType, prompt: "Racetype*")
-                                            MainTextField(titleKey: "Age", binding: $vm.npcAge, prompt: "Age*")
+                                            MainTextField(titleKey: "Racetype", binding: $vm.updateNpcRaceType, prompt: "Racetype*")
+                                            MainTextField(titleKey: "Age", binding: $vm.updateNpcAge, prompt: "Age*")
                                                 .frame(width: 90)
                                                 .keyboardType(.numberPad)
                                         }
                                         HStack {
-                                            MainTextField(titleKey: "Occupation", binding: $vm.npcOccupation, prompt: "Occupation*")
-                                            MainTextField(titleKey: "Location", binding: $vm.npcLocation, prompt: "Location*")
+                                            MainTextField(titleKey: "Occupation", binding: $vm.updateNpcOccupation, prompt: "Occupation*")
+                                            MainTextField(titleKey: "Location", binding: $vm.updateNpcLocation, prompt: "Location*")
                                         }
                                     }
                                     
@@ -97,12 +96,12 @@ struct CreateNpcView: View {
                                 .containerRelativeFrame(.horizontal)
                                 .id(0)
                                 VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                    CustomMultipleTextField(title: "Background*", titleKey: "Background", promptText: "Enter Background", binding: $vm.npcBackground)
+                                    CustomMultipleTextField(title: "Background*", titleKey: "Background", promptText: "Enter Background", binding: $vm.updateNpcBackground)
                                     HStack {
                                         Text("Alignement")
                                             .padding(.horizontal)
                                         Spacer()
-                                        Picker("Select Alignment", selection: $vm.npcAlignment) {
+                                        Picker("Select Alignment", selection: $vm.updateNpcAlignment) {
                                             ForEach(AlignmentNPC.allCases, id: \.self) { item in
                                                 Text(item.rawValue)
                                             }
@@ -115,16 +114,16 @@ struct CreateNpcView: View {
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(.white).opacity(0.1)
                                     }
-                                    CustomMultipleTextField(title: "Appearance*", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.npcAppearance)
-                                    CustomMultipleTextField(title: "Notes", titleKey: "Notes", promptText: "Enter notes", binding: $vm.npcNotes)
+                                    CustomMultipleTextField(title: "Appearance*", titleKey: "Appearance", promptText: "Enter Appearance", binding: $vm.updateNpcAppearance)
+                                    CustomMultipleTextField(title: "Notes", titleKey: "Notes", promptText: "Enter notes", binding: $vm.updateNpcBeliefs)
                                 }
                                 .padding(.horizontal)
                                 .containerRelativeFrame(.horizontal)
                                 .id(1)
                                 VStack(alignment: .leading, spacing: Constant.spaceBetweenElements) {
-                                    CustomMultipleTextField(title: "Legacy*", titleKey: "Legacy", promptText: "Enter Legacy", binding: $vm.npcLegacy, description: "Example: This NPC dreams of some truly ridiculous schemes.")
-                                    CustomMultipleTextField(title: "Value*", titleKey: "Value", promptText: "Enter Value", binding: $vm.npcValue, description: "Example: Values solitude when they study, reveling in uninterrupted hours with their books.")
-                                    CustomMultipleTextField(title: "Beliefs*", titleKey: "Beliefs", promptText: "Enter Beliefs", binding: $vm.npcBeliefs, description: "Example: Believes in the keeping knowledge alive not onlyin books")
+                                    CustomMultipleTextField(title: "Legacy*", titleKey: "Legacy", promptText: "Enter Legacy", binding: $vm.updateNpcLegacy, description: "Example: This NPC dreams of some truly ridiculous schemes.")
+                                    CustomMultipleTextField(title: "Value*", titleKey: "Value", promptText: "Enter Value", binding: $vm.updateNpcValue, description: "Example: Values solitude when they study, reveling in uninterrupted hours with their books.")
+                                    CustomMultipleTextField(title: "Beliefs*", titleKey: "Beliefs", promptText: "Enter Beliefs", binding: $vm.updateNpcBeliefs, description: "Example: Believes in the keeping knowledge alive not onlyin books")
                                 }
                                 .padding(.horizontal)
                                 .containerRelativeFrame(.horizontal)
@@ -144,6 +143,10 @@ struct CreateNpcView: View {
                         .foregroundStyle(.gray)
                     }
                     .padding(.horizontal, Constant.containerHPadding)
+                }
+                .onAppear {
+                    vm.fetchDataNpc(npc: npc)
+                    photoData = npc.imageData
                 }
             }
             .toolbar {
@@ -166,13 +169,23 @@ struct CreateNpcView: View {
         }
     }
     
-    private func addNpc() {
-        let npc = NPC(imageData: photoData, name: vm.npcName, raceType: vm.npcRaceType, age: Int(vm.npcAge) ?? 1, occupation: vm.npcOccupation, location: vm.npcLocation, background: vm.npcBackground, alignment: vm.npcAlignment, appearance: vm.npcAppearance, legacy: vm.npcLegacy, value: vm.npcValue, beliefs: vm.npcBeliefs, notes: vm.npcNotes)
-        context.insert(npc)
+    func updateNpc() {
+        npc.imageData = photoData
+        npc.name = vm.updateNpcName
+        npc.raceType = vm.updateNpcRaceType
+        npc.age = Int(vm.updateNpcAge) ?? 1
+        npc.occupation = vm.updateNpcOccupation
+        npc.location = vm.updateNpcLocation
+        npc.background = vm.updateNpcBackground
+        npc.alignment = vm.updateNpcAlignment
+        npc.appearance = vm.updateNpcAppearance
+        npc.notes = vm.updateNpcNotes
+        npc.legacy = vm.updateNpcLegacy
+        npc.value = vm.updateNpcValue
+        npc.beliefs = vm.updateNpcBeliefs
     }
 }
 
 #Preview {
-    CreateNpcView()
-        .modelContainer(PreviewSampleData.container)
+    UpdateNpcView(npc: .exampleNPC())
 }

@@ -22,7 +22,7 @@ struct DetailPlayerView: View {
             ZStack {
                 Color.bgDungeon.ignoresSafeArea()
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 40) {
+                    VStack(spacing: 40) {
                         HStack() {
                             VStack(alignment: .leading, spacing: 5) {
                                 Text(player.nameCharacter)
@@ -92,9 +92,14 @@ struct DetailPlayerView: View {
                                 .foregroundStyle(player.inspiration ? .black : .gray)
                             }
                         }
-                        bigListModule(title: "Ideals", definition: player.idealsArray)
-                        bigListModule(title: "Defects", definition: player.defectsArray)
-                        CustomNotes(title: "Notes", description: player.notes ?? "")
+                        VStack(spacing: 30) {
+                            bigListModule(title: "Ideals", definition: player.idealsArray)
+                            bigListModule(title: "Defects", definition: player.defectsArray)
+                            if let notes = player.notes, !notes.isEmpty {
+                                CustomNotes(title: "Notes", description: player.notes ?? "")
+                            }
+                        }
+                        Spacer()
                         HStack {
                             Button {
                                 showDeleteConfirmation.toggle()
@@ -106,9 +111,10 @@ struct DetailPlayerView: View {
                                     Text("Delete player")
                                 }
                             }
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 26)
                         }
                     }
+                    .padding(.top, 20)
                     .padding(.horizontal, Constant.containerHPadding)
                 }
             }
@@ -143,30 +149,30 @@ struct DetailPlayerView: View {
     @ViewBuilder
     func bigListModule(title: String, definition: [String]) -> some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text(title)
-            }
-            .font(.subheadline)
-            .fontWeight(.bold)
-            LazyVGrid(columns: [GridItem(.flexible(minimum: 80, maximum: .infinity), spacing: 5)], alignment: .leading) {
-                ForEach(definition, id: \.self) { ideal in
-                    HStack(alignment: .center) {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 10)
-                            .foregroundStyle(Color.accentDungeon)
-                            .fontWeight(.bold)
-                        Text(ideal)
-                            .foregroundStyle(.white)
+            DisclosureGroup(title) {
+                VStack {
+                    LazyVGrid(columns: [GridItem(.flexible(minimum: 80, maximum: .infinity), spacing: 5)], alignment: .leading) {
+                        ForEach(definition, id: \.self) { ideal in
+                            HStack(alignment: .center) {
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 10)
+                                    .foregroundStyle(Color.accentDungeon)
+                                    .fontWeight(.bold)
+                                Text(ideal)
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                    }
+                    .padding(20)
+                    .background() {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 1.0)
+                            .fill(.gray)
                     }
                 }
-            }
-            .padding(20)
-            .background() {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 1.0)
-                    .fill(.gray)
+                .padding(.top, 10)
             }
         }
     }

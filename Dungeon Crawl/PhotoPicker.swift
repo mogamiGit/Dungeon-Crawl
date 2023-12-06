@@ -12,6 +12,8 @@ struct PhotoPicker: View {
     @State var selectedPhoto: PhotosPickerItem?
     @Binding var selectedPhotoData: Data?
     
+    let iconName: String
+    
     var body: some View {
         VStack {
             if selectedPhoto == nil {
@@ -43,7 +45,7 @@ struct PhotoPicker: View {
                 }
             }
             PhotosPicker(selection: $selectedPhoto, matching: .images, photoLibrary: .shared()) {
-                Image(systemName: "plus")
+                Image(systemName: iconName)
                     .padding()
                     .background(Color.accentDungeon)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
@@ -61,5 +63,5 @@ struct PhotoPicker: View {
 }
 
 #Preview {
-    PhotoPicker(selectedPhotoData: .constant(Data()))
+    PhotoPicker(selectedPhotoData: .constant(Data()), iconName: "plus")
 }

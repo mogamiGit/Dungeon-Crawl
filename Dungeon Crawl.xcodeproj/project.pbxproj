@@ -39,6 +39,8 @@
 		D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613A72AB29F88007BFFF7 /* Assets.xcassets */; };
 		D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */; };
 		D3B96D112B1F9A6A00FE90F9 /* CustomNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B96D102B1F9A6A00FE90F9 /* CustomNotes.swift */; };
+		D3B9E52B2B1FEE7B0021EBF0 /* UpdateNpcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9E52A2B1FEE7B0021EBF0 /* UpdateNpcView.swift */; };
+		D3B9E52D2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B9E52C2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift */; };
 		D3BB37D32AE54145005DA57B /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BB37D22AE54145005DA57B /* Styles.swift */; };
 		D3BFBF432B09651F0068A6A9 /* CreateNpcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */; };
 		D3BFBF452B0975C80068A6A9 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFBF442B0975C80068A6A9 /* Home.swift */; };
@@ -84,6 +86,8 @@
 		D3B613A72AB29F88007BFFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3B613AA2AB29F88007BFFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3B96D102B1F9A6A00FE90F9 /* CustomNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotes.swift; sourceTree = "<group>"; };
+		D3B9E52A2B1FEE7B0021EBF0 /* UpdateNpcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNpcView.swift; sourceTree = "<group>"; };
+		D3B9E52C2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNpcViewModel.swift; sourceTree = "<group>"; };
 		D3BB37D22AE54145005DA57B /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNpcViewModel.swift; sourceTree = "<group>"; };
 		D3BFBF442B0975C80068A6A9 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				D3BFBF422B09651F0068A6A9 /* CreateNpcViewModel.swift */,
 				D30C05EE2AFD9473003DEA49 /* UpdateCampaignViewModel.swift */,
 				D33DE9FB2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift */,
+				D3B9E52C2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */,
 				D33DE9FD2B1D3AAE00A42EEA /* DetailNpcView.swift */,
 				D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */,
+				D3B9E52A2B1FEE7B0021EBF0 /* UpdateNpcView.swift */,
 			);
 			name = NPC;
 			sourceTree = "<group>";
@@ -358,11 +364,13 @@
 				D3BB37D32AE54145005DA57B /* Styles.swift in Sources */,
 				D33DE9FE2B1D3AAE00A42EEA /* DetailNpcView.swift in Sources */,
 				D30C05EF2AFD9474003DEA49 /* UpdateCampaignViewModel.swift in Sources */,
+				D3B9E52B2B1FEE7B0021EBF0 /* UpdateNpcView.swift in Sources */,
 				D3287CFF2AC0E71D001E0A59 /* PreviewSampleData.swift in Sources */,
 				D3CAE0202B016E9100BF03BF /* EncounterCampaignListView.swift in Sources */,
 				D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */,
 				D3CAE0162B01585600BF03BF /* PlayerListView.swift in Sources */,
 				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
+				D3B9E52D2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* Encounter.swift in Sources */,
 				D3F90AB52B0E640A00C1D9AB /* NpcListView.swift in Sources */,
 				D317E9332AC84B7E00D6D158 /* NPC.swift in Sources */,

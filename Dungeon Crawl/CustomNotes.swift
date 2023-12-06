@@ -12,20 +12,21 @@ struct CustomNotes: View {
     let description: String
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(title)
-                .fontWeight(.bold)
+        DisclosureGroup(title) {
             VStack(alignment: .leading) {
-                Text(description)
-                    .frame(maxWidth: .infinity,alignment: .leading)
+                VStack(alignment: .leading) {
+                    Text(description)
+                        .frame(maxWidth: .infinity,alignment: .leading)
+                }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(20)
+                .background() {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(lineWidth: 1.0)
+                        .foregroundStyle(.gray)
+                }
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(20)
-            .background() {
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 1.0)
-                    .foregroundStyle(.gray)
-            }
+            .padding(.top, 10)
         }
     }
 }
