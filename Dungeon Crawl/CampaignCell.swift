@@ -36,10 +36,10 @@ struct CampaignCell: View {
                 HStack {
                     if !(campaign.players.count == 0) {
                         HStack(spacing: 7) {
-                            Image("D20.empty")
+                            Image("person")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 20)
+                                .frame(height: 16)
                                 .foregroundStyle(Color.accentDungeon)
                             Text("\(campaign.players.count)")
                         }
@@ -49,7 +49,7 @@ struct CampaignCell: View {
                             Image("swords")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 20)
+                                .frame(height: 16)
                                 .foregroundStyle(.white)
                             Text("\(campaign.encounters.count)")
                         }

@@ -24,7 +24,7 @@ final public class Campaign {
     
     static func exampleCampaign() -> Campaign {
         return Campaign(name: "Left Handed Company",
-                        location: "Nevewinter",
+                        location: "Neverwinter",
                         level: 4)
     }
     

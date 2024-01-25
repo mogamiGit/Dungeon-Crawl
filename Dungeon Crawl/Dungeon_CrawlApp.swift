@@ -25,7 +25,7 @@ struct Dungeon_CrawlApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Home()
+            TabBarHome()
 //                .preferredColorScheme(.dark)
         }
         .modelContainer(customModelContainer)
