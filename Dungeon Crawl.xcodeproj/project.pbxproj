@@ -22,6 +22,8 @@
 		D3287CFD2AC0E6F5001E0A59 /* CampaignTest.json in Resources */ = {isa = PBXBuildFile; fileRef = D3287CFC2AC0E6F5001E0A59 /* CampaignTest.json */; };
 		D3287CFF2AC0E71D001E0A59 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3287CFE2AC0E71D001E0A59 /* PreviewSampleData.swift */; };
 		D337589B2ABB9D0000DFECEF /* CampaignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D337589A2ABB9D0000DFECEF /* CampaignCell.swift */; };
+		D33A46502B75974100DB0E22 /* MonsterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A464F2B75974100DB0E22 /* MonsterListViewModel.swift */; };
+		D33A46532B759D4400DB0E22 /* MonsterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A46522B759D4400DB0E22 /* MonsterListView.swift */; };
 		D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */; };
 		D33DE9FA2B1CFF2500A42EEA /* UpdatePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33DE9F92B1CFF2500A42EEA /* UpdatePlayerView.swift */; };
 		D33DE9FC2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33DE9FB2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift */; };
@@ -31,6 +33,9 @@
 		D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */; };
 		D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */; };
 		D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */; };
+		D35769102B77A87A00B2CC32 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D357690F2B77A87A00B2CC32 /* Monster.swift */; };
+		D35769122B77E4DD00B2CC32 /* MonsterListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35769112B77E4DD00B2CC32 /* MonsterListDTO.swift */; };
+		D35769142B78050600B2CC32 /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35769132B78050600B2CC32 /* MonsterList.swift */; };
 		D35B40D12AF5CADC00C89CB7 /* UpdateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */; };
 		D3755E452B0B97A50076B786 /* IconAlignment.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3755E442B0B97A50076B786 /* IconAlignment.xcassets */; };
 		D383A1DD2B61D5F2001560AC /* TabBarItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383A1DC2B61D5F2001560AC /* TabBarItemModel.swift */; };
@@ -48,6 +53,9 @@
 		D3CAE0162B01585600BF03BF /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0152B01585600BF03BF /* PlayerListView.swift */; };
 		D3CAE0202B016E9100BF03BF /* EncounterCampaignListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE01F2B016E9100BF03BF /* EncounterCampaignListView.swift */; };
 		D3CAE0222B01907200BF03BF /* CreateNpcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CAE0212B01907200BF03BF /* CreateNpcView.swift */; };
+		D3CD03382B66DF8E00C11CEB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD03372B66DF8E00C11CEB /* Persistence.swift */; };
+		D3CD033B2B66E8A400C11CEB /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD033A2B66E8A400C11CEB /* Interface.swift */; };
+		D3CD033E2B66F50400C11CEB /* MonsterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD033D2B66F50400C11CEB /* MonsterDTO.swift */; };
 		D3E0D7592B1AAFBA00396A00 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */; };
 		D3F90AB12B0E5EE600C1D9AB /* NpcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */; };
 		D3F90AB52B0E640A00C1D9AB /* NpcListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */; };
@@ -69,6 +77,8 @@
 		D3287CFC2AC0E6F5001E0A59 /* CampaignTest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CampaignTest.json; sourceTree = "<group>"; };
 		D3287CFE2AC0E71D001E0A59 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		D337589A2ABB9D0000DFECEF /* CampaignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignCell.swift; sourceTree = "<group>"; };
+		D33A464F2B75974100DB0E22 /* MonsterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListViewModel.swift; sourceTree = "<group>"; };
+		D33A46522B759D4400DB0E22 /* MonsterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListView.swift; sourceTree = "<group>"; };
 		D33BF1DE2AC883470071F901 /* DetailCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCampaignView.swift; sourceTree = "<group>"; };
 		D33DE9F92B1CFF2500A42EEA /* UpdatePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePlayerView.swift; sourceTree = "<group>"; };
 		D33DE9FB2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePlayerViewModel.swift; sourceTree = "<group>"; };
@@ -78,6 +88,9 @@
 		D35486E72AB9E98D00A3DFD0 /* CampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignListView.swift; sourceTree = "<group>"; };
 		D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignViewModel.swift; sourceTree = "<group>"; };
 		D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignView.swift; sourceTree = "<group>"; };
+		D357690F2B77A87A00B2CC32 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		D35769112B77E4DD00B2CC32 /* MonsterListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListDTO.swift; sourceTree = "<group>"; };
+		D35769132B78050600B2CC32 /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCampaignView.swift; sourceTree = "<group>"; };
 		D3755E442B0B97A50076B786 /* IconAlignment.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconAlignment.xcassets; sourceTree = "<group>"; };
 		D383A1DC2B61D5F2001560AC /* TabBarItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemModel.swift; sourceTree = "<group>"; };
@@ -96,6 +109,9 @@
 		D3CAE0152B01585600BF03BF /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		D3CAE01F2B016E9100BF03BF /* EncounterCampaignListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncounterCampaignListView.swift; sourceTree = "<group>"; };
 		D3CAE0212B01907200BF03BF /* CreateNpcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNpcView.swift; sourceTree = "<group>"; };
+		D3CD03372B66DF8E00C11CEB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		D3CD033A2B66E8A400C11CEB /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
+		D3CD033D2B66F50400C11CEB /* MonsterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDTO.swift; sourceTree = "<group>"; };
 		D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcCell.swift; sourceTree = "<group>"; };
 		D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcListView.swift; sourceTree = "<group>"; };
@@ -133,6 +149,14 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		D33A46512B759D0F00DB0E22 /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				D33A46522B759D4400DB0E22 /* MonsterListView.swift */,
+			);
+			name = Monster;
+			sourceTree = "<group>";
+		};
 		D35486EA2AB9E9FF00A3DFD0 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +172,7 @@
 				D35486EF2AB9ED6500A3DFD0 /* Views */,
 				D33758992ABB9CEA00DFECEF /* Components */,
 				D35486F02AB9ED6C00A3DFD0 /* ViewModels */,
+				D3CD03392B66E89000C11CEB /* Network */,
 				D35486F12AB9ED8200A3DFD0 /* Models */,
 			);
 			name = Campaign;
@@ -160,6 +185,7 @@
 				D3CAE0142B01581D00BF03BF /* Campaign */,
 				D397C2EE2B02C1C3005B2736 /* Player */,
 				D3BFBF402B0964720068A6A9 /* NPC */,
+				D33A46512B759D0F00DB0E22 /* Monster */,
 				D3BFBF412B0964980068A6A9 /* Encounter */,
 			);
 			name = Views;
@@ -174,6 +200,7 @@
 				D30C05EE2AFD9473003DEA49 /* UpdateCampaignViewModel.swift */,
 				D33DE9FB2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift */,
 				D3B9E52C2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift */,
+				D33A464F2B75974100DB0E22 /* MonsterListViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -186,6 +213,10 @@
 				D317E9302AC84B2D00D6D158 /* Player.swift */,
 				D317E9322AC84B7E00D6D158 /* NPC.swift */,
 				D317E92E2AC84A7E00D6D158 /* Encounter.swift */,
+				D3CD033D2B66F50400C11CEB /* MonsterDTO.swift */,
+				D357690F2B77A87A00B2CC32 /* Monster.swift */,
+				D35769112B77E4DD00B2CC32 /* MonsterListDTO.swift */,
+				D35769132B78050600B2CC32 /* MonsterList.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -283,6 +314,15 @@
 			name = Campaign;
 			sourceTree = "<group>";
 		};
+		D3CD03392B66E89000C11CEB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D3CD03372B66DF8E00C11CEB /* Persistence.swift */,
+				D3CD033A2B66E8A400C11CEB /* Interface.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,20 +411,26 @@
 				D3287CFF2AC0E71D001E0A59 /* PreviewSampleData.swift in Sources */,
 				D3CAE0202B016E9100BF03BF /* EncounterCampaignListView.swift in Sources */,
 				D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */,
+				D35769142B78050600B2CC32 /* MonsterList.swift in Sources */,
 				D3CAE0162B01585600BF03BF /* PlayerListView.swift in Sources */,
 				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
+				D3CD033E2B66F50400C11CEB /* MonsterDTO.swift in Sources */,
+				D35769122B77E4DD00B2CC32 /* MonsterListDTO.swift in Sources */,
 				D3B9E52D2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* Encounter.swift in Sources */,
+				D33A46502B75974100DB0E22 /* MonsterListViewModel.swift in Sources */,
 				D3F90AB52B0E640A00C1D9AB /* NpcListView.swift in Sources */,
 				D317E9332AC84B7E00D6D158 /* NPC.swift in Sources */,
 				D3037FC72AD1E84E00E661BF /* CustomSlider.swift in Sources */,
 				D3037FC32AD1D53A00E661BF /* CreatePlayerViewModel.swift in Sources */,
 				D3AEA7272AE5354E00757993 /* PlayerCell.swift in Sources */,
 				D35B40D12AF5CADC00C89CB7 /* UpdateCampaignView.swift in Sources */,
+				D33A46532B759D4400DB0E22 /* MonsterListView.swift in Sources */,
 				D3407A022AF31A270021B590 /* DetailPlayerView.swift in Sources */,
 				D3F90AB12B0E5EE600C1D9AB /* NpcCell.swift in Sources */,
 				D3BFBF452B0975C80068A6A9 /* TabBarHome.swift in Sources */,
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
+				D3CD03382B66DF8E00C11CEB /* Persistence.swift in Sources */,
 				D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */,
 				D35486E62AB98C9E00A3DFD0 /* Campaign.swift in Sources */,
 				D3BFBF432B09651F0068A6A9 /* CreateNpcViewModel.swift in Sources */,
@@ -392,6 +438,8 @@
 				D33DE9FA2B1CFF2500A42EEA /* UpdatePlayerView.swift in Sources */,
 				D3CAE0222B01907200BF03BF /* CreateNpcView.swift in Sources */,
 				D3E0D7592B1AAFBA00396A00 /* PhotoPicker.swift in Sources */,
+				D3CD033B2B66E8A400C11CEB /* Interface.swift in Sources */,
+				D35769102B77A87A00B2CC32 /* Monster.swift in Sources */,
 				D35486E82AB9E98D00A3DFD0 /* CampaignListView.swift in Sources */,
 				D33DE9FC2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift in Sources */,
 				D383A1DD2B61D5F2001560AC /* TabBarItemModel.swift in Sources */,

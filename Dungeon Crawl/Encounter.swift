@@ -30,34 +30,18 @@ final class Encounter {
 
 @Model
 final class Monster {
+    @Attribute(.unique) var id: UUID
     var name: String
-    var locationInMap: String
-    var quantity: Int // por defecto 1. Por cada uno se añade un icono. Cuando son más de 5 de añade un icono + number nada más.
     var size: String
-    var strength: Int
-    var dexterity: Int
-    var constitution: Int
-    var intelligence: Int
-    var wisdom: Int
-    var charisma: Int
-    var senses: Senses?
-    var actions: [Action]
+    var type: String
+    var alignment: String
     
-    @Relationship(inverse: \Campaign.encounters)
-    var campaign: Campaign?
-    
-    init(name: String, locationInMap: String, quantity: Int, size: String, strength: Int, dexterity: Int, constitution: Int, intelligence: Int, wisdom: Int, charisma: Int, actions: [Action]) {
+    init(id: UUID = UUID(), name: String, size: String, type: String, aligment: String) {
+        self.id = id
         self.name = name
-        self.locationInMap = locationInMap
-        self.quantity = quantity
         self.size = size
-        self.strength = strength
-        self.dexterity = dexterity
-        self.constitution = constitution
-        self.intelligence = intelligence
-        self.wisdom = wisdom
-        self.charisma = charisma
-        self.actions = actions
+        self.type = type
+        self.alignment = aligment
     }
 }
 
@@ -71,27 +55,5 @@ final class Treasure {
         self.name = name
         self.cuantity = cuantity
         self.value = value
-    }
-}
-
-@Model
-final class Senses {
-    var darkvision: String
-    var passivePerception: Int
-    
-    init(darkvision: String, passivePerception: Int) {
-        self.darkvision = darkvision
-        self.passivePerception = passivePerception
-    }
-}
-
-@Model
-final class Action {
-    var name: String
-    var descriptionAction: String
-    
-    init(name: String, descriptionAction: String) {
-        self.name = name
-        self.descriptionAction = descriptionAction
     }
 }
