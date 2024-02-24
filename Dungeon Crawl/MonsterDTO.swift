@@ -9,37 +9,36 @@ import Foundation
 
 // MARK: - MonsterDTO
 struct MonsterDTO : Codable {
-    let index : String?
-    let name : String?
-    let size : String?
-    let type : String?
-    let subtype : String?
-    let alignment : String?
-    let armor_class : [Armor_class]?
-    let hit_points : Int?
-    let hit_dice : String?
-    let hit_points_roll : String?
-    let speed : Speed?
-    let strength : Int?
-    let dexterity : Int?
-    let constitution : Int?
-    let intelligence : Int?
-    let wisdom : Int?
-    let charisma : Int?
-    let proficiencies : [Proficiencies]?
-    let damage_vulnerabilities : [String]?
-    let damage_resistances : [String]?
-    let damage_immunities : [String]?
-    let condition_immunities : [Condition_immunities]?
-    let senses : Senses?
-    let languages : String?
-    let challenge_rating : Int?
-    let proficiency_bonus : Int?
-    let xp : Int?
-    let special_abilities : [Special_abilities]?
-    let actions : [Actions]?
-    let url : String?
-    let legendary_actions : [String]?
+    let index: String
+    let name: String
+    let size: String
+    let type: String
+    let subtype: String?
+    let alignment: String
+    let armorClass: [ArmorClass]
+    let hitPoints: Int
+    let hitDice: String
+    let hitPointsRoll: String
+    let speed: Speed
+    let strength: Int
+    let dexterity: Int
+    let constitution: Int
+    let intelligence: Int
+    let wisdom: Int
+    let charisma: Int
+    let proficiencies: [Proficiencies]
+    let damageVulnerabilities: [String]?
+    let damageResistances: [String]?
+    let damageImmunities: [String]?
+    let senses: Senses
+    let languages: String
+    let challengeRating: Double
+    let proficiencyBonus: Int
+    let xp: Int
+    let specialAbilities: [SpecialAbilities]?
+    let actions: [ActionsM]?
+    let image: String?
+    let url: String
 
     enum CodingKeys: String, CodingKey {
         case index = "index"
@@ -48,10 +47,10 @@ struct MonsterDTO : Codable {
         case type = "type"
         case subtype = "subtype"
         case alignment = "alignment"
-        case armor_class = "armor_class"
-        case hit_points = "hit_points"
-        case hit_dice = "hit_dice"
-        case hit_points_roll = "hit_points_roll"
+        case armorClass = "armor_class"
+        case hitPoints = "hit_points"
+        case hitDice = "hit_dice"
+        case hitPointsRoll = "hit_points_roll"
         case speed = "speed"
         case strength = "strength"
         case dexterity = "dexterity"
@@ -60,23 +59,22 @@ struct MonsterDTO : Codable {
         case wisdom = "wisdom"
         case charisma = "charisma"
         case proficiencies = "proficiencies"
-        case damage_vulnerabilities = "damage_vulnerabilities"
-        case damage_resistances = "damage_resistances"
-        case damage_immunities = "damage_immunities"
-        case condition_immunities = "condition_immunities"
+        case damageVulnerabilities = "damage_vulnerabilities"
+        case damageResistances = "damage_resistances"
+        case damageImmunities = "damage_immunities"
         case senses = "senses"
         case languages = "languages"
-        case challenge_rating = "challenge_rating"
-        case proficiency_bonus = "proficiency_bonus"
+        case challengeRating = "challenge_rating"
+        case proficiencyBonus = "proficiency_bonus"
         case xp = "xp"
-        case special_abilities = "special_abilities"
+        case specialAbilities = "special_abilities"
         case actions = "actions"
+        case image = "image"
         case url = "url"
-        case legendary_actions = "legendary_actions"
     }
 }
 
-struct Armor_class : Codable {
+struct ArmorClass : Codable {
     let type : String?
     let value : Int?
 
@@ -96,18 +94,6 @@ struct Proficiencies : Codable {
     }
 }
 
-struct Condition_immunities : Codable {
-    let index : String?
-    let name : String?
-    let url : String?
-
-    enum CodingKeys: String, CodingKey {
-        case index = "index"
-        case name = "name"
-        case url = "url"
-    }
-}
-
 struct Proficiency : Codable {
     let index : String?
     let name : String?
@@ -120,7 +106,7 @@ struct Proficiency : Codable {
     }
 }
 
-struct Special_abilities : Codable {
+struct SpecialAbilities : Codable {
     let name : String?
     let desc : String?
 
@@ -130,49 +116,27 @@ struct Special_abilities : Codable {
     }
 }
 
-struct Actions : Codable {
+struct ActionsM : Codable {
     let name : String?
     let desc : String?
-    let attack_bonus : Int?
-    let damage : [Damage]?
-    let actions : [String]?
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case desc = "desc"
-        case attack_bonus = "attack_bonus"
-        case damage = "damage"
-        case actions = "actions"
     }
 }
 
-struct Damage : Codable {
-    let damage_type : Damage_type?
-    let damage_dice : String?
-
-    enum CodingKeys: String, CodingKey {
-        case damage_type = "damage_type"
-        case damage_dice = "damage_dice"
-    }
-}
-
-struct Damage_type : Codable {
-    let index : String?
-    let name : String?
-    let url : String?
-
-    enum CodingKeys: String, CodingKey {
-        case index = "index"
-        case name = "name"
-        case url = "url"
-    }
-}
-
-struct Speed : Codable {
-    let walk : String?
+struct Speed: Codable {
+    let walk: String?
+    let swim: String?
+    let burrow: String?
+    let climb: String?
 
     enum CodingKeys: String, CodingKey {
         case walk = "walk"
+        case swim = "swim"
+        case burrow = "burrow"
+        case climb = "climb"
     }
 }
 
@@ -183,5 +147,69 @@ struct Senses : Codable {
     enum CodingKeys: String, CodingKey {
         case darkvision = "darkvision"
         case passive_perception = "passive_perception"
+    }
+}
+
+extension MonsterDTO {
+    func toNewMosterModel() -> NewMonster {
+        NewMonster(index: index,
+                   name: name,
+                   size: size,
+                   type: type,
+                   subtype: subtype ?? "no subtype",
+                   alignment: alignment,
+                   armorClass: armorClass.map { $0.toNewArmorClass() },
+                   hitPoints: hitPoints,
+                   hitDice: hitDice,
+                   hitPointsRoll: hitPointsRoll,
+                   speed: speed.toNewSpeed(),
+                   strength: strength,
+                   dexterity: dexterity,
+                   constitution: constitution,
+                   intelligence: intelligence,
+                   wisdom: wisdom,
+                   charisma: charisma,
+                   damageVulnerabilities: damageVulnerabilities ?? ["acid"],
+                   damageResistances: damageResistances ?? ["fire"],
+                   damageImmunities: damageImmunities ?? ["acid","necrotic"],
+                   senses: senses.toNewSenses(),
+                   languages: languages,
+                   challengeRating: challengeRating,
+                   proficiencyBonus: proficiencyBonus,
+                   xp: xp,
+                   specialAbilities: specialAbilities?.map { $0.toNewSpecialAbitilies() },
+                   actions: actions?.map { $0.toNewActions() },
+                   image: image ?? "placeholder",
+                   url: url)
+    }
+}
+
+extension ArmorClass {
+    func toNewArmorClass() -> NewArmorclass {
+        NewArmorclass(type: type ?? "no type", value: value ?? 0)
+    }
+}
+
+extension Speed {
+    func toNewSpeed() -> NewSpeed {
+        NewSpeed(walk: walk ?? "no walk", swim: swim ?? "no swim", burrow: burrow ?? "no burrow", climb: climb ?? "no climb")
+    }
+}
+
+extension Senses {
+    func toNewSenses() -> NewSenses {
+        NewSenses(darkvision: darkvision ?? "no darkvision", passive_perception: passive_perception ?? 0)
+    }
+}
+
+extension SpecialAbilities {
+    func toNewSpecialAbitilies() -> NewSpecialAbilities {
+        NewSpecialAbilities(name: name ?? "no name", desc: desc ?? "no description")
+    }
+}
+
+extension ActionsM {
+    func toNewActions() -> NewActions {
+        NewActions(name: name ?? "no name", desc: desc ?? "no description")
     }
 }

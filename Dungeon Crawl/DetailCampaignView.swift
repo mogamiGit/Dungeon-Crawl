@@ -10,7 +10,7 @@ import SwiftData
 
 struct DetailCampaignView: View {
     @State private var campaignEdit: Campaign?
-    @State private var selectedTab: Tab?
+    @State private var selectedTab: Tab? = Tab.allCases.first
     @State private var tabProgress: CGFloat = 0
     @Bindable var campaign: Campaign
     
@@ -98,15 +98,14 @@ struct DetailCampaignView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 20)
-                            .foregroundStyle(.white)
                         Text(tab.rawValue)
                             .font(.caption)
                     }
-                    .foregroundStyle(.white)
+                    .foregroundStyle(selectedTab == tab ? .white : .black)
                     .frame(maxWidth: .infinity)
                     .frame(height: 50)
                     .onTapGesture {
-                        withAnimation(.spring) {
+                        withAnimation(.easeInOut(duration: 0.6)) {
                             selectedTab = tab
                         }
                     }
@@ -124,7 +123,7 @@ struct DetailCampaignView: View {
                         .offset(x: tabProgress * (size.width - capsuleWidth))
                 }
             }
-            .background(Color.secondaryDungeon.opacity(0.5), in: RoundedRectangle(cornerRadius: 16))
+            .background(Color.secondaryDungeon, in: RoundedRectangle(cornerRadius: 16))
             .padding(.horizontal, 14)
         }
     }

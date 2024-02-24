@@ -33,16 +33,18 @@ struct NpcListView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showNpcCreation.toggle()
+                        withAnimation(.easeOut(duration: 1)) {
+                            showNpcCreation.toggle()
+                        }
                     } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("Create NPC")
+                        HStack(spacing: 5) {
+                            Image(systemName: "plus.square.fill")
+                            Text("Add NPC")
+                                .font(.callout)
                         }
                         .foregroundStyle(Color.mainDungeon)
-                        .padding(.bottom, 40)
                     }
                 }
             }

@@ -10,6 +10,7 @@ import Foundation
 enum TabBarItems: Int, CaseIterable{
     case campaigns = 0
     case npcs
+    case bestiary
     
     var title: String{
         switch self {
@@ -17,6 +18,8 @@ enum TabBarItems: Int, CaseIterable{
             return "Campaigns"
         case .npcs:
             return "NPCs"
+        case .bestiary:
+            return "Bestiary"
         }
     }
     
@@ -26,6 +29,8 @@ enum TabBarItems: Int, CaseIterable{
             return "D20.empty"
         case .npcs:
             return "group.people"
+        case .bestiary:
+            return "bestiary"
         }
     }
 }

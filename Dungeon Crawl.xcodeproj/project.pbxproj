@@ -34,8 +34,8 @@
 		D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */; };
 		D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */; };
 		D35769102B77A87A00B2CC32 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = D357690F2B77A87A00B2CC32 /* Monster.swift */; };
-		D35769122B77E4DD00B2CC32 /* MonsterListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35769112B77E4DD00B2CC32 /* MonsterListDTO.swift */; };
-		D35769142B78050600B2CC32 /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35769132B78050600B2CC32 /* MonsterList.swift */; };
+		D35769122B77E4DD00B2CC32 /* MonsterListItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35769112B77E4DD00B2CC32 /* MonsterListItemDTO.swift */; };
+		D35769142B78050600B2CC32 /* MonsterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35769132B78050600B2CC32 /* MonsterListItem.swift */; };
 		D35B40D12AF5CADC00C89CB7 /* UpdateCampaignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */; };
 		D3755E452B0B97A50076B786 /* IconAlignment.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3755E442B0B97A50076B786 /* IconAlignment.xcassets */; };
 		D383A1DD2B61D5F2001560AC /* TabBarItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D383A1DC2B61D5F2001560AC /* TabBarItemModel.swift */; };
@@ -56,6 +56,8 @@
 		D3CD03382B66DF8E00C11CEB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD03372B66DF8E00C11CEB /* Persistence.swift */; };
 		D3CD033B2B66E8A400C11CEB /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD033A2B66E8A400C11CEB /* Interface.swift */; };
 		D3CD033E2B66F50400C11CEB /* MonsterDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CD033D2B66F50400C11CEB /* MonsterDTO.swift */; };
+		D3D1C62D2B853B1300A0C46D /* DetailMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1C62C2B853B1200A0C46D /* DetailMonsterView.swift */; };
+		D3D1C6312B86423F00A0C46D /* DetailMonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1C6302B86423F00A0C46D /* DetailMonsterViewModel.swift */; };
 		D3E0D7592B1AAFBA00396A00 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */; };
 		D3F90AB12B0E5EE600C1D9AB /* NpcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */; };
 		D3F90AB52B0E640A00C1D9AB /* NpcListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */; };
@@ -89,8 +91,8 @@
 		D35486EC2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignViewModel.swift; sourceTree = "<group>"; };
 		D35486F22AB9EDB700A3DFD0 /* CreateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCampaignView.swift; sourceTree = "<group>"; };
 		D357690F2B77A87A00B2CC32 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
-		D35769112B77E4DD00B2CC32 /* MonsterListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListDTO.swift; sourceTree = "<group>"; };
-		D35769132B78050600B2CC32 /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
+		D35769112B77E4DD00B2CC32 /* MonsterListItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItemDTO.swift; sourceTree = "<group>"; };
+		D35769132B78050600B2CC32 /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
 		D35B40D02AF5CADC00C89CB7 /* UpdateCampaignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCampaignView.swift; sourceTree = "<group>"; };
 		D3755E442B0B97A50076B786 /* IconAlignment.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconAlignment.xcassets; sourceTree = "<group>"; };
 		D383A1DC2B61D5F2001560AC /* TabBarItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemModel.swift; sourceTree = "<group>"; };
@@ -112,6 +114,8 @@
 		D3CD03372B66DF8E00C11CEB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D3CD033A2B66E8A400C11CEB /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		D3CD033D2B66F50400C11CEB /* MonsterDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDTO.swift; sourceTree = "<group>"; };
+		D3D1C62C2B853B1200A0C46D /* DetailMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonsterView.swift; sourceTree = "<group>"; };
+		D3D1C6302B86423F00A0C46D /* DetailMonsterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonsterViewModel.swift; sourceTree = "<group>"; };
 		D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcCell.swift; sourceTree = "<group>"; };
 		D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcListView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				D33A46522B759D4400DB0E22 /* MonsterListView.swift */,
+				D3D1C62C2B853B1200A0C46D /* DetailMonsterView.swift */,
 			);
 			name = Monster;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				D33DE9FB2B1CFF8400A42EEA /* UpdatePlayerViewModel.swift */,
 				D3B9E52C2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift */,
 				D33A464F2B75974100DB0E22 /* MonsterListViewModel.swift */,
+				D3D1C6302B86423F00A0C46D /* DetailMonsterViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -215,8 +221,8 @@
 				D317E92E2AC84A7E00D6D158 /* Encounter.swift */,
 				D3CD033D2B66F50400C11CEB /* MonsterDTO.swift */,
 				D357690F2B77A87A00B2CC32 /* Monster.swift */,
-				D35769112B77E4DD00B2CC32 /* MonsterListDTO.swift */,
-				D35769132B78050600B2CC32 /* MonsterList.swift */,
+				D35769112B77E4DD00B2CC32 /* MonsterListItemDTO.swift */,
+				D35769132B78050600B2CC32 /* MonsterListItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -400,10 +406,12 @@
 			files = (
 				D3B96D112B1F9A6A00FE90F9 /* CustomNotes.swift in Sources */,
 				D317E9312AC84B2D00D6D158 /* Player.swift in Sources */,
+				D3D1C62D2B853B1300A0C46D /* DetailMonsterView.swift in Sources */,
 				D33BF1DF2AC883470071F901 /* DetailCampaignView.swift in Sources */,
 				D35486F32AB9EDB700A3DFD0 /* CreateCampaignView.swift in Sources */,
 				D337589B2ABB9D0000DFECEF /* CampaignCell.swift in Sources */,
 				D3037FBF2AD1D15400E661BF /* CreatePlayerView.swift in Sources */,
+				D3D1C6312B86423F00A0C46D /* DetailMonsterViewModel.swift in Sources */,
 				D3BB37D32AE54145005DA57B /* Styles.swift in Sources */,
 				D33DE9FE2B1D3AAE00A42EEA /* DetailNpcView.swift in Sources */,
 				D30C05EF2AFD9474003DEA49 /* UpdateCampaignViewModel.swift in Sources */,
@@ -411,11 +419,11 @@
 				D3287CFF2AC0E71D001E0A59 /* PreviewSampleData.swift in Sources */,
 				D3CAE0202B016E9100BF03BF /* EncounterCampaignListView.swift in Sources */,
 				D3287CF92AC08E55001E0A59 /* Extensions.swift in Sources */,
-				D35769142B78050600B2CC32 /* MonsterList.swift in Sources */,
+				D35769142B78050600B2CC32 /* MonsterListItem.swift in Sources */,
 				D3CAE0162B01585600BF03BF /* PlayerListView.swift in Sources */,
 				D316C1022ADBFEED00BFB761 /* CustomMultipleTextField.swift in Sources */,
 				D3CD033E2B66F50400C11CEB /* MonsterDTO.swift in Sources */,
-				D35769122B77E4DD00B2CC32 /* MonsterListDTO.swift in Sources */,
+				D35769122B77E4DD00B2CC32 /* MonsterListItemDTO.swift in Sources */,
 				D3B9E52D2B1FEEA10021EBF0 /* UpdateNpcViewModel.swift in Sources */,
 				D317E92F2AC84A7E00D6D158 /* Encounter.swift in Sources */,
 				D33A46502B75974100DB0E22 /* MonsterListViewModel.swift in Sources */,

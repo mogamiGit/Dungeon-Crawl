@@ -22,6 +22,8 @@ struct TabBarHome: View {
                         .tag(0)
                     NpcListView()
                         .tag(1)
+                    MonsterListView()
+                        .tag(2)
                 }
             HStack(spacing: 0){
                     ForEach((TabBarItems.allCases), id: \.self){ item in

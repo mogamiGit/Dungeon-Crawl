@@ -12,7 +12,7 @@ import SwiftUI
 final class MonsterListViewModel {
     let persistence: PersistenceProtocol
     
-    var monsters: [MonsterList] = []
+    var monsters: [MonsterListItem] = []
     var errorMessage = ""
     var showAlert = false
     

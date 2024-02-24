@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MonsterListDTO : Codable {
+struct MonsterListItemDTO : Codable {
     let count: Int
     let results: [ResultsDTO]
 
@@ -30,7 +30,7 @@ struct ResultsDTO: Codable {
 }
 
 extension ResultsDTO {
-    var toNewResults: MonsterList {
-        MonsterList(index: index, name: name, url: url)
+    var toNewResults: MonsterListItem {
+        MonsterListItem(index: index, name: name, url: url)
     }
 }

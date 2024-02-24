@@ -133,7 +133,9 @@ struct DetailPlayerView: View {
                 }
             }
             .fullScreenCover(item: $playerEdit) { player in
-                UpdatePlayerView(player: player)
+                withAnimation(.easeOut(duration: 1)) {
+                    UpdatePlayerView(player: player)
+                }
             }
             .alert("¿Are you sure you want to delete \(player.nameCharacter)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {

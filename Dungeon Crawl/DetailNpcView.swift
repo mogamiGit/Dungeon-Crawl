@@ -120,7 +120,9 @@ struct DetailNpcView: View {
                 }
             }
             .fullScreenCover(item: $npcEdit) { npc in
-                UpdateNpcView(npc: npc)
+                withAnimation(.easeOut(duration: 1)) {
+                    UpdateNpcView(npc: npc)
+                }
             }
             .alert("¿Are you sure you want to delete \(npc.name)", isPresented: $showDeleteConfirmation, actions: {
                 Button("Delete", role: .destructive) {

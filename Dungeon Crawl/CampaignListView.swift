@@ -43,16 +43,18 @@ struct CampaignListView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showCampaignCreation.toggle()
+                        withAnimation(.easeOut(duration: 1)) {
+                            showCampaignCreation.toggle()
+                        }
                     } label: {
-                        HStack {
-                            Image(systemName: "plus")
-                            Text("Create Campaign")
+                        HStack(spacing: 5) {
+                            Image(systemName: "plus.square.fill")
+                            Text("Add Campaign")
+                                .font(.callout)
                         }
                         .foregroundStyle(Color.mainDungeon)
-                        .padding(.bottom, 40)
                     }
                 }
             }

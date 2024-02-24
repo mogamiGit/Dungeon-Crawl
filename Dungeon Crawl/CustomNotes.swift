@@ -19,12 +19,7 @@ struct CustomNotes: View {
                         .frame(maxWidth: .infinity,alignment: .leading)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .padding(20)
-                .background() {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(lineWidth: 1.0)
-                        .foregroundStyle(.gray)
-                }
+                .padding(10)
             }
             .padding(.top, 10)
         }
