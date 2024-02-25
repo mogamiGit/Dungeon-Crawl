@@ -59,6 +59,12 @@ extension View {
     }
 }
 
+extension String {
+    func capitalizedFirstLetter() -> String {
+        return prefix(1).uppercased() + dropFirst().lowercased()
+    }
+}
+
 
 
 

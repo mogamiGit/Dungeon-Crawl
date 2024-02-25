@@ -59,6 +59,9 @@
 		D3D1C62D2B853B1300A0C46D /* DetailMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1C62C2B853B1200A0C46D /* DetailMonsterView.swift */; };
 		D3D1C6312B86423F00A0C46D /* DetailMonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1C6302B86423F00A0C46D /* DetailMonsterViewModel.swift */; };
 		D3E0D7592B1AAFBA00396A00 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */; };
+		D3F479332B8BA146008046B0 /* MonsterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F479322B8BA146008046B0 /* MonsterCell.swift */; };
+		D3F4793E2B8BC2D3008046B0 /* MedievalSharp-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3F479402B8BC2D3008046B0 /* MedievalSharp-Regular.ttf */; };
+		D3F479422B8BD9B3008046B0 /* IconDice.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3F479412B8BD9B3008046B0 /* IconDice.xcassets */; };
 		D3F90AB12B0E5EE600C1D9AB /* NpcCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */; };
 		D3F90AB52B0E640A00C1D9AB /* NpcListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */; };
 /* End PBXBuildFile section */
@@ -117,6 +120,10 @@
 		D3D1C62C2B853B1200A0C46D /* DetailMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonsterView.swift; sourceTree = "<group>"; };
 		D3D1C6302B86423F00A0C46D /* DetailMonsterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMonsterViewModel.swift; sourceTree = "<group>"; };
 		D3E0D7582B1AAFBA00396A00 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		D3F479322B8BA146008046B0 /* MonsterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterCell.swift; sourceTree = "<group>"; };
+		D3F479392B8BBD72008046B0 /* Dungeon-Crawl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Dungeon-Crawl-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D3F4793F2B8BC2D3008046B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/MedievalSharp-Regular.ttf"; sourceTree = "<group>"; };
+		D3F479412B8BD9B3008046B0 /* IconDice.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IconDice.xcassets; sourceTree = "<group>"; };
 		D3F90AB02B0E5EE500C1D9AB /* NpcCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcCell.swift; sourceTree = "<group>"; };
 		D3F90AB42B0E640A00C1D9AB /* NpcListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NpcListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +165,7 @@
 			children = (
 				D33A46522B759D4400DB0E22 /* MonsterListView.swift */,
 				D3D1C62C2B853B1200A0C46D /* DetailMonsterView.swift */,
+				D3F479322B8BA146008046B0 /* MonsterCell.swift */,
 			);
 			name = Monster;
 			sourceTree = "<group>";
@@ -258,6 +266,7 @@
 		D3B613A02AB29F87007BFFF7 /* Dungeon Crawl */ = {
 			isa = PBXGroup;
 			children = (
+				D3F479392B8BBD72008046B0 /* Dungeon-Crawl-Info.plist */,
 				D35486EA2AB9E9FF00A3DFD0 /* Features */,
 				D3287CF72AC08E27001E0A59 /* Helpers */,
 				D3C538622AB8B43D00C0C1E9 /* System */,
@@ -299,7 +308,9 @@
 		D3C538622AB8B43D00C0C1E9 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				D3F479362B8BBC76008046B0 /* Fonts */,
 				D3B613A72AB29F88007BFFF7 /* Assets.xcassets */,
+				D3F479412B8BD9B3008046B0 /* IconDice.xcassets */,
 				D3287CF52AC07AE7001E0A59 /* Colors.xcassets */,
 				D39ED15C2AD329A50079B3B1 /* IconClass.xcassets */,
 				D3120BE62B0AE357004E9C9B /* IconRace.xcassets */,
@@ -327,6 +338,14 @@
 				D3CD033A2B66E8A400C11CEB /* Interface.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		D3F479362B8BBC76008046B0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D3F479402B8BC2D3008046B0 /* MedievalSharp-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,9 +407,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3755E452B0B97A50076B786 /* IconAlignment.xcassets in Resources */,
+				D3F4793E2B8BC2D3008046B0 /* MedievalSharp-Regular.ttf in Resources */,
 				D3287CF62AC07AE7001E0A59 /* Colors.xcassets in Resources */,
 				D3287CFD2AC0E6F5001E0A59 /* CampaignTest.json in Resources */,
 				D39ED15D2AD329A50079B3B1 /* IconClass.xcassets in Resources */,
+				D3F479422B8BD9B3008046B0 /* IconDice.xcassets in Resources */,
 				D3B613AB2AB29F88007BFFF7 /* Preview Assets.xcassets in Resources */,
 				D3B613A82AB29F88007BFFF7 /* Assets.xcassets in Resources */,
 				D3120BE72B0AE357004E9C9B /* IconRace.xcassets in Resources */,
@@ -440,6 +461,7 @@
 				D3B613A22AB29F87007BFFF7 /* Dungeon_CrawlApp.swift in Sources */,
 				D3CD03382B66DF8E00C11CEB /* Persistence.swift in Sources */,
 				D3037FC92AD1EA6700E661BF /* MainTextField.swift in Sources */,
+				D3F479332B8BA146008046B0 /* MonsterCell.swift in Sources */,
 				D35486E62AB98C9E00A3DFD0 /* Campaign.swift in Sources */,
 				D3BFBF432B09651F0068A6A9 /* CreateNpcViewModel.swift in Sources */,
 				D35486ED2AB9EA7700A3DFD0 /* CreateCampaignViewModel.swift in Sources */,
@@ -455,6 +477,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D3F479402B8BC2D3008046B0 /* MedievalSharp-Regular.ttf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3F4793F2B8BC2D3008046B0 /* Base */,
+			);
+			name = "MedievalSharp-Regular.ttf";
+			path = ../../../../../Downloads/MedievalSharp;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D3B613AC2AB29F88007BFFF7 /* Debug */ = {
@@ -587,6 +621,7 @@
 				DEVELOPMENT_TEAM = BK28MGPK85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Dungeon-Crawl-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -617,6 +652,7 @@
 				DEVELOPMENT_TEAM = BK28MGPK85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Dungeon-Crawl-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

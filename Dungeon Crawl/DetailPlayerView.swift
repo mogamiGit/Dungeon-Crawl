@@ -49,13 +49,13 @@ struct DetailPlayerView: View {
                         }
                         VStack {
                             HStack(spacing: 10) {
-                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.7)) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Text("\(player.age)")
                                         .font(.title)
                                     Text("years")
                                         .font(.caption)
                                 }
-                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Image(player.raceType.rawValue)
                                         .resizable()
                                         .scaledToFit()
@@ -63,7 +63,7 @@ struct DetailPlayerView: View {
                                     Text(player.raceType.rawValue)
                                         .font(.caption)
                                 }
-                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Image(player.classType.rawValue)
                                         .resizable()
                                         .scaledToFit()
@@ -73,7 +73,7 @@ struct DetailPlayerView: View {
                                 }
                             }
                             HStack(spacing: 10) {
-                                SquareFlexibleModule(useVStack: false, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: false, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Image(player.alignment.rawValue)
                                         .resizable()
                                         .scaledToFit()
@@ -92,7 +92,7 @@ struct DetailPlayerView: View {
                                 .foregroundStyle(player.inspiration ? .black : .gray)
                             }
                         }
-                        VStack(spacing: 30) {
+                        VStack(spacing: 20) {
                             bigListModule(title: "Ideals", definition: player.idealsArray)
                             bigListModule(title: "Defects", definition: player.defectsArray)
                             if let notes = player.notes, !notes.isEmpty {
@@ -167,12 +167,7 @@ struct DetailPlayerView: View {
                             }
                         }
                     }
-                    .padding(20)
-                    .background() {
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(lineWidth: 1.0)
-                            .fill(.gray)
-                    }
+                    .padding(.horizontal, 20)
                 }
                 .padding(.top, 10)
             }

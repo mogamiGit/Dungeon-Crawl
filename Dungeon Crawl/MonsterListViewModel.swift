@@ -23,6 +23,11 @@ final class MonsterListViewModel {
         }
     }
     
+    func filterMonsterByCharacter(character: String) -> [MonsterListItem] {
+        let upperCha = character.uppercased()
+        return monsters.filter { $0.name.uppercased().hasPrefix(upperCha) }
+    }
+    
     @MainActor func getInitialData() async {
         do {
             monsters = try await persistence.getMonsters()

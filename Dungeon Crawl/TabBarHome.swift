@@ -39,7 +39,7 @@ struct TabBarHome: View {
             // correct the transparency bug for Tab bars
             let tabBarAppearance = UITabBarAppearance()
             tabBarAppearance.configureWithOpaqueBackground()
-            tabBarAppearance.backgroundColor = UIColor.darkDungeon
+            tabBarAppearance.backgroundColor = .black
             
             UITabBar.appearance().standardAppearance = tabBarAppearance
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
@@ -66,7 +66,7 @@ extension TabBarHome{
         .foregroundColor(isActive ? Color.accentDungeon : .gray)
         .padding(10)
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-        .background(Color.bgDungeon)
+        .background(.black)
         .cornerRadius(30.0)
         .offset(y: isActive ? 0 : 10)
     }

@@ -17,9 +17,10 @@ struct CustomNotes: View {
                 VStack(alignment: .leading) {
                     Text(description)
                         .frame(maxWidth: .infinity,alignment: .leading)
+                        .foregroundStyle(Color.creamDungeon)
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .padding(10)
+                .padding(.horizontal, 20)
             }
             .padding(.top, 10)
         }

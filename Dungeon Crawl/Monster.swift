@@ -86,7 +86,7 @@ extension NewMonster {
     }
 }
 
-struct NewArmorclass : Codable {
+struct NewArmorclass: Codable, Hashable {
     let type : String
     let value : Int
 
@@ -96,9 +96,9 @@ struct NewArmorclass : Codable {
     }
 }
 
-struct NewSpecialAbilities : Codable {
-    let name : String
-    let desc : String
+struct NewSpecialAbilities: Codable {
+    let name: String
+    let desc: String
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -106,9 +106,9 @@ struct NewSpecialAbilities : Codable {
     }
 }
 
-struct NewActions : Codable {
-    let name : String
-    let desc : String
+struct NewActions: Codable {
+    let name: String
+    let desc: String
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
@@ -116,7 +116,7 @@ struct NewActions : Codable {
     }
 }
 
-struct NewSpeed : Codable {
+struct NewSpeed: Codable {
     let walk: String
     let swim: String
     let burrow: String
@@ -130,8 +130,8 @@ struct NewSpeed : Codable {
     }
 }
 
-struct NewSenses : Codable {
-    let darkvision : String
+struct NewSenses: Codable {
+    let darkvision: String
     let passive_perception : Int
 
     enum CodingKeys: String, CodingKey {
@@ -139,5 +139,6 @@ struct NewSenses : Codable {
         case passive_perception = "passive_perception"
     }
 }
+
 
 

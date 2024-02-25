@@ -27,7 +27,7 @@ struct DetailNpcView: View {
                                 Image(uiImage: UIImage(data: imageData)!)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(height: 200)
+                                    .frame(height: 120)
                                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                                     .padding(0)
                             }
@@ -36,23 +36,21 @@ struct DetailNpcView: View {
                         }
                         VStack {
                             HStack(alignment: .top,spacing: 10) {
-                                SquareFlexibleModule(useVStack: true, colorBackground: .black) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Text("Occupation")
                                         .font(.caption2)
                                     Text(npc.occupation)
                                         .font(.title3)
-                                        .fontWeight(.semibold)
                                         .lineLimit(2)
                                 }
-                                SquareFlexibleModule(useVStack: true, colorBackground: .black) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Text("Race")
                                         .font(.caption2)
                                     Text(npc.raceType)
                                         .font(.title3)
-                                        .fontWeight(.semibold)
                                 }
                             }
-                            SquareFlexibleModule(useVStack: false, colorBackground: Color.accentDungeon.opacity(0.4)) {
+                            SquareFlexibleModule(useVStack: false, colorBackground: .black.opacity(0.4)) {
                                 Image("location")
                                     .resizable()
                                     .scaledToFit()
@@ -61,13 +59,13 @@ struct DetailNpcView: View {
                                 Text(npc.location)
                             }
                             HStack(spacing: 10) {
-                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.7)) {
+                                SquareFlexibleModule(useVStack: true, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Text("\(npc.age)")
                                         .font(.title)
                                     Text("years")
                                         .font(.caption)
                                 }
-                                SquareFlexibleModule(useVStack: false, colorBackground: Color.secondaryDungeon.opacity(0.2)) {
+                                SquareFlexibleModule(useVStack: false, colorBackground: Color.secondaryDungeon.opacity(0.1)) {
                                     Image(npc.alignment.rawValue)
                                         .resizable()
                                         .scaledToFit()
@@ -77,7 +75,7 @@ struct DetailNpcView: View {
                                 }
                             }
                         }
-                        VStack(spacing: 26) {
+                        VStack(spacing: 20) {
                             CustomNotes(title: "Appearance", description: npc.appearance)
                             CustomNotes(title: "Background", description: npc.background)
                             CustomNotes(title: "Legacy", description: npc.legacy)
@@ -101,8 +99,8 @@ struct DetailNpcView: View {
                             .padding(.bottom, 20)
                         }
                     }
-                    .padding(.top)
-                    .padding(Constant.containerHPadding)
+                    .padding(.horizontal, Constant.containerHPadding)
+                    .padding(.bottom, 20)
                 }
             }
             .foregroundStyle(.white)
